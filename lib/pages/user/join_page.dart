@@ -17,21 +17,25 @@ class JoinPage extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
-              height: 200,
+              margin: EdgeInsets.only(top:60),
               child: Text(
-                "회원가입 페이지",
+                "SIGN UP", // 해당페이지 제목
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
+
                 ),
               ),
             ),
-            _joinForm(),
+            Container(
+                margin: EdgeInsets.only(top:40),
+                child : _joinForm()
+            ),
             TextButton(
               onPressed: () {
                 Get.to(LoginPage());
               },
-              child: Text("ID가 존재하시나요?"),
+              child: Text("Do you have ID?"),
             ),
           ],
         ),
@@ -44,29 +48,46 @@ class JoinPage extends StatelessWidget {
       key: _formKey,
       child: Column(
         children: [
-          CustomTextFormField(
-            hint: "Student Number",
-            funValidator: validateStudentNumber(),
+          Container(
+            width : 300,
+            child : CustomTextFormField(
+              hint: "Student Number",
+              funValidator: validateStudentNumber(),
+            ),
           ),
-          CustomTextFormField(
-            hint: "Password",
-            funValidator: validatePassWord(),
+          Container(
+            width : 300,
+            child : CustomTextFormField(
+              hint: "Password",
+              funValidator: validatePassWord(),
+            ),
           ),
-          CustomTextFormField(
-            hint: "E-mail",
-            funValidator: validateEmail(),
+          Container(
+            width: 300,
+            child : CustomTextFormField(
+              hint: "E-mail",
+              funValidator: validateEmail(),
+            ),
           ),
-          CustomTextFormField(
-            hint: "PhoneNumber",
-            funValidator: validatePhone(),
+          Container(
+            width: 300,
+            child : CustomTextFormField(
+              hint: "Phone Number",
+              funValidator: validatePhone(),
+            ),
           ),
-          CustomElevatedButton(
-            text: "승인요청",
-            funPageRoute: () {
-              if(_formKey.currentState!.validate()){
-                Get.to(LoginPage());
-              }
-            },
+          Container(
+            width: 300,
+            height: 40,
+            margin : EdgeInsets.only(top:20),
+            child: CustomElevatedButton(
+              text: "Approval",
+              funPageRoute: () {
+                if(_formKey.currentState!.validate()){
+                  Get.to(LoginPage());
+                }
+              },
+            ),
           ),
         ],
       ),

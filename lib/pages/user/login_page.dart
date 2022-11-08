@@ -20,19 +20,24 @@ class LoginPage extends StatelessWidget {
               alignment: Alignment.center,
               height: 200,
               child: Text(
-                "로그인 페이지",
+                "LOGIN",
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
+
                 ),
               ),
             ),
             _LoinForm(),
-            TextButton(
-              onPressed: () {
-                Get.to(JoinPage());
-              },
-              child: Text("회원가입"),
+            Container(
+              width : 250,
+              height : 40,
+              child :TextButton(
+                onPressed: () {
+                  Get.to(JoinPage());
+                },
+                child: Text("SIGN UP"),
+              ),
             ),
           ],
         ),
@@ -45,21 +50,32 @@ class LoginPage extends StatelessWidget {
       key: _formKey,
       child: Column(
         children: [
-          CustomTextFormField(
-            hint: "Student Number",
-            funValidator: validateStudentNumber(),
+          Container(
+            width: 300,
+            child : CustomTextFormField(
+              hint: "Student Number", //텍스트 정렬 center
+              funValidator: validateStudentNumber(),
+            ),
           ),
-          CustomTextFormField(
-            hint: "Password",
-            funValidator: validatePassWord(),
+          Container(
+            width : 300,
+            child : CustomTextFormField(
+              hint: "Password",
+              funValidator: validatePassWord(),
+            ),
           ),
-          CustomElevatedButton(
-            text: "로그인",
-            funPageRoute: () {
-              if (_formKey.currentState!.validate()) {
-                Get.to(HomePage());
-              }
-            },
+          Container(
+            width : 300,
+            height : 40,
+            margin : EdgeInsets.only(top:20),
+            child : CustomElevatedButton(
+              text: "LOGIN", //로그인 버튼 size 변경 확인
+              funPageRoute: () {
+                if (_formKey.currentState!.validate()) {
+                  Get.to(HomePage());
+                }
+              },
+            ),
           ),
         ],
       ),
