@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wap_library/pages/post/add_page.dart';
 
+import '../post/remove_page.dart';
+import '../post/search_page.dart';
+
 class ManagerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -10,29 +13,100 @@ class ManagerPage extends StatelessWidget {
         title: Text("Management"),
       ),
       body: Center(
-        child: Column(
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Get.to(AddPage());
-              },
-              child: Text("도서추가하기"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                //Get.to() 반납 페이지
-              },
-              child: Text("도서제거하기"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                //Get.to() 반납 페이지
-              },
-              child: Text("도서조회하기"),
-            ),
-          ],
+        child: Container(
+          padding: EdgeInsets.all(25.0),
+            margin: EdgeInsets.fromLTRB(0, 0, 0, 150,),
+            width: 250,
+            height: 340,
+            decoration:
+                BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.7),
+                      spreadRadius: 0,
+                      blurRadius: 5.0,
+                      offset: Offset(0, 10),
+                    )
+                  ]
+                ),
+            child: Column(
+
+              children: <Widget>[
+
+                  SizedBox(
+                    height: 20.0,
+                  ),
+              const Text('관리자 메뉴',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),),
+                SizedBox(
+                  height: 20.0,
+                ),
+                FloatingActionButton.extended(
+                    onPressed: () {Get.to(AddPage());},
+                    label: Text("도서 추가하기",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.bold,
+                    ),),
+                    backgroundColor: Colors.white,
+                  icon: Icon(
+                      Icons.post_add_outlined,
+                    size: 30,
+                    color: Colors.black,
+                  )
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                FloatingActionButton.extended(
+                    onPressed: () {Get.to(RemovePage());},
+                    label: Text("도서 삭제하기",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold,
+                      ),),
+                    backgroundColor: Colors.white,
+                    icon: Icon(
+                        Icons.delete_outlined,
+                      size: 30,
+                      color: Colors.black,
+                    )
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                FloatingActionButton.extended(
+                    onPressed: () {Get.to(SearchPage());},
+                    label: Text("도서 조회하기",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold,
+                      ),),
+                    backgroundColor: Colors.white,
+                    icon: Icon(
+
+                      Icons.manage_search_outlined,
+
+                      size: 30,
+                      color: Colors.black,
+                    )
+                ),
+
+
+          ]
         ),
       ),
+
+    ),
     );
   }
 }

@@ -3,8 +3,8 @@ import 'package:wap_library/components/custom_text_form_feild.dart';
 import 'package:wap_library/components/custom_textarea.dart';
 import 'package:wap_library/util/vaildator_util.dart';
 
-class AddPage extends StatelessWidget {
-  const AddPage({super.key});
+class RemovePage extends StatelessWidget {
+  const RemovePage({super.key});
 
 
   @override
