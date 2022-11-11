@@ -328,6 +328,20 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
+  Widget BookButton(){
+    return Column(
+      children: [
+        ElevatedButton(onPressed: (){},
+            child:Text("대출하기")),
+        ElevatedButton(onPressed: (){},
+            child:Text("위치확인")),
+        ElevatedButton(onPressed: (){},
+            child:Text("반납하기")),
+        ElevatedButton(onPressed: (){},
+            child:Text("예약하기")),
+      ],
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -339,9 +353,20 @@ class _DetailPageState extends State<DetailPage> {
           height: 1100,
           child: Column(
             children: [
-              Image.asset(
-                'assets/images/bookcover.jpg',
-                width: 140,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child : Image.asset(
+                      'assets/images/bookcover.jpg',
+                      width: MediaQuery.of(context).size.width * 0.5,
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child : BookButton(),),
+                ],
               ),
               Padding(padding: EdgeInsets.all(3)),
               Row(
