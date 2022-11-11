@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wap_library/pages/post/add_page.dart';
+import 'package:wap_library/pages/post/reservation_page.dart';
 
-import '../post/remove_page.dart';
-import '../post/search_page.dart';
+import '../post/applied_page.dart';
+import '../post/bookshelf_page.dart';
 
 class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("MY PAGE"),
-      ),
+
       body: Center(
         child: Container(
           padding: EdgeInsets.all(25.0),
@@ -48,7 +47,7 @@ class MyPage extends StatelessWidget {
                   height: 20.0,
                 ),
                 FloatingActionButton.extended(
-                    onPressed: () {Get.to(AddPage());},
+                    onPressed: () {Get.to(BookShelfPage());},
                     label: Text("나의 책장",
                       style: TextStyle(
                         color: Colors.black,
@@ -66,7 +65,7 @@ class MyPage extends StatelessWidget {
                   height: 20.0,
                 ),
                 FloatingActionButton.extended(
-                    onPressed: () {Get.to(RemovePage());},
+                    onPressed: () {Get.to(ReservationPage());},
                     label: Text("나의 예약",
                       style: TextStyle(
                         color: Colors.black,
@@ -84,7 +83,7 @@ class MyPage extends StatelessWidget {
                   height: 20.0,
                 ),
                 FloatingActionButton.extended(
-                    onPressed: () {Get.to(SearchPage());},
+                    onPressed: () {Get.to(AppiledPage());},
                     label: Text("나의 신청내역",
                       style: TextStyle(
                         color: Colors.black,
