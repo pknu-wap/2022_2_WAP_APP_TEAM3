@@ -7,15 +7,29 @@ class ListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.separated(
-        itemCount: 20,
+        itemCount: 10,
         itemBuilder: (context, index) {
-          return ListTile(
-            onTap: () {
-              Get.to(DetailPage(), arguments: "index");
-            },
-            title: Text("제목 1"),
-            leading: Text("1"),
-
+          return Container(
+            height: 80,
+            child: GestureDetector(
+              child: Row(
+                children: [
+                  Container(
+                    width: 50,
+                    alignment: Alignment.center,
+                    child: Text("$index", style: TextStyle(fontSize: 13)),
+                  ),
+                  Image(image: AssetImage("assets/images/bookcover.jpg")),
+                  Expanded(child: Container(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Text("윈도우즈 API 정복", style: TextStyle(fontSize: 15),),
+                  )),
+                ],
+              ),
+              onTap:() {
+                Get.to(DetailPage());
+              },
+            ),
           );
         },
         separatorBuilder: (context, index) {
