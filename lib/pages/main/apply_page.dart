@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:wap_library/components/custom_elevated_button.dart';
 import 'package:wap_library/pages/post/detail_page.dart';
 
-
 ///도서신청 페이지
 class ApplyPage extends StatelessWidget {
   @override
@@ -111,11 +110,29 @@ class ApplyButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(30.0),
           ),
         ),
-        onPressed: (){ // 버튼을 눌렀을 때
-          Navigator.of(context).pushNamed('');
+        ///신청하기 버튼 눌렀을 때 뜨는 팝업
+        onPressed: (){
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Icon(Icons.access_alarm_outlined),
+                content: SingleChildScrollView(
+                  child: ListBody(
+                    children: <Widget>[
+                      Text('도서 신청이 완료되었습니다.'),
+                      Text('웅')
+                    ]
+                  ),
+                ),
+              );
+            }
+          );
         },
         child: Text('신청하기'),
       ),
     );
   }
 }
+
