@@ -9,16 +9,35 @@ class ApplyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          BookNameInput(), //도서명
-          WriterNameInput(), //저자명
-          PublisherNameInput(), //출판사명
-          ApplyButton(), //신청버튼
-          Padding(
-            padding: EdgeInsets.all(10.0),
-          ),
-        ],
+      body: SafeArea(
+          child: Center(
+            child: Container(
+              width: 500, //가로 설정
+              height: 500, //높이 설정
+              padding: EdgeInsets.all(10.0),
+              margin: const EdgeInsets.all(30.0),
+
+              child: Column( ///페이지 컨테이너 안 구성요소
+                children: [
+                  BookNameInput(), //도서명 기입
+                  WriterNameInput(), //저자명 기입
+                  PublisherNameInput(), //출판사명 기입
+                  ApplyButton(), //신청 버튼
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                  )
+                ],
+              ),
+
+              decoration: BoxDecoration( //컨테이너 데코레이션
+                border: Border.all(
+                    width: 3,
+                    color: Colors.lightGreen
+                ),
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+          )
       ),
     );
   }
@@ -82,13 +101,9 @@ class PublisherNameInput extends StatelessWidget {
 class ApplyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(
-      textStyle: const TextStyle(fontSize:40),
-      minimumSize: Size(200,100)
-    );
 
     return Container(
-      width: MediaQuery.of(context).size.width *0.5,
+      width: MediaQuery.of(context).size.width *0.77,
       height: MediaQuery.of(context).size.height *0.08,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
