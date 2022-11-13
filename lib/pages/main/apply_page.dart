@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:wap_library/components/custom_elevated_button.dart';
 import 'package:wap_library/pages/post/detail_page.dart';
 
+import '../post/applied_page.dart';
+
 ///도서신청 페이지
 class ApplyPage extends StatelessWidget {
   @override
@@ -118,7 +120,7 @@ class ApplyButton extends StatelessWidget {
             barrierDismissible: false,
             builder: (BuildContext context) {
               return AlertDialog(
-                title: Icon(Icons.access_alarm_outlined),
+                title: Icon(Icons.check_circle),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget> [
@@ -131,12 +133,13 @@ class ApplyButton extends StatelessWidget {
 
                       child: Column( //둥근모서리 박스 안 구성요소
                         children: <Widget>[
+
                           ///버튼 두개
                           OutlinedButton( // 버튼1
                             style: OutlinedButton.styleFrom(
                               fixedSize: const Size(180,70),
                             ),
-                            onPressed:() {},
+                            onPressed:() {Get.to(ApplyPage());},
                             child: Text('더 신청할 책이 있어요'),
                           ),
 
@@ -149,7 +152,7 @@ class ApplyButton extends StatelessWidget {
                             style: OutlinedButton.styleFrom(
                               fixedSize: const Size(180,70)
                             ),
-                            onPressed:() {},
+                            onPressed:() {Get.to(AppiledPage());},
                             child: Text('나의 신청 내역 보러가기'),
                           ),
                         ],
