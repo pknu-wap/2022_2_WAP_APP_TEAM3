@@ -9,34 +9,34 @@ class ApplyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Center(
-            child: Container(
-              width: 500, //가로 설정
-              height: 500, //높이 설정
-              padding: EdgeInsets.all(10.0),
-              margin: const EdgeInsets.all(30.0),
+        child: Center(
+          child: Container(
+            width: 500, //가로 설정
+            height: 500, //높이 설정
+            padding: EdgeInsets.all(10.0),
+            margin: const EdgeInsets.all(30.0),
 
-              child: Column( ///페이지 컨테이너 안 구성요소
-                children: [
-                  BookNameInput(), //도서명 기입
-                  WriterNameInput(), //저자명 기입
-                  PublisherNameInput(), //출판사명 기입
-                  ApplyButton(), //신청 버튼
-                  Padding(
-                    padding: EdgeInsets.all(10.0),
-                  )
-                ],
-              ),
-
-              decoration: BoxDecoration( //컨테이너 데코레이션
-                border: Border.all(
-                    width: 3,
-                    color: Colors.lightGreen
-                ),
-                borderRadius: BorderRadius.circular(20),
-              ),
+            child: Column( ///페이지 컨테이너 안 구성요소
+              children: [
+                BookNameInput(), //도서명 기입
+                WriterNameInput(), //저자명 기입
+                PublisherNameInput(), //출판사명 기입
+                ApplyButton(), //신청 버튼
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                )
+              ],
             ),
-          )
+
+            decoration: BoxDecoration( //컨테이너 데코레이션
+              border: Border.all(
+                  width: 3,
+                  color: Colors.lightGreen
+              ),
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+        )
       ),
     );
   }
@@ -110,7 +110,8 @@ class ApplyButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(30.0),
           ),
         ),
-        ///신청하기 버튼 눌렀을 때 뜨는 팝업
+
+        ///신청하기 버튼 누르면 뜨는 팝업
         onPressed: (){
           showDialog(
             context: context,
@@ -118,13 +119,33 @@ class ApplyButton extends StatelessWidget {
             builder: (BuildContext context) {
               return AlertDialog(
                 title: Icon(Icons.access_alarm_outlined),
-                content: SingleChildScrollView(
-                  child: ListBody(
-                    children: <Widget>[
-                      Text('도서 신청이 완료되었습니다.'),
-                      Text('웅')
-                    ]
-                  ),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget> [
+                    Text("도서 신청이 완료되었습니다."),
+                    Container(
+                      width: 200, //가로 설정
+                      height: 300, //높이 설정
+                      padding: EdgeInsets.all(5.0),
+                      margin: const EdgeInsets.all(10.0),
+
+                      child: Column( ///페이지 컨테이너 안 구성요소
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(10.0),
+                          )
+                        ],
+                      ),
+
+                      decoration: BoxDecoration( //컨테이너 데코레이션
+                        border: Border.all(
+                            width: 3,
+                            color: Colors.lightGreen
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ],
                 ),
               );
             }
