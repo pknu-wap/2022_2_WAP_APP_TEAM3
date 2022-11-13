@@ -123,17 +123,35 @@ class ApplyButton extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget> [
                     Text("도서 신청이 완료되었습니다."),
-                    Container(
-                      width: 200, //가로 설정
-                      height: 300, //높이 설정
-                      padding: EdgeInsets.all(5.0),
+                    Container( //텍스트 밑의 둥근모서리 박스
+                      width: 210, //가로 설정
+                      height: 210, //높이 설정
+                      padding: EdgeInsets.all(15.0),
                       margin: const EdgeInsets.all(10.0),
 
-                      child: Column( ///페이지 컨테이너 안 구성요소
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(10.0),
-                          )
+                      child: Column( //둥근모서리 박스 안 구성요소
+                        children: <Widget>[
+                          ///버튼 두개
+                          OutlinedButton( // 버튼1
+                            style: OutlinedButton.styleFrom(
+                              fixedSize: const Size(180,70),
+                            ),
+                            onPressed:() {},
+                            child: Text('더 신청할 책이 있어요'),
+                          ),
+
+                          Container( // 버튼 사이 여백
+                            height: 25,
+                            child: Text(''),
+                          ),
+
+                          OutlinedButton( // 버튼2
+                            style: OutlinedButton.styleFrom(
+                              fixedSize: const Size(180,70)
+                            ),
+                            onPressed:() {},
+                            child: Text('나의 신청 내역 보러가기'),
+                          ),
                         ],
                       ),
 
