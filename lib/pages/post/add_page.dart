@@ -1,7 +1,14 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:wap_library/components/custom_text_form_feild.dart';
 import 'package:wap_library/components/custom_textarea.dart';
 import 'package:wap_library/util/vaildator_util.dart';
+import 'package:image_picker/image_picker.dart';
+
+import 'camera.dart';
 
 class AddPage extends StatelessWidget {
   const AddPage({super.key});
@@ -15,12 +22,12 @@ class AddPage extends StatelessWidget {
 
         child: Container(
           padding: EdgeInsets.all(25.0),
-          margin: EdgeInsets.fromLTRB(0, 0, 0, 150,),
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 140,),
           width: 250,
-          height: 340,
+          height: 410,
           decoration:
           BoxDecoration(
-              color: Colors.white,
+              color: Colors.blue,
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
@@ -113,6 +120,69 @@ class AddPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                FloatingActionButton.extended(
+
+                      onPressed: (){showDialog(context: context,
+
+                          barrierDismissible: true,
+                          builder: (BuildContext context){
+                            return AlertDialog(
+                              content:
+                              SizedBox(
+
+                                  height: 500,
+                              child: Center(
+
+                              child: const Camera(),
+                              ),
+                              ),
+                              actions: <Widget>[
+
+                                FloatingActionButton.extended(
+                                    onPressed: () {Navigator.pop(context);;},
+                                    label: Text("완료",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),),
+                                    backgroundColor: Colors.white,
+                                    icon: Icon(
+
+                                      Icons.manage_search_outlined,
+
+                                      size: 30,
+                                      color: Colors.black,
+                                    )
+                                ),
+                              ],
+
+
+                            );
+                          }
+                      );
+                      },
+
+
+                    label: Text("이미지 업로드",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold,
+                      ),),
+                    backgroundColor: Colors.white,
+                    icon: Icon(
+
+                      Icons.wallpaper,
+
+                      size: 30,
+                      color: Colors.black,
+                    )
+                ),
+
 
 
               ]
