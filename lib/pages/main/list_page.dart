@@ -17,7 +17,7 @@ class ListPage extends StatelessWidget {
                   Container(
                     width: 50,
                     alignment: Alignment.center,
-                    child: Text("$index", style: TextStyle(fontSize: 13)),
+                    child: Text("${index+1}", style: TextStyle(fontSize: 13)),
                   ),
                   Image(image: AssetImage("assets/images/bookcover.jpg")),
                   Expanded(child: Container(
