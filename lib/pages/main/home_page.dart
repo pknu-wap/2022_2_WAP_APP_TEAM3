@@ -6,6 +6,7 @@ import 'package:wap_library/pages/main/apply_page.dart';
 import 'package:wap_library/pages/main/list_page.dart';
 import 'package:wap_library/pages/main/manager_page.dart';
 import 'package:wap_library/pages/main/my_page.dart';
+import 'package:wap_library/pages/post/Search_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -46,6 +47,10 @@ class _HomePageState extends State<HomePage> {
                 Get.to(ManagerPage());
               },
             ),
+            IconButton( //검색창 아이콘
+                onPressed: (){Get.to(SearchPage());
+                },
+                icon: Icon(Icons.search))
           ],
         ),
         body: SizedBox.expand(
