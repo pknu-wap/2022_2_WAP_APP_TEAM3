@@ -90,7 +90,7 @@ class RentalDetail extends StatelessWidget {
           Container(
             width: 400, //가로 설정
             height: 280, //높이 설정
-            padding: EdgeInsets.all(15.0),
+            padding: EdgeInsets.only(left:10.0, top:10.0, right:10.0, bottom:10.0),
             margin: const EdgeInsets.all(10.0),
 
             decoration: BoxDecoration( //컨테이너 데코레이션
@@ -101,20 +101,84 @@ class RentalDetail extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
 
-            child: Column( //둥근모서리 박스 안 구성요소
-                children: const <Widget>[
-                  Text(
-                    '대출 상세 설정',
-                    style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold,
-                    ),
+            child: Column(
+              children: <Widget>[ //둥근모서리 박스 안 구성요소
+                const Text(
+                  '대출 상세 설정',
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
                   ),
-                ]
+                ),
+
+                const SizedBox(
+                  width: 500,
+                  child: Divider(color: Colors.grey, thickness: 1.0)
+                ),
+
+                Row(
+                 children: [
+                   Container(
+                     child: const Text(
+                       '반납일을 선택해주세요.',
+                       textAlign: TextAlign.left,
+                       style: TextStyle(
+                         fontSize: 15,
+                         fontWeight: FontWeight.bold,
+                         color: Colors.black,
+                       ),
+                     ),
+                   ),
+                 ],
+                ),
+
+                SelectDayButton(), //대출날짜 고르는 버튼
+
+                const Padding(
+                  padding: EdgeInsets.only(
+                      left:30.0, top:10.0, right:10.0, bottom:10.0
+                  ),
+                )
+              ]
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+///대출 날짜 고르는 버튼
+class SelectDayButton extends StatelessWidget{
+  DateTime date = DateTime.now();
+  @override
+  Widget build(BuildContext context) {
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          '${date.year}/${date.month}/${date.day}',
+          style: TextStyle(fontSize: 15),
+        ),
+        const SizedBox(height: 15),
+        ElevatedButton(
+          child: Text('날짜를 선택해주세요'),
+          onPressed: () async {
+            DateTime? newDate = await showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime.now(),
+              lastDate: DateTime(2023),
+            );
+
+            // if 'CANCEL' => null
+            if(newDate == null) return;
+
+            // if 'OK' => DateTime
+          },
+        ),
+      ]
     );
   }
 }
