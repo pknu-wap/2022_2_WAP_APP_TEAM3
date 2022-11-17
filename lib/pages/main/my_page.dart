@@ -5,6 +5,7 @@ import 'package:wap_library/pages/post/reservation_page.dart';
 
 import '../post/applied_page.dart';
 import '../post/bookshelf_page.dart';
+import '../post/my_reservation.dart';
 
 class MyPage extends StatelessWidget {
   @override
@@ -65,7 +66,7 @@ class MyPage extends StatelessWidget {
                   height: 20.0,
                 ),
                 FloatingActionButton.extended(
-                    onPressed: () {Get.to(ReservationPage());},
+                    onPressed: () {Get.to(MyReservation());},
                     label: Text("나의 예약",
                       style: TextStyle(
                         color: Colors.black,
