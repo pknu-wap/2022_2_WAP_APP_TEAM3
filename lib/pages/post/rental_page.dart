@@ -88,13 +88,21 @@ class RentalDetail extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: 450, //가로 설정
-            height: 350, //높이 설정
+            width: 400, //가로 설정
+            height: 280, //높이 설정
             padding: EdgeInsets.all(15.0),
             margin: const EdgeInsets.all(10.0),
 
+            decoration: BoxDecoration( //컨테이너 데코레이션
+              border: Border.all(
+                  width: 3,
+                  color: Colors.lightGreen
+              ),
+              borderRadius: BorderRadius.circular(20),
+            ),
+
             child: Column( //둥근모서리 박스 안 구성요소
-                children: <Widget>[
+                children: const <Widget>[
                   Text(
                     '대출 상세 설정',
                     style: TextStyle(
@@ -103,14 +111,6 @@ class RentalDetail extends StatelessWidget {
                     ),
                   ),
                 ]
-            ),
-
-            decoration: BoxDecoration( //컨테이너 데코레이션
-              border: Border.all(
-                  width: 3,
-                  color: Colors.lightGreen
-              ),
-              borderRadius: BorderRadius.circular(20),
             ),
           ),
         ],
