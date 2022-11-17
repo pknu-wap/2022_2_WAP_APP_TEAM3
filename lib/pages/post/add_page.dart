@@ -133,7 +133,7 @@ class AddPage extends StatelessWidget {
                               content:
                               SizedBox(
 
-                                  height: 500,
+                                  height: 400,
                               child: Center(
 
                               child: const Camera(),
@@ -150,13 +150,7 @@ class AddPage extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                       ),),
                                     backgroundColor: Colors.white,
-                                    icon: Icon(
 
-                                      Icons.manage_search_outlined,
-
-                                      size: 30,
-                                      color: Colors.black,
-                                    )
                                 ),
                               ],
 
