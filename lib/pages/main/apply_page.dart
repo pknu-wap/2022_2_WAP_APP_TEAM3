@@ -139,7 +139,7 @@ class ApplyButton extends StatelessWidget {
                             style: OutlinedButton.styleFrom(
                               fixedSize: const Size(180,70),
                             ),
-                            onPressed:() {Get.to(ApplyPage());},
+                            onPressed:() {Navigator.pop(context);},
                             child: Text('더 신청할 책이 있어요'),
                           ),
 
