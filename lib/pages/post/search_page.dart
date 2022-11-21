@@ -6,19 +6,17 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchSreenState extends State<SearchPage> {
-  final TextEditingController _filter = TextEditingController(); //검색위젯컨트롤
-  FocusNode focusNode = FocusNode(); //검색위젯위에 커서가 있는가?
-  String _searchText = ""; //현재검색값
+  final TextEditingController _filter = TextEditingController();
+  FocusNode focusNode = FocusNode();
+  String _searchText = "";
 
   _SearchSreenState() {
-    _filter.addListener(() { //filter가 변화를 감지하여 searchText의 값 변화시킴
+    _filter.addListener(() {
       setState(() {
         _searchText = _filter.text;
       });
     });
   }
-
-
 
   /*Widget _buildBody(BuildContext context){
     return StreamBuilder<QuerySnapshot>(stream: Firestore.in,)
@@ -26,7 +24,7 @@ class _SearchSreenState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('도서 조회하기')),
+      appBar: AppBar(title: Text('검색')),
       body: Container(
         child: Column(
           children: <Widget>[
@@ -47,7 +45,7 @@ class _SearchSreenState extends State<SearchPage> {
                         fillColor: Color(0xffF2F3F5),
                         prefixIcon:
                         Icon(Icons.search, color: Colors.black26, size: 20),
-                        suffixIcon: focusNode.hasFocus //우측에 보이기 위한 아이콘
+                        suffixIcon: focusNode.hasFocus
                             ? IconButton(
                           icon: Icon(
                             Icons.cancel,
@@ -62,7 +60,7 @@ class _SearchSreenState extends State<SearchPage> {
                           },
                         )
                             : Container(),
-                        hintText: '도서명',
+                        hintText: '검색',
                         labelStyle: TextStyle(color: Colors.white),
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.transparent),
