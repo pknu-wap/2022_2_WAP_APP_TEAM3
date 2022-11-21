@@ -15,7 +15,6 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget( MyApp());
 
-
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
