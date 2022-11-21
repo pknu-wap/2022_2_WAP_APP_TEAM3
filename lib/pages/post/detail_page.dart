@@ -5,6 +5,7 @@ import 'package:wap_library/components/custom_text_form_feild.dart';
 import 'package:wap_library/components/getDeviceSize.dart';
 import 'package:wap_library/pages/main/list_page.dart';
 import 'package:wap_library/pages/post/bookshelf_page.dart';
+import 'package:wap_library/pages/post/location_page.dart';
 import 'package:wap_library/pages/post/rental_page.dart';
 import 'package:wap_library/pages/post/reservation_page.dart';
 import 'package:wap_library/pages/post/return_page.dart';
@@ -98,7 +99,9 @@ class _DetailPageState extends State<DetailPage> {
           Get.to(RentalPage());
         },
             child:Text("대출하기")),
-        ElevatedButton(onPressed: (){},
+        ElevatedButton(onPressed: (){
+          Get.to(LocationPage());
+        },
             child:Text("위치확인")),
         ElevatedButton(onPressed: (){
           Get.to(ReturnPage());
