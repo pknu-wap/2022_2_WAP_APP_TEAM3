@@ -125,31 +125,35 @@ class AddPage extends StatelessWidget {
                 ),
                 FloatingActionButton.extended(
 
-                      onPressed: (){showDialog(context: context,
+                    onPressed: () {
+                      showDialog(context: context,
 
                           barrierDismissible: true,
-                          builder: (BuildContext context){
+                          builder: (BuildContext context) {
                             return AlertDialog(
                               content:
                               SizedBox(
 
-                                  height: 400,
-                              child: Center(
+                                height: 400,
+                                child: Center(
 
-                              child: const Camera(),
-                              ),
+                                  child: const Camera(),
+                                ),
                               ),
                               actions: <Widget>[
 
                                 FloatingActionButton.extended(
-                                    onPressed: () {Navigator.pop(context);;},
-                                    label: Text("완료",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),),
-                                    backgroundColor: Colors.white,
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    ;
+                                  },
+                                  label: Text("완료",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),),
+                                  backgroundColor: Colors.white,
 
                                 ),
                               ],
@@ -158,7 +162,7 @@ class AddPage extends StatelessWidget {
                             );
                           }
                       );
-                      },
+                    },
 
 
                     label: Text("이미지 업로드",
@@ -176,7 +180,6 @@ class AddPage extends StatelessWidget {
                       color: Colors.black,
                     )
                 ),
-
 
 
               ]
