@@ -55,9 +55,9 @@ class _DetailPageState extends State<DetailPage> {
       'message': '책 상태가 좋진 않음. 근데 내용은 good'
     },
   ];
+
   Widget commentChild(data) {
     return ListView(
-      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       children: [
         for (var i = 0; i < data.length; i++)
@@ -91,42 +91,6 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
-  Widget Chat() {
-    return Container(
-      child: CommentBox(
-        userImage:
-        "https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400",
-        child: commentChild(filedata),
-        labelText: 'Write a comment...',
-        withBorder: false,
-        errorText: 'Comment cannot be blank',
-        sendButtonMethod: () {
-          if (formKey.currentState!.validate()) {
-            print(commentController.text);
-            setState(() {
-              var value = {
-                'name': 'New User',
-                'pic':
-                'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
-                'message': commentController.text
-              };
-              filedata.insert(0, value);
-            });
-            commentController.clear();
-            FocusScope.of(context).unfocus();
-          } else {
-            print("Not validated");
-          }
-        },
-        formKey: formKey,
-        commentController: commentController,
-        backgroundColor: Colors.black,
-        textColor: Colors.white,
-        sendWidget: Icon(Icons.send_sharp, size: 30, color: Colors.white),
-      ),
-    );
-  }
-
   Widget BookButton(){
     return Column(
       children: [
@@ -141,6 +105,7 @@ class _DetailPageState extends State<DetailPage> {
       ],
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -149,22 +114,22 @@ class _DetailPageState extends State<DetailPage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          height: 1100,
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    margin: EdgeInsets.all(10),
-                    child : Image.asset(
+                    margin: EdgeInsets.only(top: 20, right: 10),
+                    child: Image.asset(
                       'assets/images/bookcover.jpg',
                       width: MediaQuery.of(context).size.width * 0.5,
                     ),
                   ),
                   Container(
                     margin: EdgeInsets.all(10),
-                    child : BookButton(),),
+                    child: BookButton(),
+                  ),
                 ],
               ),
               Padding(padding: EdgeInsets.all(3)),
@@ -194,23 +159,59 @@ class _DetailPageState extends State<DetailPage> {
                       ],
                     ),
                   ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.15,
-                    padding: EdgeInsets.all(10),
-                    child: Center(
-                      child: Icon(
-                        Icons.star,
-                        color: Colors.red,
-                      ),
-                    ),
-                  ),
                 ],
               ),
               Column(
                 children: [
-                  Text('book review',
-                      style: TextStyle(fontSize: 10, color: Colors.black26)),
-                  commentChild(filedata)
+                  Container(
+                    width: 500,
+                    child: Divider(
+                      color: Colors.black12,
+                      thickness: 1.0,
+                    ),
+                  ),
+                  Container(
+                    child: Text("Book review",
+                        style: TextStyle(color: Colors.black38, fontSize: 10)),
+                  ),
+                  //commentChild(filedata),
+                  IntrinsicHeight(
+                    child : Container(
+                      height: 400,
+                      child: CommentBox(
+                        userImage:
+                        "https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400",
+                        child: commentChild(filedata),
+                        labelText: 'Write a comment...',
+                        withBorder: false,
+                        errorText: 'Comment cannot be blank',
+                        sendButtonMethod: () {
+                          if (formKey.currentState!.validate()) {
+                            print(commentController.text);
+                            setState(() {
+                              var value = {
+                                'name': 'New User',
+                                'pic':
+                                'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
+                                'message': commentController.text
+                              };
+                              filedata.insert(0, value);
+                            });
+                            commentController.clear();
+                            FocusScope.of(context).unfocus();
+                          } else {
+                            print("Not validated");
+                          }
+                        },
+                        formKey: formKey,
+                        commentController: commentController,
+                        backgroundColor: Colors.black,
+                        textColor: Colors.white,
+                        sendWidget:
+                        Icon(Icons.send_sharp, size: 30, color: Colors.white),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
