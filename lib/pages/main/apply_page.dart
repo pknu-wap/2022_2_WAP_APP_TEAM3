@@ -7,6 +7,7 @@ import '../post/applied_page.dart';
 
 ///도서신청 페이지
 class ApplyPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,11 +47,14 @@ class ApplyPage extends StatelessWidget {
 
 ///책 이름 기입
 class BookNameInput extends StatelessWidget {
+  TextEditingController textarea = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.fromLTRB(20,5,20,5),
       child: TextField(
+        controller: textarea,
         onChanged: (bookname) {},
         keyboardType: TextInputType.name,
         decoration: InputDecoration(
@@ -64,6 +68,8 @@ class BookNameInput extends StatelessWidget {
 
 ///저자명 기입 위젯
 class WriterNameInput extends StatelessWidget {
+  TextEditingController textarea = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -82,6 +88,8 @@ class WriterNameInput extends StatelessWidget {
 
 ///출판사명 기입 위젯
 class PublisherNameInput extends StatelessWidget {
+  TextEditingController textarea = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -100,6 +108,8 @@ class PublisherNameInput extends StatelessWidget {
 
 /// [신청하기] 버튼
 class ApplyButton extends StatelessWidget {
+  TextEditingController textarea = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
 
@@ -139,7 +149,8 @@ class ApplyButton extends StatelessWidget {
                             style: OutlinedButton.styleFrom(
                               fixedSize: const Size(180,70),
                             ),
-                            onPressed:() {Get.to(ApplyPage());},
+                            onPressed:() {Navigator.pop(context);
+                              },
                             child: Text('더 신청할 책이 있어요'),
                           ),
 
@@ -152,7 +163,9 @@ class ApplyButton extends StatelessWidget {
                             style: OutlinedButton.styleFrom(
                               fixedSize: const Size(180,70)
                             ),
-                            onPressed:() {Get.to(AppiledPage());},
+                            onPressed:() {
+                              Get.to(AppiledPage());
+                              },
                             child: Text('나의 신청 내역 보러가기'),
                           ),
                         ],
