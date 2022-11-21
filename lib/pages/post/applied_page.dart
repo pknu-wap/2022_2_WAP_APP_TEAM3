@@ -13,11 +13,6 @@ class AppiledPage extends StatelessWidget {
 
         child: Column(
           children: <Widget>[
-            SizedBox(
-
-              height: 100,
-            ),
-
             Container(
               width: 140,
 
@@ -39,7 +34,7 @@ class AppiledPage extends StatelessWidget {
 
             Container(
               width: 500,
-              height: 600,
+              height: 450,
               margin: EdgeInsets.all(30),
               padding: EdgeInsets.all(30),
 

@@ -18,11 +18,6 @@ class _MyReservationState extends State<MyReservation> {
 
         child: Column(
           children: <Widget>[
-            SizedBox(
-
-              height: 100,
-            ),
-
             Container(
               width: 140,
 
@@ -44,7 +39,7 @@ class _MyReservationState extends State<MyReservation> {
 
             Container(
               width: 500,
-              height: 600,
+              height: 450,
               margin: EdgeInsets.all(30),
               padding: EdgeInsets.all(30),
 

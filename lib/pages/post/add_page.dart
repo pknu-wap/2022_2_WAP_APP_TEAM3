@@ -22,9 +22,9 @@ class AddPage extends StatelessWidget {
 
         child: Container(
           padding: EdgeInsets.all(25.0),
-          margin: EdgeInsets.fromLTRB(0, 0, 0, 140,),
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 0,),
           width: 250,
-          height: 410,
+          height: 430,
           decoration:
           BoxDecoration(
               color: Colors.blue,
