@@ -120,7 +120,7 @@ class ReturnDetail extends StatelessWidget {
                   children: [
                     RentalDate(),
                     ReturnDeadline(),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.all(10.0)
                     ),
                   ],
@@ -145,44 +145,44 @@ class SelectDayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ElevatedButton(
-              child: Text('날짜를 선택해주세요'),
-              onPressed: () async {
-                DateTime? newDate = await showDatePicker(
-                  context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime.now(),
-                  lastDate: DateTime(2023),
-                );
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ElevatedButton(
+            child: Text('날짜를 선택해주세요'),
+            onPressed: () async {
+              DateTime? newDate = await showDatePicker(
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime.now(),
+                lastDate: DateTime(2023),
+              );
 
-                // if 'CANCEL' => null
-                if (newDate == null) return;
+              // if 'CANCEL' => null
+              if (newDate == null) return;
 
-                // if 'OK' => DateTime
-              }
-          ),
+              // if 'OK' => DateTime
+            }
+        ),
 
-          const SizedBox( // 사이 여백
-            width: 30.0,
-          ),
+        const SizedBox( // 사이 여백
+          width: 30.0,
+        ),
 
-          Container(
-            padding: EdgeInsets.all(10.0),
-            decoration: BoxDecoration(
-              //컨테이너 데코레이션
-              border: Border.all(
-                width: 1,
-                color: Colors.grey,
-              ),
-            ),
-            child: Text(
-              '${date.year}/${date.month}/${date.day}',
-              style: TextStyle(fontSize: 15),
+        Container(
+          padding: EdgeInsets.all(10.0),
+          decoration: BoxDecoration(
+            //컨테이너 데코레이션
+            border: Border.all(
+              width: 1,
+              color: Colors.grey,
             ),
           ),
-        ]
+          child: Text(
+            '${date.year}/${date.month}/${date.day}',
+            style: TextStyle(fontSize: 15),
+          ),
+        ),
+      ]
     );
   }
 }
@@ -192,7 +192,25 @@ class RentalDate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('대출일'),
+      width: 150, //가로 설정
+      height: 130,
+      margin: EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+        //컨테이너 데코레이션
+        border: Border.all(
+          width: 1,
+          color: Colors.grey,
+        ),
+      ),
+      child: Column(
+        children: const [
+          Text("대출일자",
+            style: TextStyle(fontSize: 20),
+          ),
+          Text('이건수정')
+        ],
+      ),
     );
   }
 }
@@ -202,7 +220,25 @@ class ReturnDeadline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('반납기한'),
+      width: 150, //가로 설정
+      height: 130,
+      margin: EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+        //컨테이너 데코레이션
+        border: Border.all(
+          width: 1,
+          color: Colors.grey,
+        ),
+      ),
+      child: Column(
+        children: const [
+          Text("반납기한",
+            style: TextStyle(fontSize: 20),
+          ),
+          Text('이건수정')
+        ],
+      ),
     );
   }
 }
