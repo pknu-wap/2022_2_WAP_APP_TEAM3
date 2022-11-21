@@ -32,7 +32,7 @@ class _DetailPageState extends State<DetailPage> {
     {
       'name': '학생2',
       'pic': 'https://picsum.photos/300/30',
-      'message': '책 상태가 좋진 않음. 근데 내용은 good'
+      'message': '책 내용 좋습니다!!! 졓네용'
     },
     {
       'name': '학생2',
