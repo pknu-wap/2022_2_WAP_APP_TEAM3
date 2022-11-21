@@ -94,13 +94,19 @@ class _DetailPageState extends State<DetailPage> {
   Widget BookButton(){
     return Column(
       children: [
-        ElevatedButton(onPressed: (){},
+        ElevatedButton(onPressed: (){
+          Get.to(RentalPage());
+        },
             child:Text("대출하기")),
         ElevatedButton(onPressed: (){},
             child:Text("위치확인")),
-        ElevatedButton(onPressed: (){},
+        ElevatedButton(onPressed: (){
+          Get.to(ReturnPage());
+        },
             child:Text("반납하기")),
-        ElevatedButton(onPressed: (){},
+        ElevatedButton(onPressed: (){
+          Get.to(ReservationPage());
+        },
             child:Text("예약하기")),
       ],
     );
