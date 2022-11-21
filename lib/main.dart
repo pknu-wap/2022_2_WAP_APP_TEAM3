@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wap_library/pages/main/home_page.dart';
+import 'package:wap_library/pages/post/return_page.dart';
 import 'package:wap_library/pages/user/join_page.dart';
 import 'package:wap_library/pages/user/login_page.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: LoginPage(), //여기다가 내가 가고싶은 페이지 이름 넣기
+
     );
   }
 }
