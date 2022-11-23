@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../post/applied_page.dart';
 
 ///각각의 stl위젯을 하나의 stf위젯으로 바꿈, 기존의 stl위젯은 widget으로 만듦.
 ///도서신청 페이지
@@ -181,7 +185,7 @@ class _ApplyPageState extends State<ApplyPage> {
                               style: OutlinedButton.styleFrom(
                                   fixedSize: const Size(180, 70)),
                               onPressed: () {
-                                //Get.to(AppiledPage());
+                                Get.to(AppiledPage());
                               },
                               child: Text('나의 신청 내역 보러가기'),
                             ),
