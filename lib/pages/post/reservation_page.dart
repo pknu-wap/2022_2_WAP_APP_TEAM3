@@ -79,6 +79,8 @@ class BookData extends StatelessWidget {
 
 ///예약 상세 칸
 class ReservationDetail extends StatelessWidget {
+  DateTime date = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -110,7 +112,7 @@ class ReservationDetail extends StatelessWidget {
               ),
 
               const SizedBox(
-                  //구분선
+                //구분선
                   width: 500,
                   child: Divider(color: Colors.grey, thickness: 1.5)),
 
@@ -135,7 +137,7 @@ class ReservationDetail extends StatelessWidget {
               Container(
                 //반납일 관련 박스
                 width: 350, //가로 설정
-                height: 70, //높이 설정
+                height: 60, //높이 설정
                 padding: const EdgeInsets.only(
                     left: 10.0, top: 1.0, right: 10.0, bottom: 1.0),
                 margin: const EdgeInsets.all(10.0),
@@ -145,6 +147,13 @@ class ReservationDetail extends StatelessWidget {
                   border: Border.all(
                     width: 1,
                     color: Colors.grey,
+                  ),
+                ),
+
+                child: Center(
+                  child: Text(
+                    '${date.year}/${date.month}/${date.day}',
+                    style: TextStyle(fontSize: 15),
                   ),
                 ),
               ),
@@ -222,7 +231,7 @@ class RentalButton extends StatelessWidget {
                         decoration: BoxDecoration(
                           //컨테이너 데코레이션
                           border:
-                              Border.all(width: 3, color: Colors.lightGreen),
+                          Border.all(width: 3, color: Colors.lightGreen),
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
