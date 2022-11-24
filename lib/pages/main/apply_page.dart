@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:wap_library/pages/main/home_page.dart';
 
 import '../post/applied_page.dart';
 
@@ -197,6 +198,14 @@ class _ApplyPageState extends State<ApplyPage> {
                           border:
                           Border.all(width: 3, color: Colors.lightGreen),
                           borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      Container(
+                        child: OutlinedButton(
+                          onPressed: () {
+                            Get.to(HomePage());
+                          },
+                          child: Text('홈으로 돌아가기'),
                         ),
                       ),
                     ],
