@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:wap_library/pages/main/home_page.dart';
 
 import '../post/applied_page.dart';
 
@@ -173,7 +174,6 @@ class _ApplyPageState extends State<ApplyPage> {
                               },
                               child: Text('더 신청할 책이 있어요'),
                             ),
-                            
                             Container(
                               // 버튼 사이 여백
                               height: 25,
@@ -183,7 +183,7 @@ class _ApplyPageState extends State<ApplyPage> {
                             OutlinedButton(
                               // 버튼2
                               style: OutlinedButton.styleFrom(
-                                  fixedSize: const Size(180, 70)),
+                                  fixedSize: Size(180, 70)),
                               onPressed: () {
                                 Get.to(AppiledPage());
                               },
@@ -197,6 +197,14 @@ class _ApplyPageState extends State<ApplyPage> {
                           border:
                           Border.all(width: 3, color: Colors.lightGreen),
                           borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      Container(
+                        child: OutlinedButton(
+                          onPressed: () {
+                            Get.to(HomePage());
+                          },
+                          child: Text('홈으로 돌아가기'),
                         ),
                       ),
                     ],
