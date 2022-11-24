@@ -84,13 +84,15 @@ class ReservationDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery
+          .of(context)
+          .size
+          .width * 0.85,
       padding: EdgeInsets.all(3.5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: 400, //가로 설정
-            height: 280, //높이 설정
             padding: const EdgeInsets.only(
                 left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
             margin: const EdgeInsets.all(10.0),
