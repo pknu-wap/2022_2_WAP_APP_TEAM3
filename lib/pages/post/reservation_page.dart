@@ -31,6 +31,9 @@ class _ReservationPageState extends State<ReservationPage> {
               children: [
                 BookImage(context), //책 사진
                 BookData(context), // 책 이름, 정보
+                SizedBox(
+                  height: 20,
+                ),
                 ReservationDetail(context), //대출 상세 설정 칸
                 const Padding(padding: EdgeInsets.all(15.0))
               ],
@@ -92,7 +95,7 @@ class _ReservationPageState extends State<ReservationPage> {
             width: MediaQuery
                 .of(context)
                 .size
-                .width * 0.85,
+                .width * 0.82,
             padding: const EdgeInsets.only(
                 left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
             margin: const EdgeInsets.all(10.0),

@@ -35,6 +35,9 @@ class _ReturnPageState extends State<ReturnPage> {
               children: [
                 BookImage(context), //책 사진
                 BookData(context), // 책 이름, 정보
+                SizedBox(
+                  height: 20,
+                ),
                 ReturnDetail(context), //반납 상세 정보 칸
                 const Padding(padding: EdgeInsets.all(15.0))
               ],
@@ -96,7 +99,7 @@ class _ReturnPageState extends State<ReturnPage> {
             width: MediaQuery
                 .of(context)
                 .size
-                .width * 0.85,
+                .width * 0.82,
             padding: const EdgeInsets.only(
                 left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
             margin: const EdgeInsets.all(10.0),
@@ -108,6 +111,8 @@ class _ReturnPageState extends State<ReturnPage> {
             ),
 
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 //둥근모서리 박스 안 구성요소
                 const Text(
@@ -150,11 +155,11 @@ class _ReturnPageState extends State<ReturnPage> {
     DateTime date = DateTime.now();
 
     return Container(
-      width: 140,
+      width: 125,
       //가로 설정
       height: 130,
       margin: EdgeInsets.all(10.0),
-      padding: EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         //컨테이너 데코레이션
         border: Border.all(
@@ -163,14 +168,15 @@ class _ReturnPageState extends State<ReturnPage> {
         ),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             "대출일자",
             style: TextStyle(fontSize: 20),
           ),
-          const SizedBox(height: 17.0),
+          const SizedBox(height: 22.0),
           Container(
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(5.0),
             decoration: BoxDecoration(
               //컨테이너 데코레이션
               border: Border.all(
@@ -193,11 +199,11 @@ class _ReturnPageState extends State<ReturnPage> {
   Widget ReturnDeadline(BuildContext context) {
     DateTime date = DateTime.now();
     return Container(
-      width: 140,
+      width: 125,
       //가로 설정
       height: 130,
       margin: EdgeInsets.all(10.0),
-      padding: EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         //컨테이너 데코레이션
         border: Border.all(
@@ -206,14 +212,15 @@ class _ReturnPageState extends State<ReturnPage> {
         ),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             "반납기한",
             style: TextStyle(fontSize: 20),
           ),
-          const SizedBox(height: 17.0),
+          const SizedBox(height: 22.0),
           Container(
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(5.0),
             decoration: BoxDecoration(
               //컨테이너 데코레이션
               border: Border.all(

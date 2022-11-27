@@ -30,6 +30,9 @@ class _RentalPageState extends State<RentalPage> {
               children: [
                 BookImage(), //책 사진
                 BookData(), // 책 이름, 정보
+                SizedBox(
+                  height: 20,
+                ),
                 RentalDetail(), //대출 상세 설정 칸
                 const Padding(padding: EdgeInsets.all(15.0))
               ],
