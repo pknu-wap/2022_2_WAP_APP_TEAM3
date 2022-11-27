@@ -92,7 +92,7 @@ class _ReservationPageState extends State<ReservationPage> {
             width: MediaQuery
                 .of(context)
                 .size
-                .width * 0.75,
+                .width * 0.85,
             padding: const EdgeInsets.only(
                 left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
             margin: const EdgeInsets.all(10.0),

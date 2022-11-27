@@ -92,7 +92,7 @@ class _RentalPageState extends State<RentalPage> {
             width: MediaQuery
                 .of(context)
                 .size
-                .width * 0.75,
+                .width * 0.85,
             padding: const EdgeInsets.only(
                 left: 5.0, top: 10.0, right: 5.0, bottom: 10.0),
             margin: const EdgeInsets.all(5.0),
@@ -202,7 +202,7 @@ class _RentalPageState extends State<RentalPage> {
           ),
 
           const SizedBox( // 사이 여백
-            width: 30.0,
+            width: 20.0,
           ),
 
           Container(
