@@ -5,7 +5,14 @@ import 'package:wap_library/pages/post/detail_page.dart';
 import 'package:get/get.dart';
 
 ///도서예약 페이지
-class ReservationPage extends StatelessWidget {
+
+class ReservationPage extends StatefulWidget {
+  State<ReservationPage> createState() => _ReservationPageState();
+}
+
+class _ReservationPageState extends State<ReservationPage> {
+  DateTime date = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +29,9 @@ class ReservationPage extends StatelessWidget {
             child: Column(
               ///페이지 컨테이너 안 구성요소
               children: [
-                BookImage(), //책 사진
-                BookData(), // 책 이름, 정보
-                ReservationDetail(), //대출 상세 설정 칸
+                BookImage(context), //책 사진
+                BookData(context), // 책 이름, 정보
+                ReservationDetail(context), //대출 상세 설정 칸
                 const Padding(padding: EdgeInsets.all(15.0))
               ],
             ),
@@ -36,9 +43,7 @@ class ReservationPage extends StatelessWidget {
 }
 
 ///책 사진
-class BookImage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+  Widget BookImage(BuildContext context) {
     return Container(
       child: Image.asset(
         'assets/images/bookcover.jpg',
@@ -46,12 +51,10 @@ class BookImage extends StatelessWidget {
       ),
     );
   }
-}
+
 
 /// 책 이름, 정보
-class BookData extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+  Widget BookData(BuildContext context) {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -75,22 +78,21 @@ class BookData extends StatelessWidget {
       ),
     );
   }
-}
+
 
 ///예약 상세 칸
-class ReservationDetail extends StatelessWidget {
-  DateTime date = DateTime.now();
-
-  @override
-  Widget build(BuildContext context) {
+  Widget ReservationDetail(BuildContext context) {
+    DateTime date = DateTime.now();
     return Container(
       padding: EdgeInsets.all(3.5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: 400, //가로 설정
-            height: 280, //높이 설정
+            width: MediaQuery
+                .of(context)
+                .size
+                .width * 0.85,
             padding: const EdgeInsets.only(
                 left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
             margin: const EdgeInsets.all(10.0),
@@ -165,7 +167,7 @@ class ReservationDetail extends StatelessWidget {
               ),
 
               Container(
-                child: RentalButton(),
+                child: RentalButton(context),
               ),
 
               const Padding(
@@ -178,12 +180,10 @@ class ReservationDetail extends StatelessWidget {
       ),
     );
   }
-}
+
 
 /// 예약하기 버튼
-class RentalButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+  Widget RentalButton(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.77,
       height: MediaQuery.of(context).size.height * 0.06,
@@ -244,4 +244,4 @@ class RentalButton extends StatelessWidget {
       ),
     );
   }
-}
+

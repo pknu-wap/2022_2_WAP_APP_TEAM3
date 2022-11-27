@@ -20,8 +20,8 @@ class _RentalPageState extends State<RentalPage> {
       body: SafeArea(
         child: Center(
           child: Container(
-            width: 700,
-            height: 1000,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
             padding: EdgeInsets.all(10.0),
             margin: const EdgeInsets.all(10.0),
             child: Column(
@@ -41,7 +41,6 @@ class _RentalPageState extends State<RentalPage> {
   }
 
   ///책 사진
-
   Widget BookImage() {
     return Container(
       child: Image.asset(
@@ -90,13 +89,13 @@ class _RentalPageState extends State<RentalPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: 400,
-            //가로 설정
-            height: 280,
-            //높이 설정
+            width: MediaQuery
+                .of(context)
+                .size
+                .width * 0.85,
             padding: const EdgeInsets.only(
-                left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
-            margin: const EdgeInsets.all(10.0),
+                left: 5.0, top: 10.0, right: 5.0, bottom: 10.0),
+            margin: const EdgeInsets.all(5.0),
 
             decoration: BoxDecoration(
               //컨테이너 데코레이션
@@ -139,13 +138,10 @@ class _RentalPageState extends State<RentalPage> {
                   ),
 
                   Container( //반납일 관련 박스
-                    width: 350,
-                    //가로 설정
-                    height: 70,
-                    //높이 설정
                     padding: const EdgeInsets.only(
                         left: 10.0, top: 1.0, right: 10.0, bottom: 1.0),
                     margin: const EdgeInsets.all(10.0),
+                    width: 80*MediaQuery.of(context).size.width,
 
                     decoration: BoxDecoration( //컨테이너 데코레이션
                       border: Border.all(
@@ -169,7 +165,7 @@ class _RentalPageState extends State<RentalPage> {
 
                   const Padding(
                     padding: EdgeInsets.only(
-                        left: 30.0, top: 10.0, right: 10.0, bottom: 0.0),
+                        left: 5.0, top: 10.0, right: 5.0, bottom: 0.0),
                   ),
                 ]
             ),
@@ -206,11 +202,11 @@ class _RentalPageState extends State<RentalPage> {
           ),
 
           const SizedBox( // 사이 여백
-            width: 30.0,
+            width: 20.0,
           ),
 
           Container(
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(5.0),
             decoration: BoxDecoration(
               //컨테이너 데코레이션
               border: Border.all(

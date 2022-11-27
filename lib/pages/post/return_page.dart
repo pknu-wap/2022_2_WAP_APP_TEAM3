@@ -3,7 +3,13 @@ import 'package:wap_library/pages/main/home_page.dart';
 import 'package:wap_library/pages/post/detail_page.dart';
 import 'package:get/get.dart';
 
-class ReturnPage extends StatelessWidget {
+class ReturnPage extends StatefulWidget {
+  State<ReturnPage> createState() => _ReturnPageState();
+}
+
+class _ReturnPageState extends State<ReturnPage> {
+  DateTime date = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,16 +19,23 @@ class ReturnPage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Container(
-            width: 700,
-            height: 1000,
+            width: MediaQuery
+                .of(context)
+                .size
+                .width,
+            height: MediaQuery
+                .of(context)
+                .size
+                .height,
             padding: EdgeInsets.all(10.0),
             margin: const EdgeInsets.all(10.0),
             child: Column(
+
               ///페이지 컨테이너 안 구성요소
               children: [
-                BookImage(), //책 사진
-                BookData(), // 책 이름, 정보
-                ReturnDetail(), //반납 상세 정보 칸
+                BookImage(context), //책 사진
+                BookData(context), // 책 이름, 정보
+                ReturnDetail(context), //반납 상세 정보 칸
                 const Padding(padding: EdgeInsets.all(15.0))
               ],
             ),
@@ -31,25 +44,23 @@ class ReturnPage extends StatelessWidget {
       ),
     );
   }
-}
 
-///책 사진
-class BookImage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+
+  ///책 사진
+  Widget BookImage(BuildContext context) {
     return Container(
       child: Image.asset(
         'assets/images/bookcover.jpg',
-        width: MediaQuery.of(context).size.width * 0.3,
+        width: MediaQuery
+            .of(context)
+            .size
+            .width * 0.3,
       ),
     );
   }
-}
 
-/// 책 이름, 정보
-class BookData extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+  /// 책 이름, 정보
+  Widget BookData(BuildContext context) {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,20 +84,19 @@ class BookData extends StatelessWidget {
       ),
     );
   }
-}
 
-///반납 상세 정보 칸
-class ReturnDetail extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+  ///반납 상세 정보 칸
+  Widget ReturnDetail(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(3.5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: 400, //가로 설정
-            height: 280, //높이 설정
+            width: MediaQuery
+                .of(context)
+                .size
+                .width * 0.85,
             padding: const EdgeInsets.only(
                 left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
             margin: const EdgeInsets.all(10.0),
@@ -111,25 +121,20 @@ class ReturnDetail extends StatelessWidget {
                 const SizedBox(
                   //구분선
                     width: 500,
-                    child: Divider(color: Colors.grey, thickness: 1.5)
-                ),
+                    child: Divider(color: Colors.grey, thickness: 1.5)),
 
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(width: 14),
-                    RentalDate(),
-                    ReturnDeadline(),
-                    const Padding(
-                        padding: EdgeInsets.all(10.0)
-                    ),
+                    RentalDate(context),
+                    ReturnDeadline(context),
+                    const Padding(padding: EdgeInsets.all(10.0)),
                   ],
                 ),
 
-
                 Container(
-                  child: ReturnButton(),
+                  child: ReturnButton(context),
                 ),
               ],
             ),
@@ -138,16 +143,15 @@ class ReturnDetail extends StatelessWidget {
       ),
     );
   }
-}
 
-///대출일자 박스
-class RentalDate extends StatelessWidget {
-  DateTime date = DateTime.now();
 
-  @override
-  Widget build(BuildContext context) {
+  ///대출일자 박스
+  Widget RentalDate(BuildContext context) {
+    DateTime date = DateTime.now();
+
     return Container(
-      width: 150, //가로 설정
+      width: 140,
+      //가로 설정
       height: 130,
       margin: EdgeInsets.all(10.0),
       padding: EdgeInsets.all(20.0),
@@ -160,12 +164,11 @@ class RentalDate extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text("대출일자",
+          Text(
+            "대출일자",
             style: TextStyle(fontSize: 20),
           ),
-
           const SizedBox(height: 17.0),
-
           Container(
             padding: EdgeInsets.all(10.0),
             decoration: BoxDecoration(
@@ -177,23 +180,21 @@ class RentalDate extends StatelessWidget {
             ),
             child: Text(
               '${date.year}/${date.month}/${date.day}',
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 14),
             ),
           ),
         ],
       ),
     );
   }
-}
 
-///반납기한 박스
-class ReturnDeadline extends StatelessWidget {
-  DateTime date = DateTime.now();
 
-  @override
-  Widget build(BuildContext context) {
+  ///반납기한 박스
+  Widget ReturnDeadline(BuildContext context) {
+    DateTime date = DateTime.now();
     return Container(
-      width: 150, //가로 설정
+      width: 140,
+      //가로 설정
       height: 130,
       margin: EdgeInsets.all(10.0),
       padding: EdgeInsets.all(20.0),
@@ -206,12 +207,11 @@ class ReturnDeadline extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text("반납기한",
+          Text(
+            "반납기한",
             style: TextStyle(fontSize: 20),
           ),
-
           const SizedBox(height: 17.0),
-
           Container(
             padding: EdgeInsets.all(10.0),
             decoration: BoxDecoration(
@@ -223,24 +223,25 @@ class ReturnDeadline extends StatelessWidget {
             ),
             child: Text(
               '${date.year}/${date.month}/${date.day}',
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 14),
             ),
           ),
         ],
       ),
     );
   }
-}
 
-
-/// 반납하기 버튼
-class ReturnButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-
+  /// 반납하기 버튼
+  Widget ReturnButton(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width *0.77,
-      height: MediaQuery.of(context).size.height *0.06,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width * 0.77,
+      height: MediaQuery
+          .of(context)
+          .size
+          .height * 0.06,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
@@ -249,7 +250,7 @@ class ReturnButton extends StatelessWidget {
         ),
 
         ///반납하기 버튼 누르면 뜨는 팝업
-        onPressed: (){
+        onPressed: () {
           showDialog(
               context: context,
               barrierDismissible: false,
@@ -258,40 +259,43 @@ class ReturnButton extends StatelessWidget {
                   title: Icon(Icons.check_circle),
                   content: Column(
                     mainAxisSize: MainAxisSize.min,
-                    children: <Widget> [
+                    children: <Widget>[
                       Text("도서 반납이 완료되었습니다."),
-
-                      Container( //텍스트 밑의 둥근모서리 박스
-                        width: 210, //가로 설정
-                        height: 110, //높이 설정
+                      Container(
+                        //텍스트 밑의 둥근모서리 박스
+                        width: 210,
+                        //가로 설정
+                        height: 110,
+                        //높이 설정
                         padding: EdgeInsets.all(15.0),
                         margin: const EdgeInsets.all(10.0),
 
-                        child: Column( //둥근모서리 박스 안 구성요소
+                        child: Column(
+                          //둥근모서리 박스 안 구성요소
                           children: <Widget>[
-                            OutlinedButton( // 버튼2
+                            OutlinedButton(
+                              // 버튼2
                               style: OutlinedButton.styleFrom(
-                                  fixedSize: const Size(180,70)
-                              ),
-                              onPressed:() {Get.to(HomePage());},
+                                  fixedSize: const Size(180, 70)),
+                              onPressed: () {
+                                Get.to(HomePage());
+                              },
                               child: Text('홈페이지로 돌아가기'),
                             ),
                           ],
                         ),
 
-                        decoration: BoxDecoration( //컨테이너 데코레이션
-                          border: Border.all(
-                              width: 3,
-                              color: Colors.lightGreen
-                          ),
+                        decoration: BoxDecoration(
+                          //컨테이너 데코레이션
+                          border:
+                          Border.all(width: 3, color: Colors.lightGreen),
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
                     ],
                   ),
                 );
-              }
-          );
+              });
         },
         child: Text('반납하기'),
       ),
