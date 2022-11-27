@@ -12,27 +12,40 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
+      body: /*Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView(
+        child: */ListView(
           children: [
             Container(
+              color: Color(0xff667eea),
+              padding: EdgeInsets.only(top:80, bottom: 80),
+              child: Image.asset(
+                'assets/images/logo_w.png',
+                width: 50,
+                height: 50,
+              ),
+            ),
+            Container(
               alignment: Alignment.center,
-              height: 200,
+              padding: EdgeInsets.only(top: 50, bottom: 50),
               child: Text(
                 "LOGIN",
                 style: TextStyle(
                   fontSize: 30,
+                  color: Color(0xff667eea),
                   fontWeight: FontWeight.bold,
-
                 ),
               ),
             ),
+            /*Container(
+              width: 10,
+              child : Image(image: AssetImage("assets/images/logo.png"))
+            ),*/
             _LoinForm(),
             Container(
-              width : 250,
-              height : 40,
-              child :TextButton(
+              width: 250,
+              height: 40,
+              child: TextButton(
                 onPressed: () {
                   Get.to(JoinPage());
                 },
@@ -41,7 +54,7 @@ class LoginPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      //),
     );
   }
 
@@ -51,24 +64,25 @@ class LoginPage extends StatelessWidget {
       child: Column(
         children: [
           Container(
+            padding: EdgeInsets.only(bottom: 10),
             width: 300,
-            child : CustomTextFormField(
+            child: CustomTextFormField(
               hint: "Student Number", //텍스트 정렬 center
               funValidator: validateStudentNumber(),
             ),
           ),
           Container(
-            width : 300,
-            child : CustomTextFormField(
+            width: 300,
+            child: CustomTextFormField(
               hint: "Password",
               funValidator: validatePassWord(),
             ),
           ),
           Container(
-            width : 300,
-            height : 40,
-            margin : EdgeInsets.only(top:20),
-            child : CustomElevatedButton(
+            width: 300,
+            height: 40,
+            margin: EdgeInsets.only(top: 30),
+            child: CustomElevatedButton(
               text: "LOGIN", //로그인 버튼 size 변경 확인
               funPageRoute: () {
                 if (_formKey.currentState!.validate()) {
