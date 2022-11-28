@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wap_library/pages/post/detail_page.dart';
 
 class ListPage extends StatelessWidget {
+  //FirebaseFirestore firestore = FirebaseFirestore.instance;
+  //Stream<QuerySnapshot>  streamData;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
