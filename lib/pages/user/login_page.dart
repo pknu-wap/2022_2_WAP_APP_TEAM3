@@ -49,7 +49,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   Get.to(JoinPage());
                 },
-                child: Text("SIGN UP"),
+                child: Text("SIGN UP", style: TextStyle(color: Color(0xff667eea))),
               ),
             ),
           ],
