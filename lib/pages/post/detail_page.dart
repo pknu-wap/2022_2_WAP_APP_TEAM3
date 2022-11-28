@@ -95,19 +95,27 @@ class _DetailPageState extends State<DetailPage> {
   Widget BookButton(){
     return Column(
       children: [
-        ElevatedButton(onPressed: (){
+        ElevatedButton(
+            style: ElevatedButton.styleFrom(primary:Color(0xff007FA1),),
+            onPressed: (){
           Get.to(RentalPage());
         },
             child:Text("대출하기")),
-        ElevatedButton(onPressed: (){
+        ElevatedButton(
+            style: ElevatedButton.styleFrom(primary:Color(0xff007FA1),),
+            onPressed: (){
           Get.to(LocationPage());
         },
             child:Text("위치확인")),
-        ElevatedButton(onPressed: (){
+        ElevatedButton(
+            style: ElevatedButton.styleFrom(primary:Color(0xff007FA1),),
+            onPressed: (){
           Get.to(ReturnPage());
         },
             child:Text("반납하기")),
-        ElevatedButton(onPressed: (){
+        ElevatedButton(
+            style: ElevatedButton.styleFrom(primary:Color(0xff007FA1),),
+            onPressed: (){
           Get.to(ReservationPage());
         },
             child:Text("예약하기")),
@@ -119,6 +127,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xff006285),
         title: Text("도서 상세 정보"),
       ),
       body: SingleChildScrollView(
@@ -214,10 +223,11 @@ class _DetailPageState extends State<DetailPage> {
                         },
                         formKey: formKey,
                         commentController: commentController,
-                        backgroundColor: Colors.black,
-                        textColor: Colors.white,
+                        backgroundColor: Color(0xffEFEFF0),
+
+                        textColor: Colors.black,
                         sendWidget:
-                        Icon(Icons.send_sharp, size: 30, color: Colors.white),
+                        Icon(Icons.send_sharp, size: 30, color: Colors.black),
                       ),
                     ),
                   ),

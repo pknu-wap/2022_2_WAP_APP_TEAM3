@@ -1,4 +1,3 @@
-import 'package:animations/animations.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,6 +36,7 @@ class _HomePageState extends State<HomePage> {
       },
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color(0xff006285),
           title: Text("책 대여 대여"),
           centerTitle: true,
           //automaticallyImplyLeading: false,
@@ -71,16 +71,19 @@ class _HomePageState extends State<HomePage> {
           },
           items: <BottomNavyBarItem>[
             BottomNavyBarItem(
-              title: Text('Apply Book'),
-              icon: Icon(Icons.menu_book),
+              activeColor: Color(0xff006285),
+              title: Text('Apply Book', style: TextStyle(color : Color(0xff006285))),
+              icon: Icon(Icons.menu_book, color: Color(0xff006285),),
             ),
             BottomNavyBarItem(
-              title: Text('Book List'),
-              icon: Icon(Icons.home),
+              activeColor: Color(0xff006285),
+              title: Text('Book List', style: TextStyle(color : Color(0xff006285))),
+              icon: Icon(Icons.home, color: Color(0xff006285),),
             ),
             BottomNavyBarItem(
-              title: Text('My Page'),
-              icon: Icon(Icons.person_rounded),
+              activeColor: Color(0xff006285),
+              title: Text('My Page', style: TextStyle(color : Color(0xff006285))),
+              icon: Icon(Icons.person_rounded,color: Color(0xff006285),),
             ),
           ],
         ),

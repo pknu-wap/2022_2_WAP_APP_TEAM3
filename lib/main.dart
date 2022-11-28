@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wap_library/pages/main/home_page.dart';
+import 'package:wap_library/pages/post/detail_page.dart';
 import 'package:wap_library/pages/user/join_page.dart';
 import 'package:wap_library/pages/user/login_page.dart';
 
