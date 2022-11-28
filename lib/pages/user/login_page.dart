@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
         child: */ListView(
           children: [
             Container(
-              color: Color(0xff667eea),
+              color: Color(0xff006285),
               padding: EdgeInsets.only(top:80, bottom: 80),
               child: Image.asset(
                 'assets/images/logo_w.png',
@@ -33,7 +33,7 @@ class LoginPage extends StatelessWidget {
                 "LOGIN",
                 style: TextStyle(
                   fontSize: 30,
-                  color: Color(0xff667eea),
+                  color: Color(0xff006285),
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -50,7 +50,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   Get.to(JoinPage());
                 },
-                child: Text("SIGN UP"),
+                child: Text("SIGN UP", style: TextStyle(color: Color(0xff006285))),
               ),
             ),
           ],
