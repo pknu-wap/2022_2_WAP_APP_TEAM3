@@ -3,11 +3,14 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:wap_library/pages/main/home_page.dart';
+import 'package:wap_library/pages/main/list_page.dart';
 
 import '../post/applied_page.dart';
 
 ///각각의 stl위젯을 하나의 stf위젯으로 바꿈, 기존의 stl위젯은 widget으로 만듦.
+
 ///도서신청 페이지
+
 class ApplyPage extends StatefulWidget {
   State<ApplyPage> createState() => _ApplyPageState();
 }
@@ -18,6 +21,7 @@ class _ApplyPageState extends State<ApplyPage> {
   TextEditingController textarea_p = TextEditingController();
   FocusNode focusNode = FocusNode();
   String _text = "";
+
 
   BookNameInputState() {
     textarea_n.addListener(() {
@@ -46,34 +50,38 @@ class _ApplyPageState extends State<ApplyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-            child: Center(
-              child: Container(
-                width: 500, //가로 설정
-                height: 500, //높이 설정
-                padding: EdgeInsets.all(10.0),
-                margin: const EdgeInsets.all(30.0),
+      body: SafeArea(
+        child: Container(
+          width: 500,
+          //가로 설정
+          height: 500,
+          //높이 설정
+          padding: EdgeInsets.all(10.0),
+          margin: const EdgeInsets.all(30.0),
 
-                child: Column(
-                  ///페이지 컨테이너 안 구성요소
-                  children: [
-                    BookNameInput(), //도서명 기입
-                    WriterNameInput(), //저자명 기입
-                    PublisherNameInput(), //출판사명 기입
-                    ApplyButton(), //신청 버튼
-                    Padding(
-                      padding: EdgeInsets.all(10.0),
-                    )
-                  ],
-                ),
+          child: SingleChildScrollView(
+            child: Column(
+              ///페이지 컨테이너 안 구성요소
+              children: [
+                BookNameInput(), //도서명 기입
+                WriterNameInput(), //저자명 기입
+                PublisherNameInput(), //출판사명 기입
+                ApplyButton(), //신청 버튼
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                )
+              ],
+            ),
+          ),
 
-                decoration: BoxDecoration(
-                  //컨테이너 데코레이션
-                  border: Border.all(width: 3, color: Colors.lightGreen),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            )));
+          decoration: BoxDecoration(
+            //컨테이너 데코레이션
+            border: Border.all(width: 3, color: Colors.lightGreen),
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+      ),
+    );
   }
 
   ///책 이름 기입 위젯
@@ -109,7 +117,7 @@ class _ApplyPageState extends State<ApplyPage> {
   }
 
   ///출판사명 기입 위젯
-  Widget PublisherNameInput(){
+  Widget PublisherNameInput() {
     return Container(
       padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
       child: TextField(
@@ -124,7 +132,8 @@ class _ApplyPageState extends State<ApplyPage> {
     );
   }
 
-  Widget ApplyButton(){
+  ///도서신청 버튼
+  Widget ApplyButton() {
     return Container(
       width: MediaQuery.of(context).size.width * 0.77,
       height: MediaQuery.of(context).size.height * 0.08,
@@ -149,8 +158,10 @@ class _ApplyPageState extends State<ApplyPage> {
                       Text("도서 신청이 완료되었습니다."),
                       Container(
                         //텍스트 밑의 둥근모서리 박스
-                        width: 210, //가로 설정
-                        height: 210, //높이 설정
+                        width: 210,
+                        //가로 설정
+                        height: 210,
+                        //높이 설정
                         padding: EdgeInsets.all(15.0),
                         margin: const EdgeInsets.all(10.0),
 
@@ -195,16 +206,16 @@ class _ApplyPageState extends State<ApplyPage> {
                         decoration: BoxDecoration(
                           //컨테이너 데코레이션
                           border:
-                          Border.all(width: 3, color: Colors.lightGreen),
+                              Border.all(width: 3, color: Colors.lightGreen),
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
                       Container(
                         child: OutlinedButton(
                           onPressed: () {
-                            Get.to(HomePage());
+                            Navigator.pop(context);
                           },
-                          child: Text('홈으로 돌아가기'),
+                          child: Text('취소'),
                         ),
                       ),
                     ],
