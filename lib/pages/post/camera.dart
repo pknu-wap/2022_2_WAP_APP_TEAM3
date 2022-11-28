@@ -59,7 +59,9 @@ class _CameraState extends State<Camera> {
               children: <Widget>[
                 // 카메라 촬영 버튼
                 FloatingActionButton(
+                  backgroundColor: Color(0xff006285),
                   child: Icon(Icons.add_a_photo),
+
                   tooltip: 'pick Iamge',
                   onPressed: () {
                     getImage(ImageSource.camera);
@@ -69,8 +71,9 @@ class _CameraState extends State<Camera> {
 
                 // 갤러리에서 이미지를 가져오는 버튼
                 FloatingActionButton(
+                  backgroundColor: Color(0xff006285),
                   child: Icon(Icons.wallpaper),
-                  tooltip: 'pick Iamge',
+                  tooltip: 'pick Image',
                   onPressed: () {
                     getImage(ImageSource.gallery);
                   },

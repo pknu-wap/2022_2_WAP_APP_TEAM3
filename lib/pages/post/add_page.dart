@@ -1,4 +1,4 @@
-import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -17,7 +17,9 @@ class AddPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Color(0xff006285),
+      ),
       body: Center(
 
         child: Container(
@@ -27,7 +29,7 @@ class AddPage extends StatelessWidget {
           height: 430,
           decoration:
           BoxDecoration(
-              color: Colors.blue,
+              color: Color(0xff006285),
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
@@ -49,7 +51,7 @@ class AddPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),),
                 SizedBox(
                   height: 20.0,

@@ -24,7 +24,8 @@ class _SearchSreenState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('검색')),
+      appBar: AppBar(title: Text('검색'),
+      backgroundColor: Color(0xff006285),),
       body: Container(
         child: Column(
           children: <Widget>[

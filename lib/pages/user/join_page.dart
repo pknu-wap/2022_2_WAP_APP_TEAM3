@@ -21,6 +21,7 @@ class JoinPage extends StatelessWidget {
               child: Text(
                 "SIGN UP", // 해당페이지 제목
                 style: TextStyle(
+                  color: Color(0xff006285),
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
 
@@ -35,7 +36,7 @@ class JoinPage extends StatelessWidget {
               onPressed: () {
                 Get.to(LoginPage());
               },
-              child: Text("Do you have ID?"),
+              child: Text("Do you have ID?",style: TextStyle(color : Color(0xff006285),),),
             ),
           ],
         ),
