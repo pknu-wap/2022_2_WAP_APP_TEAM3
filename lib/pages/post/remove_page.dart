@@ -26,7 +26,8 @@ class _SearchSreenState extends State<RemovePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('도서 삭제하기')),
+      appBar: AppBar(title: Text('도서 삭제하기'),
+      backgroundColor: Color(0xff006285),),
       body: Container(
         child: Column(
           children: <Widget>[

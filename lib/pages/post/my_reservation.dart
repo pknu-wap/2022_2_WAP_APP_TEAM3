@@ -13,6 +13,7 @@ class _MyReservationState extends State<MyReservation> {
     return Scaffold(
       appBar: AppBar(
         title: Text("My Reservation"),
+        backgroundColor: Color(0xff006285),
       ),
       body: Center(
 
@@ -23,7 +24,7 @@ class _MyReservationState extends State<MyReservation> {
 
               decoration:
               BoxDecoration(
-                color: Colors.blue,
+                color: Color(0xff006285),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: const Text('나의 예약현황',
@@ -32,7 +33,7 @@ class _MyReservationState extends State<MyReservation> {
 
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),),
             ),
 
@@ -46,7 +47,7 @@ class _MyReservationState extends State<MyReservation> {
 
               decoration:
               BoxDecoration(
-                  color: Colors.blue,
+                  color: Color(0xff006285),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
@@ -70,7 +71,7 @@ class _MyReservationState extends State<MyReservation> {
                 crossAxisSpacing: 20, //수직 Padding
                 children: List.generate(12, (index) {  //item 의 반목문 항목 형성
                   return Container(
-                    color: Colors.lightGreen,
+                    color: Colors.white,
                     child: Text(' Item : $index'),
                   );
                 }),

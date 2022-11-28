@@ -13,6 +13,7 @@ class _BookShelfPageState extends State<BookShelfPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("My BookShelf"),
+        backgroundColor: Color(0xff006285),
       ),
       body: Center(
         child: Column(
@@ -23,7 +24,7 @@ class _BookShelfPageState extends State<BookShelfPage> {
             Container(
               width: 120,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color(0xff006285),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: const Text(
@@ -32,7 +33,7 @@ class _BookShelfPageState extends State<BookShelfPage> {
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -42,7 +43,7 @@ class _BookShelfPageState extends State<BookShelfPage> {
               margin: EdgeInsets.all(30),
               padding: EdgeInsets.all(30),
               decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Color(0xff006285),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
@@ -60,7 +61,7 @@ class _BookShelfPageState extends State<BookShelfPage> {
                 children: List.generate(12, (index) {
                   //item 의 반목문 항목 형성
                   return Container(
-                    color: Colors.lightGreen,
+                    color: Colors.white,
                     child: Text(' Item : $index'),
                   );
                 }),

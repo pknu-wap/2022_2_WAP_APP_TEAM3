@@ -20,7 +20,7 @@ class MyPage extends StatelessWidget {
           height: 340,
           decoration:
           BoxDecoration(
-              color: Colors.blue,
+              color: Color(0xff006285),
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
@@ -42,7 +42,7 @@ class MyPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),),
                 SizedBox(
                   height: 20.0,

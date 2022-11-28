@@ -19,14 +19,15 @@ class LoginPage extends StatelessWidget {
           children: [
             Container(
               color: Color(0xff006285),
-              padding: EdgeInsets.only(top:80, bottom: 80),
+              padding: EdgeInsets.only(top:240, bottom: 0),
+
               child: Image.asset(
                 'assets/images/logo_w.png',
-                width: 50,
-                height: 50,
+                width: 90,
+                height: 90,
               ),
             ),
-            Container(
+            /*Container(
               alignment: Alignment.center,
               padding: EdgeInsets.only(top: 50, bottom: 50),
               child: Text(
@@ -37,12 +38,17 @@ class LoginPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
+            ),*/
             /*Container(
               width: 10,
               child : Image(image: AssetImage("assets/images/logo.png"))
             ),*/
-            _LoinForm(),
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.only(top:50, bottom: 0),
+              child: _LoinForm(),
+
+            ),
             Container(
               width: 250,
               height: 40,
@@ -68,11 +74,15 @@ class LoginPage extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 10),
             width: 300,
             child: CustomTextFormField(
+
+
+
               hint: "Student Number", //텍스트 정렬 center
               funValidator: validateStudentNumber(),
             ),
           ),
           Container(
+
             width: 300,
             child: CustomTextFormField(
               hint: "Password",
@@ -84,6 +94,8 @@ class LoginPage extends StatelessWidget {
             height: 40,
             margin: EdgeInsets.only(top: 30),
             child: CustomElevatedButton(
+
+
               text: "LOGIN", //로그인 버튼 size 변경 확인
               funPageRoute: () {
                 if (_formKey.currentState!.validate()) {

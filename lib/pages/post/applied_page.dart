@@ -8,6 +8,7 @@ class AppiledPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("My list"),
+        backgroundColor: Color(0xff006285),
       ),
       body: Center(
 
@@ -18,7 +19,7 @@ class AppiledPage extends StatelessWidget {
 
               decoration:
               BoxDecoration(
-                color: Colors.blue,
+                color: Color(0xff006285),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: const Text('나의 신청현황',
@@ -27,7 +28,7 @@ class AppiledPage extends StatelessWidget {
 
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),),
             ),
 
@@ -41,7 +42,7 @@ class AppiledPage extends StatelessWidget {
 
               decoration:
               BoxDecoration(
-                  color: Colors.blue,
+                  color: Color(0xff006285),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
@@ -65,7 +66,7 @@ class AppiledPage extends StatelessWidget {
                 crossAxisSpacing: 20, //수직 Padding
                 children: List.generate(12, (index) {  //item 의 반목문 항목 형성
                   return Container(
-                    color: Colors.lightGreen,
+                    color: Colors.white,
                     child: Text(' Item : $index'),
                   );
                 }),

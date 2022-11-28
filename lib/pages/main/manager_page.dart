@@ -11,6 +11,7 @@ class ManagerPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Management"),
+        backgroundColor: Color(0xff006285),
       ),
       body: Center(
         child: Container(
@@ -20,7 +21,7 @@ class ManagerPage extends StatelessWidget {
             height: 340,
             decoration:
                 BoxDecoration(
-                  color: Colors.blue,
+                  color: Color(0xff006285),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
@@ -42,7 +43,7 @@ class ManagerPage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),),
                 SizedBox(
                   height: 20.0,
