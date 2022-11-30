@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:wap_library/pages/post/detail_page.dart';
 
 class FireStorePage extends StatefulWidget {
   const FireStorePage({Key? key}) : super(key: key);
@@ -14,9 +17,6 @@ class _FireStorePageState extends State<FireStorePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('firestore'),
-      ),
       body: StreamBuilder(
         stream: product.snapshots(),
         builder: (BuildContext context,
@@ -27,16 +27,29 @@ class _FireStorePageState extends State<FireStorePage> {
               itemBuilder: (context, index) {
                 final DocumentSnapshot documentSnapshot =
                     streamSnapshot.data!.docs[index];
+
                 return Card(
                   child: ListTile(
+                    onTap: (){
+                      Get.to(DetailPage());
+                    },
+                    leading: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: 40,
+                        minWidth: 40,
+                        maxHeight: 60,
+                        maxWidth: 60,
+                      ),
+                      child: Image.network(documentSnapshot['이미지'], fit: BoxFit.cover,),
+                    ),
                     title: Text(documentSnapshot['책 이름']),
                     subtitle: Text(documentSnapshot['종류']),
+
                   ),
                 );
               },
             );
-          }
-          ;
+          };
           return CircularProgressIndicator();
         },
       ),

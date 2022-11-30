@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wap_library/components/book_list.dart';
 import 'package:wap_library/pages/post/detail_page.dart';
 
 class ListPage extends StatefulWidget {
@@ -11,6 +12,26 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
+  /*FirebaseFirestore firestore = FirebaseFirestore.instance;
+  Stream<QuerySnapshot> streamData;
+  @override
+  void initState(){
+    super.initState();
+    streamData = firestore.collection('도서 목록').snapshots();
+  }
+  Widget _fetchData(BuildContext context){
+    return StreamBuilder(
+      builder: (BuildContext context,
+          AsyncSnapshot<QuerySnapshot> streamSnapshot) {
+        if (!streamSnapshot.hasData) return LinearProgressIndicator();
+        return build _buildBody(context, snapshot.data.documents);
+      },
+    ),
+  }
+
+  Widget _buildBody(BuildContext context, List<DocumentSnapshot> snapshot){
+    List<Book> books.snapshot.map((d) => Book.fromSnapshot(d)).toList();
+  }*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(

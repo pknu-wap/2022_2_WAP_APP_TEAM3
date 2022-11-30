@@ -1,6 +1,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wap_library/components/firestore_page.dart';
 import 'package:wap_library/pages/main/apply_page.dart';
 import 'package:wap_library/pages/main/list_page.dart';
 import 'package:wap_library/pages/main/manager_page.dart';
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   final PageController _pageController = PageController(initialPage: 1);
   List<Widget> pageList = <Widget>[
     ApplyPage(),
-    ListPage(),
+    FireStorePage(),
     MyPage(),
   ];
   @override
