@@ -36,7 +36,7 @@ class MyPage extends StatelessWidget {
               children: <Widget>[
 
                 SizedBox(
-                  height: 20.0,
+                  height: 30.0,
                 ),
                 const Text('MY PAGE',
                   style: TextStyle(
@@ -45,7 +45,7 @@ class MyPage extends StatelessWidget {
                     color: Colors.white,
                   ),),
                 SizedBox(
-                  height: 20.0,
+                  height: 30.0,
                 ),
                 FloatingActionButton.extended(
                     onPressed: () {Get.to(BookShelfPage());},

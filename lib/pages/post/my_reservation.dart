@@ -21,6 +21,8 @@ class _MyReservationState extends State<MyReservation> {
           children: <Widget>[
             Container(
               width: 140,
+              padding: EdgeInsets.all(10.0),
+              margin: const EdgeInsets.only(top:50.0),
 
               decoration:
               BoxDecoration(

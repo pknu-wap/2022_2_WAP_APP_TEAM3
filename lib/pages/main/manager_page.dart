@@ -41,7 +41,7 @@ class ManagerPage extends StatelessWidget {
                   ),
               const Text('관리자 메뉴',
                     style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 30.0,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),),
