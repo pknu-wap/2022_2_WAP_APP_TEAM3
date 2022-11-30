@@ -26,34 +26,34 @@ class _DetailPageState extends State<DetailPage> {
   final TextEditingController commentController = TextEditingController();
   List filedata = [
     {
-      'name': '학생1',
+      'name': '이홍주',
       'pic': 'https://picsum.photos/300/30',
       'message': '책 추천합니다~!'
     },
     {
-      'name': '학생2',
+      'name': '임은서',
       'pic': 'https://picsum.photos/300/30',
-      'message': '책 내용 좋습니다!!! 졓네용'
+      'message': '구성은 좋은데 오래된 책이라 지금 그대로 따라쓰면 오류 뜨는 코드들이 많네요.'
     },
     {
-      'name': '학생2',
+      'name': '김윤희',
       'pic': 'https://picsum.photos/300/30',
       'message': '책 상태가 좋진 않음. 근데 내용은 good'
     },
     {
-      'name': '학생2',
+      'name': '최성훈',
       'pic': 'https://picsum.photos/300/30',
-      'message': '책 상태가 좋진 않음. 근데 내용은 good'
+      'message': '글자가 너무 작아서 읽기 힘들다...눈 빠지는 줄'
     },
     {
-      'name': '학생2',
+      'name': '정진호',
       'pic': 'https://picsum.photos/300/30',
-      'message': '책 상태가 좋진 않음. 근데 내용은 good'
+      'message': '무조건 필독서임다'
     },
     {
-      'name': '학생2',
+      'name': '홍성우',
       'pic': 'https://picsum.photos/300/30',
-      'message': '책 상태가 좋진 않음. 근데 내용은 good'
+      'message': '책 엄청 두껍습니다..... 각오하고 보시길.'
     },
   ];
 
