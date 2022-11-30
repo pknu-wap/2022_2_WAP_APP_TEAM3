@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,6 +18,8 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  CollectionReference product = FirebaseFirestore.instance.collection('도서 목록');
+
   List<Widget> pageList = <Widget>[
     ReturnPage(),
     RentalPage(),
@@ -139,10 +142,12 @@ class _DetailPageState extends State<DetailPage> {
                 children: [
                   Container(
                     margin: EdgeInsets.only(top: 20, right: 10),
-                    child: Image.asset(
+                    child:  /*Image.network(documentSnapshot['이미지']),*/
+                    Image.asset(
                       'assets/images/bookcover.jpg',
                       width: MediaQuery.of(context).size.width * 0.5,
                     ),
+
                   ),
                   Container(
                     margin: EdgeInsets.all(10),
