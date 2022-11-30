@@ -64,16 +64,16 @@ class _ApplyPageState extends State<ApplyPage> {
               margin: const EdgeInsets.only(left:30.0, right: 30.0),
               decoration:
               BoxDecoration(
-                  color: Color(0xff3B4C66),
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.7),
-                      spreadRadius: 0,
-                      blurRadius: 5.0,
-                      offset: Offset(0, 10),
-                    )
-                  ]
+                color: Color(0xff3B4C66),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.7),
+                    spreadRadius: 0,
+                    blurRadius: 5.0,
+                    offset: Offset(0, 10),
+                  )
+                ]
               ),
               child: Center(
                 child: Text(

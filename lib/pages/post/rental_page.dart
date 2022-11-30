@@ -29,13 +29,16 @@ class _RentalPageState extends State<RentalPage> {
 
               ///페이지 컨테이너 안 구성요소
               children: [
+                SizedBox(
+                  height: 30,
+                ),
                 BookImage(), //책 사진
                 BookData(), // 책 이름, 정보
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 RentalDetail(), //대출 상세 설정 칸
-                const Padding(padding: EdgeInsets.all(15.0))
+                const Padding(padding: EdgeInsets.all(20.0))
               ],
             ),
           ),
@@ -103,7 +106,7 @@ class _RentalPageState extends State<RentalPage> {
 
             decoration: BoxDecoration(
               //컨테이너 데코레이션
-              border: Border.all(width: 3, color: Colors.lightGreen),
+              border: Border.all(width: 3, color: Color(0xff3B4C66)),
               borderRadius: BorderRadius.circular(20),
             ),
 
@@ -143,14 +146,14 @@ class _RentalPageState extends State<RentalPage> {
 
                   Container( //반납일 관련 박스
                     padding: const EdgeInsets.only(
-                        left: 10.0, top: 1.0, right: 10.0, bottom: 1.0),
+                        left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
                     margin: const EdgeInsets.all(10.0),
                     width: 80*MediaQuery.of(context).size.width,
 
                     decoration: BoxDecoration( //컨테이너 데코레이션
                       border: Border.all(
                         width: 1,
-                        color: Colors.grey,
+                        color: Color(0xff3B4C66),
                       ),
                     ),
                     child: SelectDayButton(), //대출날짜 고르는 버튼
@@ -169,7 +172,7 @@ class _RentalPageState extends State<RentalPage> {
 
                   const Padding(
                     padding: EdgeInsets.only(
-                        left: 5.0, top: 10.0, right: 5.0, bottom: 0.0),
+                        left: 5.0, top: 10.0, right: 5.0, bottom: 10.0),
                   ),
                 ]
             ),
@@ -186,7 +189,15 @@ class _RentalPageState extends State<RentalPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color(0xff3B4C66),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+            ),
+
             child: Text('날짜를 선택해주세요'),
+
             onPressed: () async {
               DateTime? newDate = await showDatePicker(
                 context: context,
@@ -241,6 +252,7 @@ class _RentalPageState extends State<RentalPage> {
           .height * 0.06,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          backgroundColor: Color(0xff3B4C66),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
@@ -284,7 +296,7 @@ class _RentalPageState extends State<RentalPage> {
                         decoration: BoxDecoration( //컨테이너 데코레이션
                           border: Border.all(
                               width: 3,
-                              color: Colors.lightGreen
+                              color: Color(0xff3B4C66)
                           ),
                           borderRadius: BorderRadius.circular(20),
                         ),

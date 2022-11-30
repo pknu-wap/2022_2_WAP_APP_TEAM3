@@ -30,10 +30,13 @@ class _ReservationPageState extends State<ReservationPage> {
             child: Column(
               ///페이지 컨테이너 안 구성요소
               children: [
+                SizedBox(
+                  height: 30,
+                ),
                 BookImage(context), //책 사진
                 BookData(context), // 책 이름, 정보
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 ReservationDetail(context), //대출 상세 설정 칸
                 const Padding(padding: EdgeInsets.all(15.0))
@@ -103,7 +106,7 @@ class _ReservationPageState extends State<ReservationPage> {
 
             decoration: BoxDecoration(
               //컨테이너 데코레이션
-              border: Border.all(width: 3, color: Colors.lightGreen),
+              border: Border.all(width: 3, color: Color(0xff3B4C66)),
               borderRadius: BorderRadius.circular(20),
             ),
 
@@ -193,6 +196,7 @@ class _ReservationPageState extends State<ReservationPage> {
       height: MediaQuery.of(context).size.height * 0.06,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          backgroundColor: Color(0xff3B4C66),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
@@ -235,7 +239,7 @@ class _ReservationPageState extends State<ReservationPage> {
                         decoration: BoxDecoration(
                           //컨테이너 데코레이션
                           border:
-                          Border.all(width: 3, color: Colors.lightGreen),
+                          Border.all(width: 3, color:Color(0xff3B4C66)),
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),

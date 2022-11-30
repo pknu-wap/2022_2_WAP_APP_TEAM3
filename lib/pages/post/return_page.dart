@@ -3,6 +3,8 @@ import 'package:wap_library/pages/main/home_page.dart';
 import 'package:wap_library/pages/post/detail_page.dart';
 import 'package:get/get.dart';
 
+/// 도서반납 페이지
+
 class ReturnPage extends StatefulWidget {
   State<ReturnPage> createState() => _ReturnPageState();
 }
@@ -34,13 +36,16 @@ class _ReturnPageState extends State<ReturnPage> {
 
               ///페이지 컨테이너 안 구성요소
               children: [
+                SizedBox(
+                  height: 30,
+                ),
                 BookImage(context), //책 사진
                 BookData(context), // 책 이름, 정보
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 ReturnDetail(context), //반납 상세 정보 칸
-                //const Padding(padding: EdgeInsets.all(15.0))
+                const Padding(padding: EdgeInsets.all(15.0))
               ],
             ),
           ),
@@ -107,7 +112,7 @@ class _ReturnPageState extends State<ReturnPage> {
 
             decoration: BoxDecoration(
               //컨테이너 데코레이션
-              border: Border.all(width: 3, color: Colors.lightGreen),
+              border: Border.all(width: 3, color: Color(0xff3B4C66)),
               borderRadius: BorderRadius.circular(20),
             ),
 
@@ -252,6 +257,7 @@ class _ReturnPageState extends State<ReturnPage> {
           .height * 0.06,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          backgroundColor: Color(0xff3B4C66),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
@@ -296,7 +302,7 @@ class _ReturnPageState extends State<ReturnPage> {
                         decoration: BoxDecoration(
                           //컨테이너 데코레이션
                           border:
-                          Border.all(width: 3, color: Colors.lightGreen),
+                          Border.all(width: 3, color: Color(0xff3B4C66)),
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
