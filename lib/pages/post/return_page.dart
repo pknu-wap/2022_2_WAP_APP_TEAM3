@@ -15,6 +15,7 @@ class _ReturnPageState extends State<ReturnPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('도서 반납'),
+        backgroundColor: Color(0xff006285),
       ),
       body: SafeArea(
         child: Center(

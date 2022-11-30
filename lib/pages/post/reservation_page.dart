@@ -18,6 +18,7 @@ class _ReservationPageState extends State<ReservationPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('도서 예약'),
+        backgroundColor: Color(0xff006285),
       ),
       body: SafeArea(
         child: Center(

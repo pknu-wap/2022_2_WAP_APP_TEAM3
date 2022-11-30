@@ -24,7 +24,10 @@ class _SearchSreenState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('검색')),
+      appBar: AppBar(
+        title: Text('검색'),
+        backgroundColor: Color(0xff006285),
+      ),
       body: Container(
         child: Column(
           children: <Widget>[
@@ -44,56 +47,59 @@ class _SearchSreenState extends State<SearchPage> {
                         filled: true,
                         fillColor: Color(0xffF2F3F5),
                         prefixIcon:
-                        Icon(Icons.search, color: Colors.black26, size: 20),
+                            Icon(Icons.search, color: Colors.black26, size: 20),
                         suffixIcon: focusNode.hasFocus
                             ? IconButton(
-                          icon: Icon(
-                            Icons.cancel,
-                            color: Colors.black26,
-                            size: 20,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _filter.clear();
-                              _searchText = "";
-                            });
-                          },
-                        )
+                                icon: Icon(
+                                  Icons.cancel,
+                                  color: Colors.black26,
+                                  size: 20,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _filter.clear();
+                                    _searchText = "";
+                                  });
+                                },
+                              )
                             : Container(),
                         hintText: '검색',
                         labelStyle: TextStyle(color: Colors.white),
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.transparent),
                             borderRadius:
-                            BorderRadius.all(Radius.circular(10))),
+                                BorderRadius.all(Radius.circular(10))),
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.transparent),
                             borderRadius:
-                            BorderRadius.all(Radius.circular(10))),
+                                BorderRadius.all(Radius.circular(10))),
                         border: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.transparent),
                             borderRadius:
-                            BorderRadius.all(Radius.circular(10))),
+                                BorderRadius.all(Radius.circular(10))),
                       ),
                     ),
                   ),
                   focusNode.hasFocus
                       ? Expanded(
-                    child: TextButton(
-                      child: Text('취소', style: TextStyle(color: Colors.black54),),
-                      onPressed: () {
-                        setState(() {
-                          _filter.clear();
-                          _searchText = "";
-                          focusNode.unfocus();
-                        });
-                      },
-                    ),
-                  )
+                          child: TextButton(
+                            child: Text(
+                              '취소',
+                              style: TextStyle(color: Colors.black54),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _filter.clear();
+                                _searchText = "";
+                                focusNode.unfocus();
+                              });
+                            },
+                          ),
+                        )
                       : Expanded(
-                    flex: 0,
-                    child: Container(),
-                  )
+                          flex: 0,
+                          child: Container(),
+                        )
                 ],
               ),
             ),

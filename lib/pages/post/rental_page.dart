@@ -16,6 +16,7 @@ class _RentalPageState extends State<RentalPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('도서 대출'),
+        backgroundColor: Color(0xff006285),
       ),
       body: SafeArea(
         child: Center(
