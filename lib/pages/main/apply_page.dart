@@ -22,7 +22,6 @@ class _ApplyPageState extends State<ApplyPage> {
   FocusNode focusNode = FocusNode();
   String _text = "";
 
-
   BookNameInputState() {
     textarea_n.addListener(() {
       setState(() {
@@ -51,36 +50,72 @@ class _ApplyPageState extends State<ApplyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          width: 500,
-          //가로 설정
-          height: 500,
-          //높이 설정
-          padding: EdgeInsets.all(10.0),
-          margin: const EdgeInsets.all(30.0),
-
-          child: SingleChildScrollView(
-            child: Column(
-              ///페이지 컨테이너 안 구성요소
-              children: [
-                BookNameInput(), //도서명 기입
-                WriterNameInput(), //저자명 기입
-                PublisherNameInput(), //출판사명 기입
-                ApplyButton(), //신청 버튼
-                Padding(
-                  padding: EdgeInsets.all(10.0),
-                )
-              ],
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top:40, left:20.0, right:20.0, bottom:20.0),
             ),
-          ),
 
-          decoration: BoxDecoration(
-            //컨테이너 데코레이션
-            border: Border.all(width: 3, color: Colors.lightGreen),
-            borderRadius: BorderRadius.circular(20),
-          ),
+
+            Container(
+              width: 480,
+              height: 60,
+              padding: EdgeInsets.all(10.0),
+              margin: const EdgeInsets.only(left:30.0, right: 30.0),
+              decoration:
+              BoxDecoration(
+                  color: Color(0xff3B4C66),
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.7),
+                      spreadRadius: 0,
+                      blurRadius: 5.0,
+                      offset: Offset(0, 10),
+                    )
+                  ]
+              ),
+              child: Center(
+                child: Text(
+                  '희망 도서 신청하기',
+                  style: TextStyle(
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+             ),
+            ),
+            Container(
+              width: 500,
+              //가로 설정
+              padding: EdgeInsets.all(10.0),
+              margin: const EdgeInsets.all(30.0),
+
+              child: SingleChildScrollView(
+                child: Column(
+                  ///페이지 컨테이너 안 구성요소
+                  children: [
+                    BookNameInput(), //도서명 기입
+                    WriterNameInput(), //저자명 기입
+                    PublisherNameInput(), //출판사명 기입
+                    ApplyButton(), //신청 버튼
+                    Padding(
+                      padding: EdgeInsets.all(10.0),
+                    )
+                  ],
+                ),
+              ),
+
+              decoration: BoxDecoration(
+                //컨테이너 데코레이션
+                border: Border.all(width: 3, color: Color(0xff3B4C66)),
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+           ]
         ),
-      ),
+      )
     );
   }
 
@@ -139,6 +174,7 @@ class _ApplyPageState extends State<ApplyPage> {
       height: MediaQuery.of(context).size.height * 0.08,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          backgroundColor: Color(0xff3B4C66),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
           ),
