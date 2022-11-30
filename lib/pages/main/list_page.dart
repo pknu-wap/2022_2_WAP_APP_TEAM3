@@ -14,6 +14,7 @@ class ListPage extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (context, index) {
           return Container(
+            margin: EdgeInsets.all(10.0),
             height: 80,
             child: GestureDetector(
               child: Row(
@@ -21,12 +22,14 @@ class ListPage extends StatelessWidget {
                   Container(
                     width: 50,
                     alignment: Alignment.center,
-                    child: Text("${index+1}", style: TextStyle(fontSize: 13)),
+                    child: Text("${index+1}",
+                        style: TextStyle(fontSize: 15),
+                    ),
                   ),
                   Image(image: AssetImage("assets/images/bookcover.jpg")),
                   Expanded(child: Container(
                     padding: EdgeInsets.only(left: 20),
-                    child: Text("윈도우즈 API 정복", style: TextStyle(fontSize: 15),),
+                    child: Text("윈도우즈 API 정복", style: TextStyle(fontSize: 17),),
                   )),
                 ],
               ),
