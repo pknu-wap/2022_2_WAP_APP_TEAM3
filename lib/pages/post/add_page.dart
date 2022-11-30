@@ -22,7 +22,8 @@ class AddPage extends StatelessWidget {
       ),
       body: Center(
 
-        child: Container(
+        child: SingleChildScrollView(
+          child : Container(
           padding: EdgeInsets.all(25.0),
           margin: EdgeInsets.fromLTRB(0, 0, 0, 0,),
           width: 250,
@@ -186,6 +187,7 @@ class AddPage extends StatelessWidget {
 
               ]
           ),
+        ),
         ),
       ),
     );
