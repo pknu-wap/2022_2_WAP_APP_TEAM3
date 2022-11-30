@@ -27,6 +27,11 @@ class _FireStorePageState extends State<FireStorePage> {
               itemBuilder: (context, index) {
                 final DocumentSnapshot documentSnapshot =
                     streamSnapshot.data!.docs[index];
+                var bookname=documentSnapshot['책 이름'];
+                var bookcate=documentSnapshot['종류'];
+                var booknum=documentSnapshot['번호'];
+
+
 
                 return Card(
                   child: ListTile(
@@ -42,8 +47,10 @@ class _FireStorePageState extends State<FireStorePage> {
                       ),
                       child: Image.network(documentSnapshot['이미지'], fit: BoxFit.cover,),
                     ),
-                    title: Text(documentSnapshot['책 이름']),
-                    subtitle: Text(documentSnapshot['종류']),
+                    title: Text(bookname),
+                    subtitle: Text(bookcate),
+
+
 
                   ),
                 );
