@@ -6,6 +6,8 @@ import 'package:wap_library/pages/post/detail_page.dart';
 import 'package:wap_library/pages/user/join_page.dart';
 import 'package:wap_library/pages/user/login_page.dart';
 
+import 'components/firestore_page.dart';
+
 /*void main() {
   runApp(MyApp());
 }*/
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(), //여기다가 내가 가고싶은 페이지 이름 넣기
+      home: FireStorePage(), //여기다가 내가 가고싶은 페이지 이름 넣기
     );
   }
 }

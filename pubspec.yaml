@@ -45,6 +45,9 @@ dependencies:
   dio: ^4.0.6
   firebase_core: ^2.3.0
   cloud_firestore: ^4.1.0
+  google_fonts : ^3.0.1
+  modal_progress_hud_nsn: ^0.3.0
+  firebase_auth: ^4.1.4
 
 
 dev_dependencies:
