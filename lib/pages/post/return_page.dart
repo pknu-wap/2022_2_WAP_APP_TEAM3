@@ -39,7 +39,7 @@ class _ReturnPageState extends State<ReturnPage> {
                   height: 20,
                 ),
                 ReturnDetail(context), //반납 상세 정보 칸
-                const Padding(padding: EdgeInsets.all(15.0))
+                //const Padding(padding: EdgeInsets.all(15.0))
               ],
             ),
           ),

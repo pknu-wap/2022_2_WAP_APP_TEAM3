@@ -22,8 +22,8 @@ class _ReservationPageState extends State<ReservationPage> {
       body: SafeArea(
         child: Center(
           child: Container(
-            width: 700,
-            height: 1000,
+            //width: 700,
+            //height: 1500,
             padding: EdgeInsets.all(10.0),
             margin: const EdgeInsets.all(10.0),
             child: Column(
@@ -173,10 +173,10 @@ class _ReservationPageState extends State<ReservationPage> {
                 child: RentalButton(context),
               ),
 
-              const Padding(
+              /*const Padding(
                 padding: EdgeInsets.only(
                     left: 30.0, top: 10.0, right: 10.0, bottom: 0.0),
-              ),
+              ),*/
             ]),
           ),
         ],
