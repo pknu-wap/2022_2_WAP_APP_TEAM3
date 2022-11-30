@@ -18,7 +18,7 @@ class _FireStorePageState extends State<FireStorePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder(
-        stream: product.snapshots(),
+        stream: product.orderBy('번호', descending: false).snapshots(),
         builder: (BuildContext context,
             AsyncSnapshot<QuerySnapshot> streamSnapshot) {
           if (streamSnapshot.hasData) {
