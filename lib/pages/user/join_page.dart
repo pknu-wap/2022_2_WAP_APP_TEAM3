@@ -11,10 +11,18 @@ class JoinPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView(
+      body: ListView(
           children: [
+            Container(
+              color: Color(0xff006285),
+              padding: EdgeInsets.only(top:130, bottom: 50),
+
+              child: Image.asset(
+                'assets/images/logo_w.png',
+                width: 90,
+                height: 90,
+              ),
+            ),
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(top:60),
@@ -40,8 +48,7 @@ class JoinPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 
   Widget _joinForm() {

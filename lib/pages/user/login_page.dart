@@ -19,7 +19,7 @@ class LoginPage extends StatelessWidget {
           children: [
             Container(
               color: Color(0xff006285),
-              padding: EdgeInsets.only(top:240, bottom: 0),
+              padding: EdgeInsets.only(top:200, bottom: 50),
 
               child: Image.asset(
                 'assets/images/logo_w.png',
@@ -46,18 +46,11 @@ class LoginPage extends StatelessWidget {
             Container(
               color: Colors.white,
               padding: EdgeInsets.only(top:50, bottom: 0),
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height,
               child: _LoinForm(),
-
-            ),
-            Container(
-              width: 250,
-              height: 40,
-              child: TextButton(
-                onPressed: () {
-                  Get.to(JoinPage());
-                },
-                child: Text("SIGN UP", style: TextStyle(color: Color(0xff006285))),
-              ),
             ),
           ],
         ),
@@ -74,8 +67,6 @@ class LoginPage extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 10),
             width: 300,
             child: CustomTextFormField(
-
-
 
               hint: "Student Number", //텍스트 정렬 center
               funValidator: validateStudentNumber(),
@@ -94,14 +85,23 @@ class LoginPage extends StatelessWidget {
             height: 40,
             margin: EdgeInsets.only(top: 30),
             child: CustomElevatedButton(
-
-
               text: "LOGIN", //로그인 버튼 size 변경 확인
               funPageRoute: () {
                 if (_formKey.currentState!.validate()) {
                   Get.to(HomePage());
                 }
               },
+            ),
+          ),
+          Container(
+            width: 250,
+            height: 60,
+            color: Colors.white,
+            child: TextButton(
+              onPressed: () {
+                Get.to(JoinPage());
+              },
+              child: Text("SIGN UP", style: TextStyle(color: Color(0xff006285))),
             ),
           ),
         ],
