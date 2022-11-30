@@ -49,8 +49,10 @@ class _ApplyPageState extends State<ApplyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //resizeToAvoidBottomInset : false,
       body: SafeArea(
-        child: Column(
+        child: SingleChildScrollView(
+        child : Column(
           children: [
             Padding(
               padding: EdgeInsets.only(top:40, left:20.0, right:20.0, bottom:20.0),
@@ -58,7 +60,7 @@ class _ApplyPageState extends State<ApplyPage> {
 
 
             Container(
-              width: 480,
+              width: 470,
               height: 60,
               padding: EdgeInsets.all(10.0),
               margin: const EdgeInsets.only(left:30.0, right: 30.0),
@@ -86,13 +88,21 @@ class _ApplyPageState extends State<ApplyPage> {
                 ),
              ),
             ),
+
             Container(
               width: 500,
               //가로 설정
               padding: EdgeInsets.all(10.0),
               margin: const EdgeInsets.all(30.0),
 
+              decoration: BoxDecoration(
+                //컨테이너 데코레이션
+                border: Border.all(width: 3, color: Color(0xff3B4C66)),
+                borderRadius: BorderRadius.circular(20),
+              ),
+
               child: SingleChildScrollView(
+
                 child: Column(
                   ///페이지 컨테이너 안 구성요소
                   children: [
@@ -106,16 +116,11 @@ class _ApplyPageState extends State<ApplyPage> {
                   ],
                 ),
               ),
-
-              decoration: BoxDecoration(
-                //컨테이너 데코레이션
-                border: Border.all(width: 3, color: Color(0xff3B4C66)),
-                borderRadius: BorderRadius.circular(20),
-              ),
             ),
            ]
         ),
-      )
+      ),
+      ),
     );
   }
 
@@ -242,7 +247,7 @@ class _ApplyPageState extends State<ApplyPage> {
                         decoration: BoxDecoration(
                           //컨테이너 데코레이션
                           border:
-                              Border.all(width: 3, color: Colors.lightGreen),
+                              Border.all(width: 3, color: Color(0xff3B4C66)),
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
