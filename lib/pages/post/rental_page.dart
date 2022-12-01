@@ -18,28 +18,30 @@ class _RentalPageState extends State<RentalPage> {
         title: Text('도서 대출'),
         backgroundColor: Color(0xff006285),
       ),
-      body: SafeArea(
-        child: Center(
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            padding: EdgeInsets.all(10.0),
-            margin: const EdgeInsets.all(10.0),
-            child: Column(
-
-              ///페이지 컨테이너 안 구성요소
-              children: [
-                SizedBox(
-                  height: 30,
-                ),
-                BookImage(), //책 사진
-                BookData(), // 책 이름, 정보
-                SizedBox(
-                  height: 30,
-                ),
-                RentalDetail(), //대출 상세 설정 칸
-                const Padding(padding: EdgeInsets.all(20.0))
-              ],
+      body: SingleChildScrollView(
+        ///overflow 수정으로 코드 추가
+        child: SafeArea(
+          child: Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              padding: EdgeInsets.all(10.0),
+              margin: const EdgeInsets.all(10.0),
+              child: Column(
+                ///페이지 컨테이너 안 구성요소
+                children: [
+                  SizedBox(
+                    height: 30,
+                  ),
+                  BookImage(), //책 사진
+                  BookData(), // 책 이름, 정보
+                  SizedBox(
+                    height: 30,
+                  ),
+                  RentalDetail(), //대출 상세 설정 칸
+                  const Padding(padding: EdgeInsets.all(20.0))
+                ],
+              ),
             ),
           ),
         ),
@@ -52,14 +54,10 @@ class _RentalPageState extends State<RentalPage> {
     return Container(
       child: Image.asset(
         'assets/images/bookcover.jpg',
-        width: MediaQuery
-            .of(context)
-            .size
-            .width * 0.3,
+        width: MediaQuery.of(context).size.width * 0.3,
       ),
     );
   }
-
 
   /// 책 이름, 정보
   Widget BookData() {
@@ -87,7 +85,6 @@ class _RentalPageState extends State<RentalPage> {
     );
   }
 
-
   ///대출 상세 설정 칸
   Widget RentalDetail() {
     return Container(
@@ -96,160 +93,139 @@ class _RentalPageState extends State<RentalPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: MediaQuery
-                .of(context)
-                .size
-                .width * 0.85,
-            padding: const EdgeInsets.only(
-                left: 5.0, top: 10.0, right: 5.0, bottom: 10.0),
-            margin: const EdgeInsets.all(5.0),
-
+            width: MediaQuery.of(context).size.width * 0.85,
+            padding:
+                EdgeInsets.only(left: 5.0, top: 10.0, right: 5.0, bottom: 10.0),
+            margin: EdgeInsets.all(5.0),
             decoration: BoxDecoration(
               //컨테이너 데코레이션
               border: Border.all(width: 3, color: Color(0xff3B4C66)),
               borderRadius: BorderRadius.circular(20),
             ),
+            child: Column(children: <Widget>[
+              //둥근모서리 박스 안 구성요소
+              Text(
+                '대출 상세 설정',
+                style: TextStyle(
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
 
-            child: Column(
-                children: <Widget>[
-                  //둥근모서리 박스 안 구성요소
-                  const Text(
-                    '대출 상세 설정',
-                    style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+              SizedBox(
+                  //구분선
+                  width: 500,
+                  child: Divider(color: Colors.grey, thickness: 1.5)),
 
-                  const SizedBox(
-                    //구분선
-                      width: 500,
-                      child: Divider(color: Colors.grey, thickness: 1.5)),
-
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(top: 8.0),
-                        child: const Text(
-                          '반납일을 선택해주세요.',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Container( //반납일 관련 박스
-                    padding: const EdgeInsets.only(
-                        left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
-                    margin: const EdgeInsets.all(10.0),
-                    width: 80*MediaQuery.of(context).size.width,
-
-                    decoration: BoxDecoration( //컨테이너 데코레이션
-                      border: Border.all(
-                        width: 1,
-                        color: Color(0xff3B4C66),
-                      ),
-                    ),
-                    child: SelectDayButton(), //대출날짜 고르는 버튼
-                  ),
-
-
-                  const Text('* 최대 대출 가능 기간은 한 학기(180일)입니다.'),
-
-                  const SizedBox(
-                    height: 12.0,
-                  ),
-
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Container(
-                    child: RentalButton(),
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      '반납일을 선택해주세요.',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
                   ),
+                ],
+              ),
 
-                  const Padding(
-                    padding: EdgeInsets.only(
-                        left: 5.0, top: 10.0, right: 5.0, bottom: 10.0),
+              Container(
+                //반납일 관련 박스
+                padding: EdgeInsets.only(
+                    left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
+                margin: EdgeInsets.all(10.0),
+                width: 80 * MediaQuery.of(context).size.width,
+
+                decoration: BoxDecoration(
+                  //컨테이너 데코레이션
+                  border: Border.all(
+                    width: 1,
+                    color: Color(0xff3B4C66),
                   ),
-                ]
-            ),
+                ),
+                child: SelectDayButton(), //대출날짜 고르는 버튼
+              ),
+
+              Text('* 최대 대출 가능 기간은 한 학기(180일)입니다.'),
+
+              SizedBox(
+                height: 12.0,
+              ),
+
+              Container(
+                child: RentalButton(),
+              ),
+
+              Padding(
+                padding: EdgeInsets.only(
+                    left: 5.0, top: 10.0, right: 5.0, bottom: 10.0),
+              ),
+            ]),
           ),
         ],
       ),
     );
   }
 
-
   ///반납일 고르는 버튼 + 선택에 따라 날짜가 수정되는 박스
   Widget SelectDayButton() {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff3B4C66),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xff3B4C66),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+          ),
+          child: Text('날짜를 선택해주세요'),
+          onPressed: () async {
+            DateTime? newDate = await showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime.now(),
+              lastDate: DateTime.now().add(
+                new Duration(days: 180),
               ),
-            ),
+            );
 
-            child: Text('날짜를 선택해주세요'),
+            // if 'CANCEL' => null
+            if (newDate == null) return;
 
-            onPressed: () async {
-              DateTime? newDate = await showDatePicker(
-                context: context,
-                initialDate: DateTime.now(),
-                firstDate: DateTime.now(),
-                lastDate: DateTime.now().add(
-                    new Duration(days: 180),
-                ),
-              );
-
-              // if 'CANCEL' => null
-              if (newDate == null) return;
-
-              // if 'OK' => DateTime
-              setState(() => date = newDate);
-            }
+            // if 'OK' => DateTime
+            setState(() => date = newDate);
+          }),
+      SizedBox(
+        // 사이 여백
+        width: 20.0,
+      ),
+      Container(
+        padding: EdgeInsets.all(5.0),
+        decoration: BoxDecoration(
+          //컨테이너 데코레이션
+          border: Border.all(
+            width: 1,
+            color: Colors.grey,
           ),
-
-          const SizedBox( // 사이 여백
-            width: 20.0,
-          ),
-
-          Container(
-            padding: EdgeInsets.all(5.0),
-            decoration: BoxDecoration(
-              //컨테이너 데코레이션
-              border: Border.all(
-                width: 1,
-                color: Colors.grey,
-              ),
-            ),
-            child: Text(
-              '${date.year}/${date.month}/${date.day}',
-              style: TextStyle(fontSize: 15),
-            ),
-          ),
-        ]
-    );
+        ),
+        child: Text(
+          '${date.year}/${date.month}/${date.day}',
+          style: TextStyle(fontSize: 15),
+        ),
+      ),
+    ]);
   }
-
 
   /// 대출하기 버튼
   Widget RentalButton() {
     return Container(
-      width: MediaQuery
-          .of(context)
-          .size
-          .width * 0.77,
-      height: MediaQuery
-          .of(context)
-          .size
-          .height * 0.06,
+      width: MediaQuery.of(context).size.width * 0.77,
+      height: MediaQuery.of(context).size.height * 0.06,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Color(0xff3B4C66),
@@ -270,21 +246,22 @@ class _RentalPageState extends State<RentalPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Text("도서 대출이 완료되었습니다."),
-
-                      Container( //텍스트 밑의 둥근모서리 박스
+                      Container(
+                        //텍스트 밑의 둥근모서리 박스
                         width: 210,
                         //가로 설정
                         height: 110,
                         //높이 설정
                         padding: EdgeInsets.all(15.0),
-                        margin: const EdgeInsets.all(10.0),
+                        margin: EdgeInsets.all(10.0),
 
-                        child: Column( //둥근모서리 박스 안 구성요소
+                        child: Column(
+                          //둥근모서리 박스 안 구성요소
                           children: <Widget>[
-                            OutlinedButton( // 버튼2
+                            OutlinedButton(
+                              // 버튼2
                               style: OutlinedButton.styleFrom(
-                                  fixedSize: const Size(180, 70)
-                              ),
+                                  fixedSize: Size(180, 70)),
                               onPressed: () {
                                 Get.to(HomePage());
                               },
@@ -293,19 +270,17 @@ class _RentalPageState extends State<RentalPage> {
                           ],
                         ),
 
-                        decoration: BoxDecoration( //컨테이너 데코레이션
-                          border: Border.all(
-                              width: 3,
-                              color: Color(0xff3B4C66)
-                          ),
+                        decoration: BoxDecoration(
+                          //컨테이너 데코레이션
+                          border:
+                              Border.all(width: 3, color: Color(0xff3B4C66)),
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
                     ],
                   ),
                 );
-              }
-          );
+              });
         },
         child: Text('대출하기'),
       ),

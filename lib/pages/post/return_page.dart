@@ -19,34 +19,30 @@ class _ReturnPageState extends State<ReturnPage> {
         title: Text('도서 반납'),
         backgroundColor: Color(0xff006285),
       ),
-      body: SafeArea(
-        child: Center(
-          child: Container(
-            width: MediaQuery
-                .of(context)
-                .size
-                .width,
-            height: MediaQuery
-                .of(context)
-                .size
-                .height,
-            padding: EdgeInsets.all(10.0),
-            margin: const EdgeInsets.all(10.0),
-            child: Column(
-
-              ///페이지 컨테이너 안 구성요소
-              children: [
-                SizedBox(
-                  height: 30,
-                ),
-                BookImage(context), //책 사진
-                BookData(context), // 책 이름, 정보
-                SizedBox(
-                  height: 30,
-                ),
-                ReturnDetail(context), //반납 상세 정보 칸
-                const Padding(padding: EdgeInsets.all(15.0))
-              ],
+      body: SingleChildScrollView(
+        ///overflow로 SingleChildScrollView 추가
+        child: SafeArea(
+          child: Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              padding: EdgeInsets.all(10.0),
+              margin: const EdgeInsets.all(10.0),
+              child: Column(
+                ///페이지 컨테이너 안 구성요소
+                children: [
+                  SizedBox(
+                    height: 30,
+                  ),
+                  BookImage(context), //책 사진
+                  BookData(context), // 책 이름, 정보
+                  SizedBox(
+                    height: 30,
+                  ),
+                  ReturnDetail(context), //반납 상세 정보 칸
+                  const Padding(padding: EdgeInsets.all(15.0))
+                ],
+              ),
             ),
           ),
         ),
@@ -54,16 +50,12 @@ class _ReturnPageState extends State<ReturnPage> {
     );
   }
 
-
   ///책 사진
   Widget BookImage(BuildContext context) {
     return Container(
       child: Image.asset(
         'assets/images/bookcover.jpg',
-        width: MediaQuery
-            .of(context)
-            .size
-            .width * 0.3,
+        width: MediaQuery.of(context).size.width * 0.3,
       ),
     );
   }
@@ -102,20 +94,15 @@ class _ReturnPageState extends State<ReturnPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: MediaQuery
-                .of(context)
-                .size
-                .width * 0.82,
+            width: MediaQuery.of(context).size.width * 0.82,
             padding: const EdgeInsets.only(
                 left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
             margin: const EdgeInsets.all(10.0),
-
             decoration: BoxDecoration(
               //컨테이너 데코레이션
               border: Border.all(width: 3, color: Color(0xff3B4C66)),
               borderRadius: BorderRadius.circular(20),
             ),
-
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -130,7 +117,7 @@ class _ReturnPageState extends State<ReturnPage> {
                 ),
 
                 const SizedBox(
-                  //구분선
+                    //구분선
                     width: 500,
                     child: Divider(color: Colors.grey, thickness: 1.5)),
 
@@ -154,7 +141,6 @@ class _ReturnPageState extends State<ReturnPage> {
       ),
     );
   }
-
 
   ///대출일자 박스
   Widget RentalDate(BuildContext context) {
@@ -199,7 +185,6 @@ class _ReturnPageState extends State<ReturnPage> {
       ),
     );
   }
-
 
   ///반납기한 박스
   Widget ReturnDeadline(BuildContext context) {
@@ -247,14 +232,8 @@ class _ReturnPageState extends State<ReturnPage> {
   /// 반납하기 버튼
   Widget ReturnButton(BuildContext context) {
     return Container(
-      width: MediaQuery
-          .of(context)
-          .size
-          .width * 0.77,
-      height: MediaQuery
-          .of(context)
-          .size
-          .height * 0.06,
+      width: MediaQuery.of(context).size.width * 0.77,
+      height: MediaQuery.of(context).size.height * 0.06,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Color(0xff3B4C66),
@@ -302,7 +281,7 @@ class _ReturnPageState extends State<ReturnPage> {
                         decoration: BoxDecoration(
                           //컨테이너 데코레이션
                           border:
-                          Border.all(width: 3, color: Color(0xff3B4C66)),
+                              Border.all(width: 3, color: Color(0xff3B4C66)),
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
