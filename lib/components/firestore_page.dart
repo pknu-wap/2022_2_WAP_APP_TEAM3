@@ -31,8 +31,6 @@ class _FireStorePageState extends State<FireStorePage> {
                 var bookcate=documentSnapshot['종류'];
                 var booknum=documentSnapshot['번호'];
 
-
-
                 return Card(
                   child: ListTile(
                     onTap: (){

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wap_library/components/book_list.dart';
 import 'package:wap_library/components/custom_text_form_feild.dart';
 import 'package:wap_library/components/getDeviceSize.dart';
 import 'package:wap_library/pages/main/list_page.dart';
@@ -18,8 +19,17 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
-  CollectionReference product = FirebaseFirestore.instance.collection('도서 목록');
+  /*CollectionReference product = FirebaseFirestore.instance.collection('도서 목록');
 
+  Widget _fetchData(BuildContext context){
+    return StreamBuilder(
+      stream: product.snapshots(),
+      builder: (context, snapshot){
+        if (!snapshot.hasData) return LinearProgressIndicator();
+        return
+      },
+    );
+  }*/
   List<Widget> pageList = <Widget>[
     ReturnPage(),
     RentalPage(),
@@ -125,6 +135,8 @@ class _DetailPageState extends State<DetailPage> {
       ],
     );
   }
+
+  CollectionReference product = FirebaseFirestore.instance.collection('도서 목록');
 
   @override
   Widget build(BuildContext context) {

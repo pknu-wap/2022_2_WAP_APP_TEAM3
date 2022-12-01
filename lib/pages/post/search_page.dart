@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class _SearchSreenState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('검색'),
+          title: Text('검색'),
         backgroundColor: Color(0xff006285),
       ),
       body: Container(
@@ -33,11 +34,11 @@ class _SearchSreenState extends State<SearchPage> {
           children: <Widget>[
             Container(
               /*color: Colors.black12,*/
-              padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+              padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    flex: 7,
+                    flex: 10,
                     child: TextField(
                       focusNode: focusNode,
                       style: TextStyle(fontSize: 15),
@@ -103,7 +104,43 @@ class _SearchSreenState extends State<SearchPage> {
                 ],
               ),
             ),
-          ],
+          StreamBuilder<QuerySnapshot>(
+            stream: (_searchText!="" && _searchText!= null)
+            ? FirebaseFirestore.instance
+            .collection('책 제목')
+            .where("searchKeywords", arrayContains: _searchText)
+            .snapshots()
+            : FirebaseFirestore.instance.collection("책 제목").snapshots(),
+            builder: (context, snapshot){
+              return (snapshot.connectionState == ConnectionState.waiting)
+                  ? Center(child: CircularProgressIndicator())
+                  : ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
+              itemBuilder: (context, index){
+                    DocumentSnapshot data = snapshot.data!.docs[index];
+                    return Container(
+                      padding: EdgeInsets.only(top:16),
+                      child: Column(
+                        children: [
+                          ListTile(
+                            leading: ConstrainedBox(
+                              constraints: BoxConstraints(
+                                minHeight: 40,
+                                minWidth: 40,
+                                maxHeight: 60,
+                                maxWidth: 60,
+                              ),
+                              child: Image.network(data['이미지'], fit: BoxFit.cover,),
+                            ),
+                            title: Text(data['책 제목']),
+                            subtitle: Text(data['종류']),
+                          )
+                        ],
+                      ),
+                    );
+              },);
+            }
+          )],
         ),
       ),
     );
