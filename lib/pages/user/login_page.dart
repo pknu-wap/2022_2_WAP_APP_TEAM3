@@ -93,9 +93,10 @@ class LoginPage extends StatelessWidget {
               },
             ),
           ),
+          SizedBox(height:10),
           Container(
             width: 250,
-            height: 60,
+            height: 40,
             color: Colors.white,
             child: TextButton(
               onPressed: () {

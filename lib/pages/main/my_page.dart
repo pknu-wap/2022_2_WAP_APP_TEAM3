@@ -15,7 +15,7 @@ class MyPage extends StatelessWidget {
       body: Center(
         child: Container(
           padding: EdgeInsets.all(25.0),
-          margin: EdgeInsets.fromLTRB(0, 0, 0, 150,),
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 50,),
           width: 250,
           height: 340,
           decoration:
@@ -36,7 +36,7 @@ class MyPage extends StatelessWidget {
               children: <Widget>[
 
                 SizedBox(
-                  height: 30.0,
+                  height: 25.0,
                 ),
                 const Text('MY PAGE',
                   style: TextStyle(

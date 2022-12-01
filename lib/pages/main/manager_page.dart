@@ -16,7 +16,7 @@ class ManagerPage extends StatelessWidget {
       body: Center(
         child: Container(
           padding: EdgeInsets.all(25.0),
-            margin: EdgeInsets.fromLTRB(0, 0, 0, 150,),
+            margin: EdgeInsets.fromLTRB(0, 0, 0, 50,),
             width: 250,
             height: 340,
             decoration:
@@ -37,11 +37,11 @@ class ManagerPage extends StatelessWidget {
               children: <Widget>[
 
                   SizedBox(
-                    height: 20.0,
+                    height: 25.0,
                   ),
               const Text('관리자 메뉴',
                     style: TextStyle(
-                      fontSize: 30.0,
+                      fontSize: 20.0,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),),
