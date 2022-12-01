@@ -84,7 +84,7 @@ class MyPage extends StatelessWidget {
                   height: 20.0,
                 ),
                 FloatingActionButton.extended(
-                    onPressed: () {Get.to(AppiledPage());},
+                    onPressed: () {Get.to(AppliedPage());},
                     label: Text("나의 신청내역",
                       style: TextStyle(
                         color: Colors.black,
