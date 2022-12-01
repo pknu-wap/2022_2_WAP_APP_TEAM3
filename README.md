@@ -1,6 +1,6 @@
-# wap_library
+# 2022 2학기 APP 3팀 [책대여대여]
 
-A new Flutter project.
+WAP 전용 도서 대여 시스템
 
 ## Getting Started
 
