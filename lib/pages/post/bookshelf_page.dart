@@ -15,7 +15,8 @@ class _BookShelfPageState extends State<BookShelfPage> {
         title: Text("My BookShelf"),
         backgroundColor: Color(0xff006285),
       ),
-      body: Center(
+      body: SingleChildScrollView(
+    child : Center(
         child: Column(
           children: /*<Widget>*/ [
             /*SizedBox(
@@ -71,6 +72,7 @@ class _BookShelfPageState extends State<BookShelfPage> {
             ),
           ],
         ),
+      ),
       ),
     );
   }

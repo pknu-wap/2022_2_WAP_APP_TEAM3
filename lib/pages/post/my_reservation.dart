@@ -15,7 +15,8 @@ class _MyReservationState extends State<MyReservation> {
         title: Text("My Reservation"),
         backgroundColor: Color(0xff006285),
       ),
-      body: Center(
+      body: SingleChildScrollView(
+        child: Center(
 
         child: Column(
           children: <Widget>[
@@ -83,8 +84,7 @@ class _MyReservationState extends State<MyReservation> {
           ],
         ),
       ),
-
-
+      ),
     );
   }
 }
