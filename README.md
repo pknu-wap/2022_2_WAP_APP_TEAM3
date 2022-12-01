@@ -1,6 +1,6 @@
 # 2022 2학기 APP 3팀 [책대여대여]
 
-![header](https://capsule-render.vercel.app/api?type=waving&color=white&height=100&section=header&text=책대여대여&fontSize=100)
+![header](https://capsule-render.vercel.app/api?type=waving&color=white&height=100&section=header&text=책대여대여&fontSize=60)
 
 WAP 전용 도서 대여 시스템
 
