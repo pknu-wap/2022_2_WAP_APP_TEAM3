@@ -2,6 +2,8 @@
 
 ![header](https://capsule-render.vercel.app/api?type=waving&color=white&height=130&section=header&text=책대여대여&fontSize=60)
 
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=150&section=footer)
+
 WAP 전용 도서 대여 시스템
 
 <img src="https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=Dart&logoColor=white"/>
