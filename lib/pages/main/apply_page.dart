@@ -7,6 +7,7 @@ import 'package:wap_library/pages/main/home_page.dart';
 import '../post/applied_page.dart';
 
 ///각각의 stl위젯을 하나의 stf위젯으로 바꿈, 기존의 stl위젯은 widget으로 만듦.
+///
 ///도서신청 페이지
 class ApplyPage extends StatefulWidget {
   State<ApplyPage> createState() => _ApplyPageState();
