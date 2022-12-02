@@ -2,7 +2,7 @@
 
 <div align="center">
   
-![header](https://capsule-render.vercel.app/api?type=waving&color=3E4C67&height=150&width="100%"&section=header&text=책대여대여&fontSize=60&fontColor=B4E0EB)
+![header](https://capsule-render.vercel.app/api?type=waving&color=3E4C67&height=150&width="100%"&section=header&text=책대여대여&fontSize=60&fontColor=E2F5F9)
 
 
 WAP 전용 도서 대여 시스템
