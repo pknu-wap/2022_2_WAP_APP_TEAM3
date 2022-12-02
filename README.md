@@ -1,9 +1,10 @@
 # 2022 2학기 APP 3팀 [책대여대여]
 
-![header](https://capsule-render.vercel.app/api?type=waving&color=006285&height=130&width="100%"&section=header&text=책대여대여&fontSize=60&fontColor=3B4C66)
-
 <div align="center">
   
+![header](https://capsule-render.vercel.app/api?type=waving&color=3E4C67&height=150&width="100%"&section=header&text=책대여대여&fontSize=60&fontColor=B4E0EB)
+
+
 WAP 전용 도서 대여 시스템
 
 <img src="https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=Dart&logoColor=white">
@@ -12,11 +13,13 @@ WAP 전용 도서 대여 시스템
 <img src="https://img.shields.io/badge/Android Studio-3DDC84?style=flat-square&logo=Android Studio&logoColor=white"/>
 
 
-</div>
 
 * * *
 
 [2022_2_WAP_APP_TEAM3_PPT.zip](https://github.com/pknu-wap/2022_2_WAP_APP_TEAM3/files/10130617/2022_2_WAP_APP_TEAM3_PPT.zip)
 
 
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=006285&height=150&section=footer)
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=3E4C67&height=150&section=footer)
+  
+  
+</div>
