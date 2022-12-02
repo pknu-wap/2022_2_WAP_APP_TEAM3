@@ -1,6 +1,6 @@
 # 2022 2학기 APP 3팀 [책대여대여]
 
-![header](https://capsule-render.vercel.app/api?type=waving&color=006285&height=130&section=header&text=책대여대여&fontSize=60&fontColor=3B4C66)
+![header](https://capsule-render.vercel.app/api?type=waving&color=006285&height=130&width="100%"&section=header&text=책대여대여&fontSize=60&fontColor=3B4C66)
 
 <div align="center">
   
