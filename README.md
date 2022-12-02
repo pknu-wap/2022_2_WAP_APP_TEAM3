@@ -1,6 +1,6 @@
 # 2022 2학기 APP 3팀 [책대여대여]
 
-![header](https://capsule-render.vercel.app/api?type=waving&color=white&height=130&section=header&text=책대여대여&fontSize=60&fontColor=d6ace6)
+![header](https://capsule-render.vercel.app/api?type=waving&color=006285&height=130&section=header&text=책대여대여&fontSize=60&fontColor=d6ace6)
 
 WAP 전용 도서 대여 시스템
 
@@ -15,4 +15,4 @@ WAP 전용 도서 대여 시스템
 [2022_2_WAP_APP_TEAM3_PPT.zip](https://github.com/pknu-wap/2022_2_WAP_APP_TEAM3/files/10130617/2022_2_WAP_APP_TEAM3_PPT.zip)
 
 
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=white&height=150&section=footer)
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=006285&height=150&section=footer)
