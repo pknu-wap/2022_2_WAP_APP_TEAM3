@@ -1,11 +1,12 @@
+<div align="center">
+  
 # 2022 2학기 APP 3팀 [책대여대여]
 
-<div align="center">
   
 ![header](https://capsule-render.vercel.app/api?type=waving&color=3E4C67&height=200&section=header&text=책대여대여&fontSize=60&fontColor=F9F9F9&animation=twinkling&fontAlignY=40&)
 
 
-# :books: WAP 전용 도서 대여 시스템 :iphone:
+## :books: WAP 전용 도서 대여 시스템 :iphone:
 
 <br/>
   
