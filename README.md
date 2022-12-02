@@ -14,7 +14,7 @@ WAP 전용 도서 대여 시스템
 
 
 
-* * * {: width="100%"}
+* * * {: width="100"}
 
 [2022_2_WAP_APP_TEAM3_PPT.zip](https://github.com/pknu-wap/2022_2_WAP_APP_TEAM3/files/10130617/2022_2_WAP_APP_TEAM3_PPT.zip)
 
