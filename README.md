@@ -2,7 +2,7 @@
 
 <div align="center">
   
-![header](https://capsule-render.vercel.app/api?type=waving&color=3E4C67&height=150&width="100%"&section=header&text=책대여대여&fontSize=60&fontColor=E2F5F9)
+![header](https://capsule-render.vercel.app/api?type=waving&color=3E4C67&height=180&width="100%"&section=header&text=책대여대여&fontSize=60&fontColor=E2F5F9)
 
 
 WAP 전용 도서 대여 시스템
@@ -14,12 +14,12 @@ WAP 전용 도서 대여 시스템
 
 
 
-* * *
+* * * {: width="100%"}
 
 [2022_2_WAP_APP_TEAM3_PPT.zip](https://github.com/pknu-wap/2022_2_WAP_APP_TEAM3/files/10130617/2022_2_WAP_APP_TEAM3_PPT.zip)
 
 
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=3E4C67&height=150&section=footer)
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=3E4C67&height=170&section=footer)
   
   
 </div>
