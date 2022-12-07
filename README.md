@@ -44,8 +44,13 @@
 
 * * * 
 
+from 2022/09/22 to 2022/12/03 :arrow_right:
 [2022_2_WAP_APP_TEAM3_PPT.zip](https://github.com/pknu-wap/2022_2_WAP_APP_TEAM3/files/10130617/2022_2_WAP_APP_TEAM3_PPT.zip)
 
+
+# :exclamation: 2023/01/01 : restart :exclamation:
+
+<br/>
 
 ![Footer](https://capsule-render.vercel.app/api?type=waving&color=3E4C67&height=200&section=footer)
   
