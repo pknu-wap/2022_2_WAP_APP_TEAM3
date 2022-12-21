@@ -47,12 +47,14 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.wap_library"
-        // You can update the following values to match your application needs.
+        // You can update the following values to match youcdr application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
         //minSdkVersion flutter.minSdkVersion
         minSdkVersion 19
         multiDexEnabled true
-        targetSdkVersion flutter.targetSdkVersion
+        targetSdkVersion 31
+        compileSdkVersion 32
+        //targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
