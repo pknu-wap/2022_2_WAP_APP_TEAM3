@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wap_library/pages/main/home_page.dart';
-import 'package:wap_library/pages/post/detail_page.dart';
 import 'package:get/get.dart';
 
 /// 도서반납 페이지!
@@ -16,17 +15,16 @@ class _ReturnPageState extends State<ReturnPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('도서 반납'),
+        title: const Text('도서 반납'),
         backgroundColor: Color(0xff006285),
       ),
       body: SingleChildScrollView(
-        ///overflow로 SingleChildScrollView 추가
         child: SafeArea(
           child: Center(
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               margin: const EdgeInsets.all(10.0),
               child: Column(
                 ///페이지 컨테이너 안 구성요소
@@ -148,12 +146,10 @@ class _ReturnPageState extends State<ReturnPage> {
 
     return Container(
       width: 125,
-      //가로 설정
       height: 130,
       margin: EdgeInsets.all(10.0),
       padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        //컨테이너 데코레이션
         border: Border.all(
           width: 1,
           color: Colors.grey,
@@ -170,7 +166,6 @@ class _ReturnPageState extends State<ReturnPage> {
           Container(
             padding: EdgeInsets.all(5.0),
             decoration: BoxDecoration(
-              //컨테이너 데코레이션
               border: Border.all(
                 width: 1,
                 color: Colors.grey,
@@ -191,12 +186,10 @@ class _ReturnPageState extends State<ReturnPage> {
     DateTime date = DateTime.now();
     return Container(
       width: 125,
-      //가로 설정
       height: 130,
       margin: EdgeInsets.all(10.0),
       padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        //컨테이너 데코레이션
         border: Border.all(
           width: 1,
           color: Colors.grey,
@@ -213,7 +206,6 @@ class _ReturnPageState extends State<ReturnPage> {
           Container(
             padding: EdgeInsets.all(5.0),
             decoration: BoxDecoration(
-              //컨테이너 데코레이션
               border: Border.all(
                 width: 1,
                 color: Colors.grey,
@@ -249,11 +241,11 @@ class _ReturnPageState extends State<ReturnPage> {
               barrierDismissible: false,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: Icon(Icons.check_circle),
+                  title: const Icon(Icons.check_circle),
                   content: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Text("도서 반납이 완료되었습니다."),
+                      const Text("도서 반납이 완료되었습니다."),
                       Container(
                         //텍스트 밑의 둥근모서리 박스
                         width: 210,
@@ -267,7 +259,6 @@ class _ReturnPageState extends State<ReturnPage> {
                           //둥근모서리 박스 안 구성요소
                           children: <Widget>[
                             OutlinedButton(
-                              // 버튼2
                               style: OutlinedButton.styleFrom(
                                   fixedSize: const Size(180, 70)),
                               onPressed: () {
@@ -279,7 +270,6 @@ class _ReturnPageState extends State<ReturnPage> {
                         ),
 
                         decoration: BoxDecoration(
-                          //컨테이너 데코레이션
                           border:
                               Border.all(width: 3, color: Color(0xff3B4C66)),
                           borderRadius: BorderRadius.circular(20),

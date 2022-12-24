@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:wap_library/pages/main/home_page.dart';
-import 'package:wap_library/pages/post/detail_page.dart';
 import 'package:get/get.dart';
 
 ///도서예약 페이지
@@ -17,27 +15,24 @@ class _ReservationPageState extends State<ReservationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('도서 예약'),
+        title: const Text('도서 예약'),
         backgroundColor: Color(0xff006285),
       ),
       body: SingleChildScrollView(
-        ///overflow로 SingleChildScrollView 추가
         child: SafeArea(
           child: Center(
             child: Container(
-              //width: 700,
-              //height: 1500,
               padding: EdgeInsets.all(10.0),
               margin: const EdgeInsets.all(10.0),
               child: Column(
                 ///페이지 컨테이너 안 구성요소
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   BookImage(context), //책 사진
                   BookData(context), // 책 이름, 정보
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   ReservationDetail(context), //대출 상세 설정 칸
@@ -102,7 +97,6 @@ Widget ReservationDetail(BuildContext context) {
               left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
           margin: const EdgeInsets.all(10.0),
           decoration: BoxDecoration(
-            //컨테이너 데코레이션
             border: Border.all(width: 3, color: Color(0xff3B4C66)),
             borderRadius: BorderRadius.circular(20),
           ),
@@ -148,7 +142,6 @@ Widget ReservationDetail(BuildContext context) {
               margin: const EdgeInsets.all(10.0),
 
               decoration: BoxDecoration(
-                //컨테이너 데코레이션
                 border: Border.all(
                   width: 1,
                   color: Colors.grey,
@@ -158,7 +151,7 @@ Widget ReservationDetail(BuildContext context) {
               child: Center(
                 child: Text(
                   '${date.year}/${date.month}/${date.day}',
-                  style: TextStyle(fontSize: 15),
+                  style: const TextStyle(fontSize: 15),
                 ),
               ),
             ),
@@ -208,7 +201,7 @@ Widget RentalButton(BuildContext context) {
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Text("도서 예약이 완료되었습니다."),
+                    const Text("도서 예약이 완료되었습니다."),
                     Container(
                       //텍스트 밑의 둥근모서리 박스
                       width: 210, //가로 설정
@@ -220,7 +213,6 @@ Widget RentalButton(BuildContext context) {
                         //둥근모서리 박스 안 구성요소
                         children: <Widget>[
                           OutlinedButton(
-                            // 버튼2
                             style: OutlinedButton.styleFrom(
                                 fixedSize: const Size(180, 70)),
                             onPressed: () {
@@ -232,7 +224,6 @@ Widget RentalButton(BuildContext context) {
                       ),
 
                       decoration: BoxDecoration(
-                        //컨테이너 데코레이션
                         border: Border.all(width: 3, color: Color(0xff3B4C66)),
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -242,7 +233,7 @@ Widget RentalButton(BuildContext context) {
               );
             });
       },
-      child: Text('예약하기'),
+      child: const Text('예약하기'),
     ),
   );
 }

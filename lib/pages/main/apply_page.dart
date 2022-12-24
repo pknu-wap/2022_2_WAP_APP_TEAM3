@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:wap_library/pages/main/home_page.dart';
-import 'package:wap_library/pages/main/list_page.dart';
-
 import '../post/applied_page.dart';
-
-///각각의 stl위젯을 하나의 stf위젯으로 바꿈, 기존의 stl위젯은 widget으로 만듦.
 
 ///도서신청 페이지
 
@@ -49,75 +44,66 @@ class _ApplyPageState extends State<ApplyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //resizeToAvoidBottomInset : false,
       body: SafeArea(
         child: SingleChildScrollView(
-          child : Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top:40, left:20.0, right:20.0, bottom:20.0),
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                    top: 40, left: 20.0, right: 20.0, bottom: 20.0),
+              ),
+              Container(
+                width: 470,
+                height: 60,
+                padding: EdgeInsets.all(10.0),
+                margin: const EdgeInsets.only(left: 30.0, right: 30.0),
+                decoration: BoxDecoration(
+                  color: Color(0xff3B4C66),
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.7),
+                      spreadRadius: 0,
+                      blurRadius: 5.0,
+                      offset: Offset(0, 10),
+                    )
+                  ],
                 ),
-
-
-                Container(
-                  width: 470,
-                  height: 60,
-                  padding: EdgeInsets.all(10.0),
-                  margin: const EdgeInsets.only(left:30.0, right: 30.0),
-                  decoration:
-                  BoxDecoration(
-                      color: Color(0xff3B4C66),
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.7),
-                          spreadRadius: 0,
-                          blurRadius: 5.0,
-                          offset: Offset(0, 10),
-                        )
-                      ]
-                  ),
-                  child: Center(
-                    child: Text(
-                      '희망 도서 신청하기',
-                      style: TextStyle(
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                child: Center(
+                  child: Text(
+                    '희망 도서 신청하기',
+                    style: TextStyle(
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                 ),
-
-                Container(
-                  width: 500,
-                  //가로 설정
-                  padding: EdgeInsets.all(10.0),
-                  margin: const EdgeInsets.all(30.0),
-
-                  decoration: BoxDecoration(
-                    //컨테이너 데코레이션
-                    border: Border.all(width: 3, color: Color(0xff3B4C66)),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-
-                  child: SingleChildScrollView(
-
-                    child: Column(
-                      ///페이지 컨테이너 안 구성요소
-                      children: [
-                        BookNameInput(), //도서명 기입
-                        WriterNameInput(), //저자명 기입
-                        PublisherNameInput(), //출판사명 기입
-                        ApplyButton(), //신청 버튼
-                        Padding(
-                          padding: EdgeInsets.all(10.0),
-                        )
-                      ],
-                    ),
+              ),
+              Container(
+                width: 500,
+                padding: EdgeInsets.all(10.0),
+                margin: const EdgeInsets.all(30.0),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 3, color: Color(0xff3B4C66)),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    ///페이지 컨테이너 안 구성요소
+                    children: [
+                      BookNameInput(), //도서명 기입
+                      WriterNameInput(), //저자명 기입
+                      PublisherNameInput(), //출판사명 기입
+                      ApplyButton(), //신청 버튼
+                      Padding(
+                        padding: EdgeInsets.all(10.0),
+                      )
+                    ],
                   ),
                 ),
-              ]
+              ),
+            ],
           ),
         ),
       ),
@@ -132,7 +118,7 @@ class _ApplyPageState extends State<ApplyPage> {
         controller: textarea_n,
         onChanged: (bookname) {},
         keyboardType: TextInputType.name,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           labelText: '도서명',
           helperText: '',
         ),
@@ -148,7 +134,7 @@ class _ApplyPageState extends State<ApplyPage> {
         controller: textarea_w,
         onChanged: (bookname) {},
         keyboardType: TextInputType.name,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           labelText: '저자명',
           helperText: '',
         ),
@@ -164,7 +150,7 @@ class _ApplyPageState extends State<ApplyPage> {
         controller: textarea_p,
         onChanged: (bookname) {},
         keyboardType: TextInputType.name,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           labelText: '출판사명',
           helperText: '',
         ),
@@ -200,11 +186,16 @@ class _ApplyPageState extends State<ApplyPage> {
                       Container(
                         //텍스트 밑의 둥근모서리 박스
                         width: 210,
-                        //가로 설정
                         height: 210,
-                        //높이 설정
                         padding: EdgeInsets.all(15.0),
                         margin: const EdgeInsets.all(10.0),
+
+                        decoration: BoxDecoration(
+                          //컨테이너 데코레이션
+                          border:
+                              Border.all(width: 3, color: Color(0xff3B4C66)),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
 
                         child: Column(
                           //둥근모서리 박스 안 구성요소
@@ -239,16 +230,9 @@ class _ApplyPageState extends State<ApplyPage> {
                               onPressed: () {
                                 Get.to(AppliedPage());
                               },
-                              child: Text('나의 신청 내역 보러가기'),
+                              child: const Text('나의 신청 내역 보러가기'),
                             ),
                           ],
-                        ),
-
-                        decoration: BoxDecoration(
-                          //컨테이너 데코레이션
-                          border:
-                          Border.all(width: 3, color: Color(0xff3B4C66)),
-                          borderRadius: BorderRadius.circular(20),
                         ),
                       ),
                       Container(
@@ -256,7 +240,7 @@ class _ApplyPageState extends State<ApplyPage> {
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text('취소'),
+                          child: const Text('취소'),
                         ),
                       ),
                     ],
@@ -264,7 +248,7 @@ class _ApplyPageState extends State<ApplyPage> {
                 );
               });
         },
-        child: Text('신청하기'),
+        child: const Text('신청하기'),
       ),
     );
   }
