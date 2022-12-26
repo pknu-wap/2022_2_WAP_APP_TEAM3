@@ -18,9 +18,6 @@ class _SearchSreenState extends State<SearchPage> {
     });
   }
 
-  /*Widget _buildBody(BuildContext context){
-    return StreamBuilder<QuerySnapshot>(stream: Firestore.in,)
-  }*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +26,6 @@ class _SearchSreenState extends State<SearchPage> {
         child: Column(
           children: <Widget>[
             Container(
-              /*color: Colors.black12,*/
               padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
               child: Row(
                 children: <Widget>[

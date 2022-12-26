@@ -6,16 +6,13 @@ import 'package:wap_library/components/custom_elevated_button.dart';
 import 'package:wap_library/pages/main/home_page.dart';
 import 'package:wap_library/pages/user/join_page.dart';
 import 'package:wap_library/util/vaildator_util.dart';
-import 'package:wap_library/server/server.dart';
-//
+
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: /*Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: */ListView(
+      body: ListView(
           children: [
             Container(
               color: Color(0xff006285),
@@ -27,22 +24,6 @@ class LoginPage extends StatelessWidget {
                 height: 90,
               ),
             ),
-            /*Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 50, bottom: 50),
-              child: Text(
-                "LOGIN",
-                style: TextStyle(
-                  fontSize: 30,
-                  color: Color(0xff006285),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),*/
-            /*Container(
-              width: 10,
-              child : Image(image: AssetImage("assets/images/logo.png"))
-            ),*/
             Container(
               color: Colors.white,
               padding: EdgeInsets.only(top:50, bottom: 0),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wap_library/components/firestore_page.dart';
 import 'package:wap_library/pages/main/apply_page.dart';
-import 'package:wap_library/pages/main/list_page.dart';
 import 'package:wap_library/pages/main/manager_page.dart';
 import 'package:wap_library/pages/main/my_page.dart';
 import 'package:wap_library/pages/post/search_page.dart';
@@ -40,7 +39,6 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Color(0xff006285),
           title: Text("책 대여 대여"),
           centerTitle: true,
-          //automaticallyImplyLeading: false,
           actions: [
             IconButton(
               icon: Icon(Icons.manage_accounts),

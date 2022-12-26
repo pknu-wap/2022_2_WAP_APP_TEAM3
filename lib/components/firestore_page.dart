@@ -47,9 +47,6 @@ class _FireStorePageState extends State<FireStorePage> {
                     ),
                     title: Text(bookname),
                     subtitle: Text(bookcate),
-
-
-
                   ),
                 );
               },
