@@ -89,7 +89,7 @@ class ManagerPage extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
-                ///도서조회버튼
+                ///도서 조회 버튼
                 FloatingActionButton.extended(
                     onPressed: () {Get.to(SearchPage());},
                     label: Text("도서 조회하기",
