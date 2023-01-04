@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+///나의 책장페이지
 class BookShelfPage extends StatefulWidget {
   const BookShelfPage({Key? key}) : super(key: key);
 
@@ -41,7 +41,7 @@ class PhotoItem extends State<BookShelfPage>{
 class _BookShelfPageState extends State<BookShelfPage> {
 
 
-
+///나의 책장 임시 책이미지 리스트
   final List _items =[
     /*"https://image.yes24.com/goods/102347474/XL"*//* "MATLAB를 이용한 디지털영상처리"),*/
     "http://image.kyobobook.co.kr/images/book/xlarge/162/x9791185294162.jpg", /*"전기전자공학개론"),*/
@@ -111,6 +111,7 @@ class _BookShelfPageState extends State<BookShelfPage> {
                         offset: Offset(0, 10),
                       )
                     ]),
+                ///그리드뷰
                 child: GridView.count(
                   crossAxisCount: 3, //1 개의 행에 보여줄 item 개수
                   childAspectRatio: 2 / 3, //item 의 가로 1, 세로 2 의 비율
@@ -127,6 +128,7 @@ class _BookShelfPageState extends State<BookShelfPage> {
 
                       ),
                       child: Image.network(_items[index]),
+                      ///채울 이미지 지정
                     );
 
                   }),

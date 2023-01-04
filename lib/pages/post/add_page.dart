@@ -9,7 +9,7 @@ import 'package:wap_library/util/vaildator_util.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'camera.dart';
-
+///도서추가페이지
 class AddPage extends StatelessWidget {
   const AddPage({super.key});
 
@@ -57,6 +57,7 @@ class AddPage extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
+                ///도서 정보 입력창
                 TextField(
                   decoration: InputDecoration(
                     filled: true,
@@ -129,6 +130,7 @@ class AddPage extends StatelessWidget {
                 FloatingActionButton.extended(
 
                     onPressed: () {
+                      ///이미지 추가 버튼 클릭 시 뜨는 팝업창
                       showDialog(context: context,
 
                           barrierDismissible: true,

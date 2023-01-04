@@ -7,12 +7,14 @@ import '../post/applied_page.dart';
 import '../post/bookshelf_page.dart';
 import '../post/my_reservation.dart';
 
+///마이페이지
 class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
       body: Center(
+        ///마이페이지박스
         child: Container(
           padding: EdgeInsets.all(25.0),
           margin: EdgeInsets.fromLTRB(0, 0, 0, 50,),
@@ -47,6 +49,7 @@ class MyPage extends StatelessWidget {
                 SizedBox(
                   height: 30.0,
                 ),
+                ///나의책장버튼
                 FloatingActionButton.extended(
                     onPressed: () {Get.to(BookShelfPage());},
                     label: Text("나의 책장",
@@ -65,6 +68,7 @@ class MyPage extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
+                ///나의예약버튼
                 FloatingActionButton.extended(
                     onPressed: () {Get.to(MyReservation());},
                     label: Text("나의 예약",
@@ -83,6 +87,7 @@ class MyPage extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
+                ///나의신청내역버튼
                 FloatingActionButton.extended(
                     onPressed: () {Get.to(AppliedPage());},
                     label: Text("나의 신청내역",

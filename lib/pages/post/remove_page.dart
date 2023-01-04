@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+///도서 삭제 페이지
 class RemovePage extends StatefulWidget {
   _SearchSreenState createState() => _SearchSreenState();
 }
 
 class _SearchSreenState extends State<RemovePage> {
-  final TextEditingController _filter = TextEditingController(); //검색위젯컨트롤
-  FocusNode focusNode = FocusNode(); //검색위젯위에 커서가 있는가?
-  String _searchText = ""; //현재검색값
+  final TextEditingController _filter = TextEditingController(); ///검색위젯컨트롤
+  FocusNode focusNode = FocusNode(); ///검색위젯위에 커서가 있는가?
+  String _searchText = ""; ///현재검색값
 
   _SearchSreenState() {
-    _filter.addListener(() { //filter가 변화를 감지하여 searchText의 값 변화시킴
+    _filter.addListener(() { ///filter가 변화를 감지하여 searchText의 값 변화시킴
       setState(() {
         _searchText = _filter.text;
       });
@@ -48,7 +48,7 @@ class _SearchSreenState extends State<RemovePage> {
                         fillColor: Color(0xffF2F3F5),
                         prefixIcon:
                         Icon(Icons.search, color: Colors.black26, size: 20),
-                        suffixIcon: focusNode.hasFocus //우측에 보이기 위한 아이콘
+                        suffixIcon: focusNode.hasFocus ///우측에 보이기 위한 아이콘
                             ? IconButton(
                           icon: Icon(
                             Icons.cancel,

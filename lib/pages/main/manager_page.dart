@@ -5,6 +5,7 @@ import 'package:wap_library/pages/post/add_page.dart';
 import '../post/remove_page.dart';
 import '../post/search_page.dart';
 
+///관리자페이지
 class ManagerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,9 @@ class ManagerPage extends StatelessWidget {
         backgroundColor: Color(0xff006285),
       ),
       body: Center(
-        child: Container(
+        child:
+        ///관리자메뉴박스
+        Container(
           padding: EdgeInsets.all(25.0),
             margin: EdgeInsets.fromLTRB(0, 0, 0, 50,),
             width: 250,
@@ -48,6 +51,7 @@ class ManagerPage extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
+                ///도서추가버튼
                 FloatingActionButton.extended(
                     onPressed: () {Get.to(AddPage());},
                     label: Text("도서 추가하기",
@@ -66,6 +70,7 @@ class ManagerPage extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
+                ///도서삭제버튼
                 FloatingActionButton.extended(
                     onPressed: () {Get.to(RemovePage());},
                     label: Text("도서 삭제하기",
@@ -84,6 +89,7 @@ class ManagerPage extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
+                ///도서조회버튼
                 FloatingActionButton.extended(
                     onPressed: () {Get.to(SearchPage());},
                     label: Text("도서 조회하기",

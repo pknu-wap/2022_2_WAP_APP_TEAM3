@@ -41,7 +41,7 @@ class PhotoItem extends State<AppliedPage>{
 class _AppliedPageState extends State<AppliedPage> {
 
 
-
+///책 임시 리스트
   final List _items =[
     /*"https://image.yes24.com/goods/102347474/XL"*//* "MATLAB를 이용한 디지털영상처리"),*/
     "http://image.kyobobook.co.kr/images/book/xlarge/162/x9791185294162.jpg", /*"전기전자공학개론"),*/
@@ -70,6 +70,7 @@ class _AppliedPageState extends State<AppliedPage> {
         title: Text("My Appiled Book"),
         backgroundColor: Color(0xff006285),
       ),
+      /// 스크롤뷰
       body: SingleChildScrollView(
         child : Center(
           child: Column(
@@ -111,11 +112,12 @@ class _AppliedPageState extends State<AppliedPage> {
                         offset: Offset(0, 10),
                       )
                     ]),
+                /// 신청내역 그리드뷰
                 child: GridView.count(
-                  crossAxisCount: 3, //1 개의 행에 보여줄 item 개수
-                  childAspectRatio: 2 / 3, //item 의 가로 1, 세로 2 의 비율
-                  mainAxisSpacing: 20, //수평 Padding
-                  crossAxisSpacing: 20, //수직 Padding
+                  crossAxisCount: 3, ///1 개의 행에 보여줄 item 개수
+                  childAspectRatio: 2 / 3, ///item 의 가로 1, 세로 2 의 비율
+                  mainAxisSpacing: 20, ///수평 Padding
+                  crossAxisSpacing: 20, ///수직 Padding
                   children: List.generate(_items.length, (index) {
 
                     //item 의 반목문 항목 형성
@@ -127,6 +129,7 @@ class _AppliedPageState extends State<AppliedPage> {
 
                       ),
                       child: Image.network(_items[index]),
+                      ///채울 이미지 지정
                     );
 
                   }),
