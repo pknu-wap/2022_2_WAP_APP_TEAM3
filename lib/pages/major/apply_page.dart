@@ -49,8 +49,7 @@ class _ApplyPageState extends State<ApplyPage> {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(
-                    top: 40, left: 20.0, right: 20.0, bottom: 20.0),
+                padding: EdgeInsets.only(top: 40, left: 20.0, right: 20.0, bottom: 20.0),
               ),
               Container(
                 width: 470,
