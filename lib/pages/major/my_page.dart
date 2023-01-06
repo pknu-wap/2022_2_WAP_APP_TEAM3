@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wap_library/pages/post/add_page.dart';
-import 'package:wap_library/pages/post/reservation_page.dart';
+import 'package:wap_library/pages/manager/add_page.dart';
+import 'package:wap_library/pages/detail/reservation_page.dart';
 
-import '../post/applied_page.dart';
-import '../post/bookshelf_page.dart';
-import '../post/my_reservation.dart';
+import '../user/my_apply_page.dart';
+import '../user/my_rental_page.dart';
+import '../user/my_reservation_page.dart';
 
 ///마이페이지
 class MyPage extends StatelessWidget {

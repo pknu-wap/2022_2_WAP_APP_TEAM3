@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import '../post/applied_page.dart';
+import '../user/my_apply_page.dart';
 
 ///도서신청 페이지
 

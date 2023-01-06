@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wap_library/pages/main/home_page.dart';
+import 'package:wap_library/pages/major/home_page.dart';
 import 'package:get/get.dart';
 
 ///도서대출 페이지

@@ -8,7 +8,7 @@ import 'package:wap_library/components/custom_textarea.dart';
 import 'package:wap_library/util/vaildator_util.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'camera.dart';
+import '../../components/camera.dart';
 ///도서추가페이지
 class AddPage extends StatelessWidget {
   const AddPage({super.key});

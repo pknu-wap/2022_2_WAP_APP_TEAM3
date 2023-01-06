@@ -2,10 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wap_library/pages/post/location_page.dart';
-import 'package:wap_library/pages/post/rental_page.dart';
-import 'package:wap_library/pages/post/reservation_page.dart';
-import 'package:wap_library/pages/post/return_page.dart';
+import 'package:wap_library/pages/detail/rental_page.dart';
+import 'package:wap_library/pages/detail/reservation_page.dart';
+import 'package:wap_library/pages/detail/return_page.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -98,12 +97,6 @@ class _DetailPageState extends State<DetailPage> {
           Get.to(RentalPage());
         },
             child:Text("대출하기")),
-        ElevatedButton(
-            style: ElevatedButton.styleFrom(primary:Color(0xff007FA1),),
-            onPressed: (){
-          Get.to(LocationPage());
-        },
-            child:Text("위치확인")),
         ElevatedButton(
             style: ElevatedButton.styleFrom(primary:Color(0xff007FA1),),
             onPressed: (){

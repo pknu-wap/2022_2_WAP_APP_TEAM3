@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:wap_library/pages/post/detail_page.dart';
+import 'package:wap_library/pages/detail/detail_page.dart';
 
 class FireStorePage extends StatefulWidget {
   const FireStorePage({Key? key}) : super(key: key);

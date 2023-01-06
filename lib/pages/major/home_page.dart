@@ -2,9 +2,9 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wap_library/components/firestore_page.dart';
-import 'package:wap_library/pages/main/apply_page.dart';
-import 'package:wap_library/pages/main/manager_page.dart';
-import 'package:wap_library/pages/main/my_page.dart';
+import 'package:wap_library/pages/major/apply_page.dart';
+import 'package:wap_library/pages/manager/manager_page.dart';
+import 'my_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

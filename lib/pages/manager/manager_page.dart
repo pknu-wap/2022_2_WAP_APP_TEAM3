@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wap_library/pages/post/add_page.dart';
-import '../post/remove_page.dart';
+import 'package:wap_library/pages/manager/add_page.dart';
+import 'remove_page.dart';
 
 ///관리자페이지
 class ManagerPage extends StatelessWidget {

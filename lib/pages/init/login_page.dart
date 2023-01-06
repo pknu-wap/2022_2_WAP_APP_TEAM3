@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:wap_library/components/custom_text_form_feild.dart';
 import 'package:wap_library/components/custom_elevated_button.dart';
-import 'package:wap_library/pages/main/home_page.dart';
-import 'package:wap_library/pages/user/join_page.dart';
+import 'package:wap_library/pages/major/home_page.dart';
+import 'package:wap_library/pages/init/join_page.dart';
 import 'package:wap_library/util/vaildator_util.dart';
 
 class LoginPage extends StatelessWidget {
