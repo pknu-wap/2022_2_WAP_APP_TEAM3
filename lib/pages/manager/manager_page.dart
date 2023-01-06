@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wap_library/pages/manager/add_page.dart';
+import 'package:wap_library/pages/manager/search_page.dart';
 import 'remove_page.dart';
 
 ///관리자페이지
@@ -88,7 +89,7 @@ class ManagerPage extends StatelessWidget {
                   height: 20.0,
                 ),
                 ///도서 조회 버튼
-                /*FloatingActionButton.extended(
+                FloatingActionButton.extended(
                     onPressed: () {Get.to(SearchPage());},
                     label: Text("도서 조회하기",
                       style: TextStyle(
@@ -102,7 +103,7 @@ class ManagerPage extends StatelessWidget {
                       size: 30,
                       color: Colors.black,
                     )
-                ),*/
+                ),
 
 
           ]
