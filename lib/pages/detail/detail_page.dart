@@ -24,7 +24,7 @@ class _DetailPageState extends State<DetailPage> {
     {
       'name': '이홍주',
       'pic': 'https://picsum.photos/300/30',
-      'message': '책 추천합니다~!'
+      'message': '책 추천합니다!'
     },
     {
       'name': '임은서',
