@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:wap_library/components/custom_text_form_feild.dart';
+import 'package:wap_library/components/custom_text_form_field.dart';
 import 'package:wap_library/components/custom_textarea.dart';
 import 'package:wap_library/util/vaildator_util.dart';
 import 'package:image_picker/image_picker.dart';
