@@ -9,7 +9,6 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-
   Future<bool> checkLogin() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool isLogin = prefs.getBool('isLogin') ?? false;
@@ -17,15 +16,17 @@ class _SplashPageState extends State<SplashPage> {
     return isLogin;
   }
 
-  void movePage() async { //async와 await : 비동기 구성
+  void movePage() async {
+    // async와 await : 비동기 구성
     // (checkLogin이 수행된 이후에 moveScreen을 수행해라)
-    await checkLogin().then((isLogin) { //checkLogin : sharedpreferense와 연동되어 로그인 정보를 확인하는 함수
+    await checkLogin().then((isLogin) {
+      //checkLogin : sharedpreferense와 연동되어 로그인 정보를 확인하는 함수
       if (isLogin) {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(builder:
-        (context) => HomePage()));
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => HomePage()));
       } else {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(builder:
-        (context) => LoginPage()));
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => LoginPage()));
       }
     });
   }
@@ -33,7 +34,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 1.5), (){
+    Timer(Duration(milliseconds: 1500), () {
       movePage();
     });
   }
@@ -41,7 +42,15 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('로딩 화면!'),
+        child: Container(
+          width: MediaQuery.of(context).size.width ,
+          height: MediaQuery.of(context).size.height ,
+          color: Color(0xff006285),
+          child: Image.asset(
+            'assets/images/logo_w.png',
+            width: MediaQuery.of(context).size.width * 0.7,
+          ),
+        ),
       ),
     );
   }
