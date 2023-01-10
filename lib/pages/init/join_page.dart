@@ -34,7 +34,10 @@ class JoinPage extends StatelessWidget {
               ),
             ),
           ),
-          Container(margin: EdgeInsets.only(top: 40), child: _joinForm()),
+          Container(
+              margin: EdgeInsets.only(top: 40),
+              child: _joinForm()
+          ),
           TextButton(
             onPressed: () {
               Get.to(LoginPage());
