@@ -4,10 +4,7 @@ import 'package:get/get.dart';
 import 'package:wap_library/components/firestore_page.dart';
 import 'package:wap_library/pages/major/apply_page.dart';
 import 'package:wap_library/pages/manager/manager_page.dart';
-import 'category_page.dart';
 import 'my_page.dart';
-
-//카테고리 만들기
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   final PageController _pageController = PageController(initialPage: 1);
   List<Widget> pageList = <Widget>[
     ApplyPage(),
-    CategoryPage(),
+    FireStorePage(),
     MyPage(),
   ];
   @override
