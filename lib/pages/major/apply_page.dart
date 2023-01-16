@@ -57,7 +57,7 @@ class _ApplyPageState extends State<ApplyPage> {
                 padding: EdgeInsets.all(10.0),
                 margin: const EdgeInsets.only(left: 30.0, right: 30.0),
                 decoration: BoxDecoration(
-                  color: Color(0xff3B4C66),
+                  color: Color(0xff7AABBD),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
@@ -74,7 +74,7 @@ class _ApplyPageState extends State<ApplyPage> {
                     style: TextStyle(
                       fontSize: 23,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Colors.black54,
                     ),
                   ),
                 ),
@@ -84,7 +84,7 @@ class _ApplyPageState extends State<ApplyPage> {
                 padding: EdgeInsets.all(10.0),
                 margin: const EdgeInsets.all(30.0),
                 decoration: BoxDecoration(
-                  border: Border.all(width: 3, color: Color(0xff3B4C66)),
+                  border: Border.all(width: 3, color: Color(0xff7AABBD)),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: SingleChildScrollView(
@@ -164,7 +164,7 @@ class _ApplyPageState extends State<ApplyPage> {
       height: MediaQuery.of(context).size.height * 0.08,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xff3B4C66),
+          backgroundColor: Color(0xff7AABBD),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
           ),

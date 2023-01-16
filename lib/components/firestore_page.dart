@@ -54,8 +54,7 @@ class _FireStorePageState extends State<FireStorePage> {
                       '대출가능',
                       style: TextStyle(
                         fontSize: 12,
-                        color: Colors.white,
-                        backgroundColor: Color(0xff006285),
+                        color: Color(0xff006285),
                       ),
                     ),
                     trailing: const Icon(
