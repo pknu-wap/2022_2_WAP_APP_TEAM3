@@ -28,47 +28,33 @@ class CategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Table(
-        border: TableBorder.all(),
+      body: Center(child: Table(
+        defaultColumnWidth: FixedColumnWidth(
+          MediaQuery.of(context).size.width * 0.45 // 표 세로줄의 가로 길이
+        ),
+
         children: [
           TableRow(
-            children: [
-              CategoryButtonList[0],
-              CategoryButtonList[1],
-            ]
+              children: [CategoryButtonList[0], CategoryButtonList[1]]
           ),
           TableRow(
-              children: [
-                CategoryButtonList[2],
-                CategoryButtonList[3],
-              ]
+              children: [CategoryButtonList[2], CategoryButtonList[3]]
           ),
           TableRow(
-              children: [
-                CategoryButtonList[4],
-                CategoryButtonList[5],
-              ]
+              children: [CategoryButtonList[4], CategoryButtonList[5]]
           ),
           TableRow(
-              children: [
-                CategoryButtonList[6],
-                CategoryButtonList[7],
-              ]
-          ),TableRow(
-              children: [
-                CategoryButtonList[8],
-                CategoryButtonList[9],
-              ]
+              children: [CategoryButtonList[6], CategoryButtonList[7]]
           ),
           TableRow(
-              children: [
-                CategoryButtonList[10],
-                CategoryButtonList[11],
-              ]
+              children: [CategoryButtonList[8], CategoryButtonList[9]]
+          ),
+          TableRow(
+              children: [CategoryButtonList[10], CategoryButtonList[11]]
           ),
 
         ],
-      ),
+      ),),
     );
   }
 }
@@ -86,6 +72,8 @@ class CategoryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.orange[100],
+      height: MediaQuery.of(context).size.height * 0.11,
+      margin: EdgeInsets.all(5),
       child: TextButton(
         child: Text(categoryName),
         onPressed: () {
