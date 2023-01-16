@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wap_library/pages/manager/add_page.dart';
@@ -9,7 +11,7 @@ import '../user/my_rental_page.dart';
 import '../user/my_reservation_page.dart';
 
 ///마이페이지
-class MyPage extends StatelessWidget {
+/*class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,6 +117,45 @@ class MyPage extends StatelessWidget {
         ),
 
       ),
+    );
+  }
+}*/
+
+class MyPage extends StatefulWidget {
+  @override
+  State<MyPage> createState() => _MyPageState();
+}
+
+Widget backWidget() {
+  return Column(
+    children: <Widget>[
+      Expanded(
+        flex: 3,
+        child: Container(
+          color: Color(0xff006285),
+          child: ClipOval(
+            child: Image.network(
+                'https://i.pinimg.com/236x/56/cc/80/56cc80ea80aff65bc09c7967b993821c.jpg',
+                fit: BoxFit.fill),
+          ),
+        ),
+      ),
+      Expanded(
+        flex: 7,
+        child: Container(
+          color: Color(0xffE9EAEA),
+        ),
+      ),
+    ],
+  );
+}
+
+class _MyPageState extends State<MyPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xffE9EAEA),
+      body: backWidget(),
     );
   }
 }
