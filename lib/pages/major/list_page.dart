@@ -6,14 +6,14 @@ import 'package:wap_library/pages/major/apply_page.dart';
 import 'package:wap_library/pages/manager/manager_page.dart';
 import 'my_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class ListPage extends StatefulWidget {
+  const ListPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ListPage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<ListPage> {
   int _currentIndex = 1;
   final PageController _pageController = PageController(initialPage: 1);
   List<Widget> pageList = <Widget>[

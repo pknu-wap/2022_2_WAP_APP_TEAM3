@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class AppliedPage extends StatefulWidget {
   const AppliedPage({Key? key}) : super(key: key);
 
-
   @override
   _AppliedPageState createState() => _AppliedPageState();
 }
@@ -26,10 +25,7 @@ class PhotoItem extends State<AppliedPage>{
     PhotoItem("https://www.hanbit.co.kr/data/books/B4259645859_l.jpg", "소프트웨어 공학"),
     PhotoItem("https://bimage.interpark.com/partner/goods_image/9/1/0/0/282559100g.jpg", "FOUNDATION OF COMPUTER SCIENCE"),
     PhotoItem("https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791156643661.jpg", "전기전자공학개론(하얀색)"),
-
-
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +35,6 @@ class PhotoItem extends State<AppliedPage>{
 
 
 class _AppliedPageState extends State<AppliedPage> {
-
 
 ///책 임시 리스트
   final List _items =[
@@ -55,13 +50,7 @@ class _AppliedPageState extends State<AppliedPage> {
     "https://www.hanbit.co.kr/data/books/B4259645859_l.jpg", /*"소프트웨어 공학"),*/
     "https://bimage.interpark.com/partner/goods_image/9/1/0/0/282559100g.jpg", /*"FOUNDATION OF COMPUTER SCIENCE"),*/
     "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791156643661.jpg", /*"전기전자공학개론(하얀색)"),*/
-
-
   ];
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -123,10 +112,7 @@ class _AppliedPageState extends State<AppliedPage> {
                     //item 의 반목문 항목 형성
                     return Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
-
-
-
+                        color: Colors.white
                       ),
                       child: Image.network(_items[index]),
                       ///채울 이미지 지정

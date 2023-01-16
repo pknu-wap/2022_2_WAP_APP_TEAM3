@@ -5,75 +5,95 @@ import 'package:wap_library/models/category.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:wap_library/pages/detail/detail_page.dart';
-
-class Category{
-  final String type;
-
-  Category({ //필드를 추가
-    required this.type
-  });
-}
-class CategoryRepository {
-  final List<Category> _dummyCategory = [
-    Category(type: '언어'),
-    Category(type: '앱/웹'),
-    Category(type: '게임'),
-    Category(type: 'AI'),
-    Category(type: 'DB'),
-  ];
-
-  List<Category> getCategory() {
-    return _dummyCategory;
-  }
-}
+import 'package:wap_library/pages/major/list_page.dart';
 
 class CategoryPage extends StatelessWidget {
   CategoryPage({Key? key}) : super(key: key);
 
-  CollectionReference product = FirebaseFirestore.instance.collection('도서 목록');
-
+  List<CategoryButton> CategoryButtonList = [
+    CategoryButton(categoryName:'1. 게임/그래픽/영상처리'),
+    CategoryButton(categoryName:'2. 공학'),
+    CategoryButton(categoryName:'3. 자료구조/알고리즘/패턴'),
+    CategoryButton(categoryName:'4. 교양'),
+    CategoryButton(categoryName:'5. 네트워크'),
+    CategoryButton(categoryName:'6. 순수과학'),
+    CategoryButton(categoryName:'7. 언어'),
+    CategoryButton(categoryName:'8. 웹/앱'),
+    CategoryButton(categoryName:'9. 임베디드'),
+    CategoryButton(categoryName:'10. DB/OS'),
+    CategoryButton(categoryName:'11. 보안/인공지능'),
+    CategoryButton(categoryName:'12. 기타')
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GridView.builder(
-        itemCount: <Category>[].length, //item 개수
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, //1 개의 행에 보여줄 item 개수
-          childAspectRatio: 2 / 1, //item 의 가로 1, 세로 2 의 비율
-          mainAxisSpacing: 10, //수평 Padding
-          crossAxisSpacing: 10, //수직 Padding
-        ),
-        itemBuilder: (context, index) {
-          //item 의 반목문 항목 형성
-          return Container(
-            padding: EdgeInsets.all(10),
-            margin: EdgeInsets.all(10),
-            color: Colors.lightGreen,
-            child: CategoryTile(category: Category[index]),
-          );
-        },
+      body: Table(
+        border: TableBorder.all(),
+        children: [
+          TableRow(
+            children: [
+              CategoryButtonList[0],
+              CategoryButtonList[1],
+            ]
+          ),
+          TableRow(
+              children: [
+                CategoryButtonList[2],
+                CategoryButtonList[3],
+              ]
+          ),
+          TableRow(
+              children: [
+                CategoryButtonList[4],
+                CategoryButtonList[5],
+              ]
+          ),
+          TableRow(
+              children: [
+                CategoryButtonList[6],
+                CategoryButtonList[7],
+              ]
+          ),TableRow(
+              children: [
+                CategoryButtonList[8],
+                CategoryButtonList[9],
+              ]
+          ),
+          TableRow(
+              children: [
+                CategoryButtonList[10],
+                CategoryButtonList[11],
+              ]
+          ),
+
+        ],
       ),
     );
   }
 }
 
-class CategoryTile extends StatelessWidget {
-    final Category category;
-    CategoryTile({required this.category});
+//버튼 커스터마이징
+class CategoryButton extends StatelessWidget {
 
-    @override
-    Widget build(BuildContext context) {
+  final String categoryName;
 
+  CategoryButton({
+    required this.categoryName,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
-      child: Center(
-        child: Column(
-          children: [
-            Text(category.type),
-            Text('.')
-          ]
-        )
-      )
+      color: Colors.orange[100],
+      child: TextButton(
+        child: Text(categoryName),
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => ListPage())
+          );
+        },
+      ),
     );
   }
 }
