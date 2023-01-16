@@ -18,6 +18,7 @@ class _FireStorePageState extends State<FireStorePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder(
+
         stream: product.orderBy('번호', descending: false).snapshots(),
         builder: (BuildContext context,
             AsyncSnapshot<QuerySnapshot> streamSnapshot) {
@@ -56,6 +57,10 @@ class _FireStorePageState extends State<FireStorePage> {
                         color: Colors.white,
                         backgroundColor: Color(0xff006285),
                       ),
+                    ),
+                    trailing: const Icon(
+                      Icons.favorite,
+                      color: Colors.red
                     ),
                   ),
                 );
