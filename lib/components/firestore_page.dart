@@ -27,13 +27,13 @@ class _FireStorePageState extends State<FireStorePage> {
               itemBuilder: (context, index) {
                 final DocumentSnapshot documentSnapshot =
                     streamSnapshot.data!.docs[index];
-                var bookname=documentSnapshot['책 이름'];
-                var bookcate=documentSnapshot['종류'];
-                var booknum=documentSnapshot['번호'];
+                var bookname = documentSnapshot['책 이름'];
+                var bookcate = documentSnapshot['종류'];
+                var booknum = documentSnapshot['번호'];
 
                 return Card(
                   child: ListTile(
-                    onTap: (){
+                    onTap: () {
                       Get.to(DetailPage());
                     },
                     leading: ConstrainedBox(
@@ -43,15 +43,26 @@ class _FireStorePageState extends State<FireStorePage> {
                         maxHeight: 60,
                         maxWidth: 60,
                       ),
-                      child: Image.network(documentSnapshot['이미지'], fit: BoxFit.cover,),
+                      child: Image.network(
+                        documentSnapshot['이미지'],
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     title: Text(bookname),
-                    subtitle: Text(bookcate),
+                    subtitle: Text(
+                      '대출가능',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                        backgroundColor: Color(0xff006285),
+                      ),
+                    ),
                   ),
                 );
               },
             );
-          };
+          }
+          ;
           return CircularProgressIndicator();
         },
       ),

@@ -10,10 +10,10 @@ class ListPage extends StatefulWidget {
   const ListPage({Key? key}) : super(key: key);
 
   @override
-  State<ListPage> createState() => _HomePageState();
+  State<ListPage> createState() => _ListPageState();
 }
 
-class _HomePageState extends State<ListPage> {
+class _ListPageState extends State<ListPage> {
   int _currentIndex = 1;
   final PageController _pageController = PageController(initialPage: 1);
   List<Widget> pageList = <Widget>[
