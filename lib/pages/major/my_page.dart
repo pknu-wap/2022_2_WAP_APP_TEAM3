@@ -313,7 +313,38 @@ class _MyPageState extends State<MyPage> {
           )
         ],
       ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(padding: EdgeInsets.symmetric(vertical: 3)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('대출 중인 책',
+              style: TextStyle(
+                fontSize: 20,
+              ),),
+              Text('반납하기')
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            children: [
+              Image.asset(
+                'assets/images/bookcover.jpg',
+                height: MediaQuery.of(context).size.height * 0.23,
+              ),
+              Image.network(
+                'https://thumbnail7.coupangcdn.com/thumbnails/remote/300x300ex/image/rs_quotation_api/f1xesksf/e1b4848999704881b50227b68a707336.jpg',
+                height: MediaQuery.of(context).size.height * 0.23,
+              ),
+            ],
+          )
 
+        ],
+      ),
     );
   }
 }
