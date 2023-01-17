@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 ///나의 책장페이지
-class BookShelfPage extends StatefulWidget {
-  const BookShelfPage({Key? key}) : super(key: key);
+
+class MyRentalPage extends StatefulWidget {
+  const MyRentalPage({Key? key}) : super(key: key);
 
 
   @override
-  _BookShelfPageState createState() => _BookShelfPageState();
+  _MyRentalPageState createState() => _MyRentalPageState();
 }
 
-class PhotoItem extends State<BookShelfPage>{
+class PhotoItem extends State<MyRentalPage>{
   final String image;
   final String name;
   PhotoItem(this.image, this.name);
@@ -38,7 +39,7 @@ class PhotoItem extends State<BookShelfPage>{
   }}
 
 
-class _BookShelfPageState extends State<BookShelfPage> {
+class _MyRentalPageState extends State<MyRentalPage> {
 
 
 ///나의 책장 임시 책이미지 리스트

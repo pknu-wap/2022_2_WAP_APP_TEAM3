@@ -5,6 +5,7 @@ import 'package:wap_library/pages/major/home_page.dart';
 import 'package:wap_library/pages/detail/detail_page.dart';
 import 'package:wap_library/pages/init/join_page.dart';
 import 'package:wap_library/pages/init/login_page.dart';
+import 'package:wap_library/pages/major/my_page.dart';
 
 import 'components/firestore_page.dart';
 

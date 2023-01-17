@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AppliedPage extends StatefulWidget {
-  const AppliedPage({Key? key}) : super(key: key);
+class MyApplyPage extends StatefulWidget {
+  const MyApplyPage({Key? key}) : super(key: key);
 
   @override
-  _AppliedPageState createState() => _AppliedPageState();
+  _MyApplyPageState createState() => _MyApplyPageState();
 }
 
-class PhotoItem extends State<AppliedPage>{
+class PhotoItem extends State<MyApplyPage>{
   final String image;
   final String name;
   PhotoItem(this.image, this.name);
@@ -34,7 +34,7 @@ class PhotoItem extends State<AppliedPage>{
   }}
 
 
-class _AppliedPageState extends State<AppliedPage> {
+class _MyApplyPageState extends State<MyApplyPage> {
 
 ///책 임시 리스트
   final List _items =[

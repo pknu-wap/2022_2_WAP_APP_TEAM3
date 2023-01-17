@@ -227,7 +227,7 @@ class _ApplyPageState extends State<ApplyPage> {
                               style: OutlinedButton.styleFrom(
                                   fixedSize: Size(180, 70)),
                               onPressed: () {
-                                Get.to(AppliedPage());
+                                Get.to(MyApplyPage());
                               },
                               child: const Text('나의 신청 내역 보러가기'),
                             ),
