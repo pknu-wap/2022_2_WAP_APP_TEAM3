@@ -6,6 +6,18 @@ Function validateStudentNumber() {
       return "학생번호를 입력해주세요.";
     else if (value.length != 9)
       return "학생번호는 9자리 입니다.";
+    else
+      return null;
+  };
+}
+Function validateName() {
+  return (String? value) {
+    if (value!.isEmpty)
+      return "이름을 입력해주세요.";
+    else if (value.length > 100 )
+      return "이름을 정확히 입력해주세요.";
+    else
+      return null;
   };
 }
 Function validatePassWord() {

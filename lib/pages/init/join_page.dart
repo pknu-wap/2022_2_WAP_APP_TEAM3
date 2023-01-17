@@ -15,7 +15,7 @@ class JoinPage extends StatelessWidget {
         children: [
           Container(
             color: Color(0xff006285),
-            padding: EdgeInsets.only(top: 130, bottom: 50),
+            padding: EdgeInsets.only(top: 50, bottom: 40),
             child: Image.asset(
               'assets/images/logo_w.png',
               width: 90,
@@ -24,7 +24,7 @@ class JoinPage extends StatelessWidget {
           ),
           Container(
             alignment: Alignment.center,
-            margin: EdgeInsets.only(top: 60),
+            margin: EdgeInsets.only(top: 30),
             child: Text(
               "SIGN UP", // 해당페이지 제목
               style: TextStyle(
@@ -34,10 +34,7 @@ class JoinPage extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-              margin: EdgeInsets.only(top: 40),
-              child: _joinForm()
-          ),
+          Container(margin: EdgeInsets.only(top: 20), child: _joinForm()),
           TextButton(
             onPressed: () {
               Get.to(LoginPage());
@@ -62,28 +59,35 @@ class JoinPage extends StatelessWidget {
           Container(
             width: 300,
             child: CustomTextFormField(
-              hint: "Student Number",
+              hint: "학번",
               funValidator: validateStudentNumber(),
             ),
           ),
           Container(
             width: 300,
             child: CustomTextFormField(
-              hint: "Password",
+              hint: "이름",
+              funValidator: validateName(),
+            ),
+          ),
+          Container(
+            width: 300,
+            child: CustomTextFormField(
+              hint: "비밀번호",
               funValidator: validatePassWord(),
             ),
           ),
           Container(
             width: 300,
             child: CustomTextFormField(
-              hint: "E-mail",
+              hint: "이메일 주소",
               funValidator: validateEmail(),
             ),
           ),
           Container(
             width: 300,
             child: CustomTextFormField(
-              hint: "Phone Number",
+              hint: "휴대전화 번호",
               funValidator: validatePhone(),
             ),
           ),
@@ -92,7 +96,7 @@ class JoinPage extends StatelessWidget {
             height: 40,
             margin: EdgeInsets.only(top: 20),
             child: CustomElevatedButton(
-              text: "Approval",
+              text: "가입하기",
               funPageRoute: () {
                 if (_formKey.currentState!.validate()) {
                   Get.to(LoginPage());
