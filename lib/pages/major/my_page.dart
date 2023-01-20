@@ -3,7 +3,13 @@ import 'package:get/get.dart';
 import 'package:wap_library/pages/manager/add_page.dart';
 import 'package:wap_library/pages/detail/reservation_page.dart';
 import 'package:wap_library/pages/user/member_information_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:wap_library/pages/detail/detail_page.dart';
 
+import '../../components/book_list.dart';
 import '../user/my_apply_page.dart';
 import '../user/my_rental_page.dart';
 import '../user/my_reservation_page.dart';
@@ -16,6 +22,7 @@ class MyPage extends StatefulWidget {
 }
 
 class _MyPageState extends State<MyPage> {
+  CollectionReference product = FirebaseFirestore.instance.collection('도서 목록');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -243,7 +250,7 @@ class _MyPageState extends State<MyPage> {
                                         width: 3, color: Color(0xff3B4C66)),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
-                                  child: BookOnRentalList(),
+                                  child: Container(),
                                 ),
                                 Container(
                                   child: TextButton(
@@ -264,24 +271,9 @@ class _MyPageState extends State<MyPage> {
           SizedBox(
             height: 10,
           ),
-          BookOnRentalList(),
+          Container( ),
         ],
       ),
-    );
-  }
-
-  Widget BookOnRentalList() {
-    return Row(
-      children: [
-        Image.asset(
-          'assets/images/bookcover.jpg',
-          height: MediaQuery.of(context).size.height * 0.21,
-        ),
-        Image.network(
-          'https://thumbnail7.coupangcdn.com/thumbnails/remote/300x300ex/image/rs_quotation_api/f1xesksf/e1b4848999704881b50227b68a707336.jpg',
-          height: MediaQuery.of(context).size.height * 0.21,
-        ),
-      ],
     );
   }
 }
