@@ -269,7 +269,7 @@ class _MyPageState extends State<MyPage> {
             ],
           ),
           SizedBox(
-            height: 10,
+            height: 9,
           ),
           Container( ),
         ],
