@@ -9,7 +9,7 @@ import 'package:wap_library/util/vaildator_util.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../components/camera.dart';
-///도서추가페이지
+///도서 추가페이지
 class AddPage extends StatelessWidget {
   const AddPage({super.key});
 
