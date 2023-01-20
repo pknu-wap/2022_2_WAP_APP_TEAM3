@@ -190,7 +190,7 @@ class _RentalPageState extends State<RentalPage> {
               initialDate: DateTime.now(),
               firstDate: DateTime.now(),
               lastDate: DateTime.now().add(
-                const Duration(days: 180),
+                Duration(days: 180),
               ),
             );
 
