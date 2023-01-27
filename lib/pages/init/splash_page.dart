@@ -43,12 +43,12 @@ class _SplashPageState extends State<SplashPage> {
     return Scaffold(
       body: Center(
         child: Container(
-          width: MediaQuery.of(context).size.width ,
-          height: MediaQuery.of(context).size.height ,
-          color: Color(0xff006285),
-          child: Image.asset(
-            'assets/images/logo_w.png',
-            width: MediaQuery.of(context).size.width * 0.7,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          padding: EdgeInsets.all(80),
+          color: Color(0xff2D3C72),
+            child: Image.asset(
+              'assets/images/logo_w.png',
           ),
         ),
       ),
