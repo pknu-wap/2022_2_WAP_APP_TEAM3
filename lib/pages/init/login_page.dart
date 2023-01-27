@@ -11,7 +11,7 @@ import 'package:wap_library/util/vaildator_util.dart';
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   Future setLogin() async {
-    //setLogin이라는 함수 : SharedPreferences.getInstance()가 수행된 이후에 실행됨. isLogin 값을 true로 바꾸어 줌
+    //setLogin이라는 함수 : SharedPreferences.getInstance()가 수행된 이후에 실행됨. isLogin 값을 true로 바꾸어 줌.
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('isLogin', true);
   }
