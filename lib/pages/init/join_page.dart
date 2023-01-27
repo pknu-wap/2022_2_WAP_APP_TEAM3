@@ -14,7 +14,7 @@ class JoinPage extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            color: Color(0xff006285),
+            color: Color(0xff2D3C72),
             padding: EdgeInsets.only(top: 50, bottom: 40),
             child: Image.asset(
               'assets/images/logo_w.png',
@@ -26,9 +26,9 @@ class JoinPage extends StatelessWidget {
             alignment: Alignment.center,
             margin: EdgeInsets.only(top: 30),
             child: Text(
-              "SIGN UP", // 해당페이지 제목
+              "Sign Up", // 해당페이지 제목
               style: TextStyle(
-                color: Color(0xff006285),
+                color: Color(0xff2D3C72),
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
@@ -42,7 +42,7 @@ class JoinPage extends StatelessWidget {
             child: Text(
               "Do you have ID?",
               style: TextStyle(
-                color: Color(0xff006285),
+                color: Color(0xff2D3C72),
               ),
             ),
           ),
@@ -93,7 +93,7 @@ class JoinPage extends StatelessWidget {
           ),
           Container(
             width: 300,
-            height: 40,
+            height: 45,
             margin: EdgeInsets.only(top: 20),
             child: CustomElevatedButton(
               text: "가입하기",

@@ -20,24 +20,24 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-          children: [
-            Container(
-              color: Color(0xff006285),
-              padding: EdgeInsets.only(top: 200, bottom: 50),
-              child: Image.asset(
-                'assets/images/logo_w.png',
-                width: 90,
-                height: 90,
-              ),
+        children: [
+          Container(
+            color: Color(0xff2D3C72),
+            padding: EdgeInsets.only(top: 200, bottom: 50),
+            child: Image.asset(
+              'assets/images/logo_w.png',
+              width: 90,
+              height: 90,
             ),
-            Container(
-              color: Colors.white,
-              padding: EdgeInsets.only(top: 50, bottom: 0),
-              height: MediaQuery.of(context).size.height,
-              child: _LoginForm(),
-            ),
-          ],
-        ),
+          ),
+          Container(
+            color: Colors.white,
+            padding: EdgeInsets.only(top: 50, bottom: 0),
+            height: MediaQuery.of(context).size.height,
+            child: _LoginForm(),
+          ),
+        ],
+      ),
     );
   }
 
@@ -86,7 +86,7 @@ class LoginPage extends StatelessWidget {
                 Get.to(JoinPage());
               },
               child:
-              Text("SIGN UP", style: TextStyle(color: Color(0xff006285))),
+                  Text("SIGN UP", style: TextStyle(color: Color(0xff2D3C72))),
             ),
           ),
         ],
