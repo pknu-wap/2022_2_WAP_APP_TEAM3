@@ -3,14 +3,21 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import '../user/my_apply_page.dart';
+import 'package:wap_library/pages/major/home_page.dart';
 
 ///도서신청 페이지
 
 class ApplyPage extends StatefulWidget {
-  State<ApplyPage> createState() => _ApplyPageState();
+  State<ApplyPage> createState() => _ApplyPageState(appBarTitle:'ApplyPage~');
 }
 
 class _ApplyPageState extends State<ApplyPage> {
+
+  final String appBarTitle;
+  _ApplyPageState({
+    required this.appBarTitle
+  });
+
   TextEditingController textarea_n = TextEditingController();
   TextEditingController textarea_w = TextEditingController();
   TextEditingController textarea_p = TextEditingController();
@@ -49,7 +56,8 @@ class _ApplyPageState extends State<ApplyPage> {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 40, left: 20.0, right: 20.0, bottom: 20.0),
+                padding: EdgeInsets.only(
+                    top: 40, left: 20.0, right: 20.0, bottom: 20.0),
               ),
               Container(
                 width: 470,
@@ -57,7 +65,7 @@ class _ApplyPageState extends State<ApplyPage> {
                 padding: EdgeInsets.all(10.0),
                 margin: const EdgeInsets.only(left: 30.0, right: 30.0),
                 decoration: BoxDecoration(
-                  color: Color(0xff7AABBD),
+                  color: Color(0xff2D3C72),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(

@@ -6,6 +6,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:wap_library/pages/detail/detail_page.dart';
 import 'package:wap_library/pages/major/list_page.dart';
 import 'package:flutter/src/widgets/container.dart';
+import 'package:wap_library/pages/major/home_page.dart';
 
 class CategoryPage extends StatelessWidget {
   CategoryPage({Key? key}) : super(key: key);

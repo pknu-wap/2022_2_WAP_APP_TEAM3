@@ -1,7 +1,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wap_library/components/firestore_page.dart';
+import 'package:wap_library/pages/major/firestore_page.dart';
 import 'package:wap_library/pages/major/apply_page.dart';
 import 'package:wap_library/pages/manager/manager_page.dart';
 import 'my_page.dart';
