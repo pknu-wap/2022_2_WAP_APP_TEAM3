@@ -12,6 +12,8 @@ import 'components/firestore_page.dart';
 /*void main() {
   runApp(MyApp());
 }*/
+
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
