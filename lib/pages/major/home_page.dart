@@ -7,7 +7,7 @@ import 'package:wap_library/pages/manager/manager_page.dart';
 import 'category_page.dart';
 import 'my_page.dart';
 
-//카테고리 만들기
+//홈페이지 안에 카테고리 페이지, 리스트페이지 안에 파이어스토어페이지
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
