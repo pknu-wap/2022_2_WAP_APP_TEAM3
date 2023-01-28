@@ -9,18 +9,28 @@ import 'my_page.dart';
 
 //홈페이지 안에 카테고리 페이지, 리스트페이지 안에 파이어스토어페이지
 
+/*
+Appbar title 페이지마다 바뀌게 하려고 시도해본 방법
+1. 우선 다른 페이지 Scaffold에서 Appbar(title(...))을 넣으면 앱바가 한 페이지에 두개 생긴다
+2. Appbar title 변수를 생성해서 각 페이지마다 변수 값을 받게 하려했으나 잘 안됨...
+3. 아예 Appbar를 사용하지 않고 body에 column을 넣어 앱바처럼 생긴 컨테이너를 넣으려고 하였으나 왜인지 모르게 화면구성이 이상하게 뜬다.
+ */
+
+// 4번째 아이디어 : 계획을 세워보자.
+// Appbar를 계승한 위젯을 하나 만든다. CustomAppbar.
+// 이 CustomAppbar는 void InitState()가 title = Text('Category')이다.
+// _appbarTitle = 페이지이름
+// SetState : Pagechanged가 되면 _appbarTitle을 바꾸기
+// Appbar return값을 복붙한다.
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState(appBarTitle:'Category~');
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final String appBarTitle;
-  _HomePageState({
-    required this.appBarTitle
-  });
 
   int _currentIndex = 1;
   final PageController _pageController = PageController(initialPage: 1);
@@ -29,13 +39,16 @@ class _HomePageState extends State<HomePage> {
     CategoryPage(),
     MyPage(),
   ];
+
   @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
+
     return WillPopScope(
       onWillPop: () {
         return Future(() => true); //false로 변경
@@ -47,12 +60,13 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Color(0xff2D3C72),
             title: Container(
               padding: EdgeInsets.only(top: 20, left : 10),
-              child: Text(appBarTitle,
+              child: Text('Category',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               ),
             ),
             actions: [
               IconButton(
+                padding: EdgeInsets.only(top: 20, left : 10),
                 icon: Icon(Icons.manage_accounts),
                 onPressed: () {
                   Get.to(ManagerPage());
@@ -65,7 +79,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        body:     SizedBox.expand(
+        body: SizedBox.expand(
               child: PageView(
                 controller: _pageController,
                 onPageChanged: (index) {
@@ -116,3 +130,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+// 4번째 아이디어 : 계획을 세워보자.
+// Appbar를 계승한 위젯을 하나 만든다. CustomAppbar.
+// 이 CustomAppbar는 void InitState()가 title = Text('Category')이다.
+// _appbarTitle = 페이지이름
+// SetState : Pagechagned가 되면 _appbarTitle을 바꾸기
