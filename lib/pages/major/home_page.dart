@@ -23,6 +23,9 @@ Appbar title 페이지마다 바뀌게 하려고 시도해본 방법
 // SetState : Pagechanged가 되면 _appbarTitle을 바꾸기
 // Appbar return값을 복붙한다.
 
+// 이제 할 것 ! 1. 왼쪽페이지 오른쪽 페이지 구분짓기 / 2. 다시 원래대로 돌아오면 Category로 변하게
+
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -34,6 +37,9 @@ class _HomePageState extends State<HomePage> {
 
   int _currentIndex = 1;
   final PageController _pageController = PageController(initialPage: 1);
+  /// 으앙 1 ///
+  late String _appBarTitle;
+
   List<Widget> pageList = <Widget>[
     ApplyPage(),
     CategoryPage(),
@@ -46,45 +52,65 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
+  void changeTitle() {
+    setState(() { //_currentIndex가 왼쪽부터 순서대로 0, 1, 2인 것 확인
+      if (_currentIndex == 0)
+      _appBarTitle = '도서신청' ;
+      else if (_currentIndex == 1)
+        _appBarTitle = 'Category';
+      else _appBarTitle = '마이페이지';
+    });
+  }
 
+  /// 으앙 2 ///
+  void initState() {
+    super.initState();
+    _appBarTitle = 'Category';
+  }
+
+  @override
+  PreferredSizeWidget CustomAppbar() {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(70.0), // here the desired height
+      child: AppBar(
+        backgroundColor: Color(0xff2D3C72),
+        title: Container(
+          padding: EdgeInsets.only(top: 20, left : 10),
+          child: Text(_appBarTitle,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+          ),
+        ),
+        actions: [
+          IconButton(
+            padding: EdgeInsets.only(top: 20, left : 10),
+            icon: Icon(Icons.manage_accounts),
+            onPressed: () {
+              Get.to(ManagerPage());
+            },
+          ),
+          /*IconButton( //검색창 아이콘
+                onPressed: (){Get.to(SearchPage());
+                },
+                icon: Icon(Icons.search))*/
+        ],
+      ),
+    );
+  }
+
+  Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () {
         return Future(() => true); //false로 변경
       },
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(70.0), // here the desired height
-          child: AppBar(
-            backgroundColor: Color(0xff2D3C72),
-            title: Container(
-              padding: EdgeInsets.only(top: 20, left : 10),
-              child: Text('Category',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-              ),
-            ),
-            actions: [
-              IconButton(
-                padding: EdgeInsets.only(top: 20, left : 10),
-                icon: Icon(Icons.manage_accounts),
-                onPressed: () {
-                  Get.to(ManagerPage());
-                },
-              ),
-              /*IconButton( //검색창 아이콘
-                onPressed: (){Get.to(SearchPage());
-                },
-                icon: Icon(Icons.search))*/
-            ],
-          ),
-        ),
+        appBar: CustomAppbar(),
         body: SizedBox.expand(
               child: PageView(
                 controller: _pageController,
                 onPageChanged: (index) {
                   print(index);
                   setState(() => _currentIndex = index);
+                  changeTitle();
                 },
                 children: pageList,
               ),
@@ -95,6 +121,7 @@ class _HomePageState extends State<HomePage> {
           onItemSelected: (index) {
             setState(() => _currentIndex = index);
             _pageController.jumpToPage(index);
+            changeTitle();
           },
           items: <BottomNavyBarItem>[
             BottomNavyBarItem(
