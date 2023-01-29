@@ -8,15 +8,12 @@ import 'package:wap_library/pages/major/home_page.dart';
 ///도서신청 페이지
 
 class ApplyPage extends StatefulWidget {
-  State<ApplyPage> createState() => _ApplyPageState(appBarTitle:'ApplyPage~');
+  State<ApplyPage> createState() => _ApplyPageState(appBarTitle: 'ApplyPage~');
 }
 
 class _ApplyPageState extends State<ApplyPage> {
-
   final String appBarTitle;
-  _ApplyPageState({
-    required this.appBarTitle
-  });
+  _ApplyPageState({required this.appBarTitle});
 
   TextEditingController textarea_n = TextEditingController();
   TextEditingController textarea_w = TextEditingController();
@@ -53,74 +50,77 @@ class _ApplyPageState extends State<ApplyPage> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(
-                    top: 40, left: 20.0, right: 20.0, bottom: 20.0),
-              ),
-              Container(
-                width: 470,
-                height: 60,
-                padding: EdgeInsets.all(10.0),
-                margin: const EdgeInsets.only(left: 30.0, right: 30.0),
-                decoration: BoxDecoration(
-                  color: Color(0xff2D3C72),
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.7),
-                      spreadRadius: 0,
-                      blurRadius: 5.0,
-                      offset: Offset(0, 10),
-                    )
-                  ],
-                ),
-                child: Center(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 30),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  padding: EdgeInsets.only(top: 20),
                   child: Text(
-                    '희망 도서 신청하기',
+                    '도서 신청을 위한 양식을 입력해 주세요.',
                     style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
+                      color: Color(0xff2D3C72),
                     ),
                   ),
                 ),
-              ),
-              Container(
-                width: 500,
-                padding: EdgeInsets.all(10.0),
-                margin: const EdgeInsets.all(30.0),
-                decoration: BoxDecoration(
-                  border: Border.all(width: 3, color: Color(0xff7AABBD)),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    ///페이지 컨테이너 안 구성요소
-                    children: [
-                      BookNameInput(), //도서명 기입
-                      WriterNameInput(), //저자명 기입
-                      PublisherNameInput(), //출판사명 기입
-                      ApplyButton(), //신청 버튼
-                      Padding(
-                        padding: EdgeInsets.all(10.0),
-                      )
-                    ],
+                SingleChildScrollView(
+                  child: Container(
+                    ///도서신청 양식 기입 박스
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    margin: EdgeInsets.only(top: 15.0, bottom: 15.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(width: 1.5, color: Colors.black38),
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.7),
+                          spreadRadius: 0,
+                          blurRadius: 5.0,
+                          offset: Offset(0, 5),
+                        )
+                      ],
+                    ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.only(top: 10),
+                            child: Text(
+                              '도서1',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ),
+                          BookNameInput(), //도서명 기입
+                          WriterNameInput(), //저자명 기입
+                          PublisherNameInput(), //출판사명 기입
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ],
+                MoreApplyButton(),
+                //Spacer(), // 이 아래 위젯을 가장 아래에 고정시키는 위젯
+                ApplyButton()
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  ///책 이름 기입 위젯
+  //책 이름 기입 위젯
   Widget BookNameInput() {
     return Container(
-      padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+      padding: EdgeInsets.symmetric(horizontal: 10),
       child: TextField(
         controller: textarea_n,
         onChanged: (bookname) {},
@@ -133,10 +133,10 @@ class _ApplyPageState extends State<ApplyPage> {
     );
   }
 
-  ///저자명 기입 위젯
+  //저자명 기입 위젯
   Widget WriterNameInput() {
     return Container(
-      padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+      padding: EdgeInsets.symmetric(horizontal: 10),
       child: TextField(
         controller: textarea_w,
         onChanged: (bookname) {},
@@ -149,10 +149,10 @@ class _ApplyPageState extends State<ApplyPage> {
     );
   }
 
-  ///출판사명 기입 위젯
+  //출판사명 기입 위젯
   Widget PublisherNameInput() {
     return Container(
-      padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+      padding: EdgeInsets.symmetric(horizontal: 10),
       child: TextField(
         controller: textarea_p,
         onChanged: (bookname) {},
@@ -165,16 +165,37 @@ class _ApplyPageState extends State<ApplyPage> {
     );
   }
 
-  ///도서신청 버튼
+  /// 도서추가 버튼
+  Widget MoreApplyButton() {
+    return GestureDetector(
+        onTap: () {
+          // 도서신청 양식 컨테이너 하나 더 추가되는 기능
+        },
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.8,
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0), // 투명도 0으로 설정
+            border: Border.all(width: 1.5, color: Color(0xff2D3C72)),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child:Center(child: Text(
+            '+ 도서 추가',
+            style: TextStyle(color: Color(0xff2D3C72)),
+          ),),
+        ));
+  }
+
+  /// 도서신청 버튼
   Widget ApplyButton() {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.77,
-      height: MediaQuery.of(context).size.height * 0.08,
+      width: MediaQuery.of(context).size.width * 0.8,
+      padding: EdgeInsets.all(10),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xff7AABBD),
+          backgroundColor: Color(0xff2D3C72),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(10.0),
           ),
         ),
 
@@ -196,7 +217,6 @@ class _ApplyPageState extends State<ApplyPage> {
                         height: 210,
                         padding: EdgeInsets.all(15.0),
                         margin: const EdgeInsets.all(10.0),
-
                         decoration: BoxDecoration(
                           //컨테이너 데코레이션
                           border:
@@ -255,7 +275,7 @@ class _ApplyPageState extends State<ApplyPage> {
                 );
               });
         },
-        child: const Text('신청하기'),
+        child: const Text('도서 신청 완료하기'),
       ),
     );
   }
