@@ -138,7 +138,7 @@ class MyRentalPage extends StatefulWidget {
   State<MyRentalPage> createState() => _MyRentalPageState();
 }
 
-var rentalCounter = false;
+var rentalCounter = true;
 
 Widget bookWidget(context) {
   return Container(
