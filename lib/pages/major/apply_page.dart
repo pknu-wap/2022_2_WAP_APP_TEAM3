@@ -55,7 +55,7 @@ class _ApplyPageState extends State<ApplyPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 30),
+                SizedBox(height: 25),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.8,
                   padding: EdgeInsets.only(top: 20),
