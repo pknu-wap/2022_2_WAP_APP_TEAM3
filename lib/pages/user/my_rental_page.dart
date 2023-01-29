@@ -132,11 +132,13 @@ class _MyRentalPageState extends State<MyRentalPage> {
   }
 }*/
 class MyRentalPage extends StatefulWidget {
-  const MyRentalPage({Key? key}) : super(key: key);
+  //const MyRentalPage({Key? key}) : super(key: key);
 
   @override
   State<MyRentalPage> createState() => _MyRentalPageState();
 }
+
+var rentalCounter = false;
 
 Widget bookWidget(context) {
   return Container(
@@ -149,16 +151,16 @@ Widget bookWidget(context) {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                    Container(
-                      ///원 기호
-                      margin: EdgeInsets.only(right: 40),
-                      width: 10,
-                      height: 10,
-                      decoration: BoxDecoration(
-                        color: Color(0xff2B4088),
-                        shape: BoxShape.circle,
-                      ),
-                    ),
+                Container(
+                  ///원 기호
+                  margin: EdgeInsets.only(right: 40),
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    color: Color(0xff2B4088),
+                    shape: BoxShape.circle,
+                  ),
+                ),
                 Column(
                   children: [
                     Text(
@@ -190,6 +192,14 @@ Widget bookWidget(context) {
   );
 }
 
+Widget noneBook(context) {
+  return Container(
+    alignment: Alignment(0.0,0.0),
+    margin: EdgeInsets.only(top:MediaQuery.of(context).size.height*0.4),
+    child: Text("대출하신 내역이 없습니다.", style: TextStyle(color: Color(0xffA8A8A8), fontSize: 20),),
+  );
+}
+
 class _MyRentalPageState extends State<MyRentalPage> {
   @override
   Widget build(BuildContext context) {
@@ -199,18 +209,21 @@ class _MyRentalPageState extends State<MyRentalPage> {
         backgroundColor: Color(0xff2B4088),
       ),
       body: SingleChildScrollView(
-    child : Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-
-        ///Column자체를 위쪽 중앙을로 정렬
-        children: [
-          bookWidget(context),
-          bookWidget(context),
-          bookWidget(context),
-          bookWidget(context),
-          bookWidget(context),
-        ],
-      ),
+        child: Column(
+          //mainAxisAlignment: MainAxisAlignment.start,
+          ///Column자체를 위쪽 중앙을로 정렬
+          children: [
+            if (rentalCounter == false) ...[
+              noneBook(context)
+            ] else ...[
+              bookWidget(context),
+              bookWidget(context),
+              bookWidget(context),
+              bookWidget(context),
+              bookWidget(context),
+            ]
+          ],
+        ),
       ),
     );
   }
