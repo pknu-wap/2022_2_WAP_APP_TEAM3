@@ -49,7 +49,6 @@ class _ApplyPageState extends State<ApplyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
           child: Container(
             width: MediaQuery.of(context).size.width,
             child: Column(
@@ -107,13 +106,12 @@ class _ApplyPageState extends State<ApplyPage> {
                   ),
                 ),
                 MoreApplyButton(),
-                //Spacer(), // 이 아래 위젯을 가장 아래에 고정시키는 위젯
+                Spacer(), // 이 아래 위젯을 가장 아래에 고정시키는 위젯
                 ApplyButton()
               ],
             ),
           ),
         ),
-      ),
     );
   }
 
@@ -179,103 +177,104 @@ class _ApplyPageState extends State<ApplyPage> {
             border: Border.all(width: 1.5, color: Color(0xff2D3C72)),
             borderRadius: BorderRadius.circular(10),
           ),
-          child:Center(child: Text(
-            '+ 도서 추가',
-            style: TextStyle(color: Color(0xff2D3C72)),
-          ),),
+          child: Center(
+            child: Text(
+              '+ 도서 추가',
+              style: TextStyle(color: Color(0xff2D3C72)),
+            ),
+          ),
         ));
   }
 
   /// 도서신청 버튼
   Widget ApplyButton() {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.8,
-      padding: EdgeInsets.all(10),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xff2D3C72),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-        ),
-
+    return GestureDetector(
+      onTap: () {
         ///신청하기 버튼 누르면 뜨는 팝업
-        onPressed: () {
-          showDialog(
-              context: context,
-              barrierDismissible: false,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  title: Icon(Icons.check_circle),
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text("도서 신청이 완료되었습니다."),
-                      Container(
-                        //텍스트 밑의 둥근모서리 박스
-                        width: 210,
-                        height: 210,
-                        padding: EdgeInsets.all(15.0),
-                        margin: const EdgeInsets.all(10.0),
-                        decoration: BoxDecoration(
-                          //컨테이너 데코레이션
-                          border:
-                              Border.all(width: 3, color: Color(0xff3B4C66)),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-
-                        child: Column(
-                          //둥근모서리 박스 안 구성요소
-                          children: <Widget>[
-                            ///버튼 두개
-                            OutlinedButton(
-                              // 버튼1
-                              style: OutlinedButton.styleFrom(
-                                fixedSize: const Size(180, 70),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                                setState(() {
-                                  textarea_n.clear();
-                                  textarea_p.clear();
-                                  textarea_w.clear();
-                                  _text = "";
-                                });
-                              },
-                              child: Text('더 신청할 책이 있어요'),
-                            ),
-                            Container(
-                              // 버튼 사이 여백
-                              height: 25,
-                              child: Text(''),
-                            ),
-
-                            OutlinedButton(
-                              // 버튼2
-                              style: OutlinedButton.styleFrom(
-                                  fixedSize: Size(180, 70)),
-                              onPressed: () {
-                                Get.to(MyApplyPage());
-                              },
-                              child: const Text('나의 신청 내역 보러가기'),
-                            ),
-                          ],
-                        ),
+        showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Icon(Icons.check_circle),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text("도서 신청이 완료되었습니다."),
+                    Container(
+                      //텍스트 밑의 둥근모서리 박스
+                      width: 210,
+                      height: 210,
+                      padding: EdgeInsets.all(15.0),
+                      margin: const EdgeInsets.all(10.0),
+                      decoration: BoxDecoration(
+                        //컨테이너 데코레이션
+                        border: Border.all(width: 3, color: Color(0xff3B4C66)),
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                      Container(
-                        child: OutlinedButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text('취소'),
-                        ),
+
+                      child: Column(
+                        //둥근모서리 박스 안 구성요소
+                        children: <Widget>[
+                          ///버튼 두개
+                          OutlinedButton(
+                            // 버튼1
+                            style: OutlinedButton.styleFrom(
+                              fixedSize: const Size(180, 70),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                              setState(() {
+                                textarea_n.clear();
+                                textarea_p.clear();
+                                textarea_w.clear();
+                                _text = "";
+                              });
+                            },
+                            child: Text('더 신청할 책이 있어요'),
+                          ),
+                          Container(
+                            // 버튼 사이 여백
+                            height: 25,
+                            child: Text(''),
+                          ),
+
+                          OutlinedButton(
+                            // 버튼2
+                            style: OutlinedButton.styleFrom(
+                                fixedSize: Size(180, 70)),
+                            onPressed: () {
+                              Get.to(MyApplyPage());
+                            },
+                            child: const Text('나의 신청 내역 보러가기'),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                );
-              });
-        },
-        child: const Text('도서 신청 완료하기'),
+                    ),
+                    Container(
+                      child: OutlinedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text('취소'),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            });
+        // 도서신청 양식 컨테이너 하나 더 추가되는 기능
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        padding: EdgeInsets.all(10),
+        margin: EdgeInsets.symmetric(vertical: 20),
+        decoration: BoxDecoration(
+          color: Color(0xff2D3C72),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Center(child:const Text('도서 신청 완료하기',
+        style: TextStyle(color: Colors.white),),),
       ),
     );
   }
