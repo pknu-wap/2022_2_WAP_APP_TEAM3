@@ -13,6 +13,9 @@ class ApplyPage extends StatefulWidget {
 
 class _ApplyPageState extends State<ApplyPage> {
   final String appBarTitle;
+  late List<Widget> entries = [ApplyFormatBox()];
+  late int n;
+
   _ApplyPageState({required this.appBarTitle});
 
   TextEditingController textarea_n = TextEditingController();
@@ -45,73 +48,115 @@ class _ApplyPageState extends State<ApplyPage> {
     });
   }
 
+  late List<Widget> ApplyFormatBoxList = <Widget>[
+    ApplyFormatBox(),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    n = 1;
+  }
+
+  void addApplyFormatBox() {
+    setState(() {
+      n++;
+      ApplyFormatBoxList.add(
+          ApplyFormatBox()
+          );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 25),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  padding: EdgeInsets.only(top: 20),
-                  child: Text(
-                    '도서 신청을 위한 양식을 입력해 주세요.',
-                    style: TextStyle(
-                      color: Color(0xff2D3C72),
-                    ),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 25),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.8,
+                padding: EdgeInsets.only(top: 20),
+                child: Text(
+                  '도서 신청을 위한 양식을 입력해 주세요.',
+                  style: TextStyle(
+                    color: Color(0xff2D3C72),
                   ),
                 ),
-                SingleChildScrollView(
-                  child: Container(
-                    ///도서신청 양식 기입 박스
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    margin: EdgeInsets.only(top: 15.0, bottom: 15.0),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(width: 1.5, color: Colors.black38),
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.7),
-                          spreadRadius: 0,
-                          blurRadius: 5.0,
-                          offset: Offset(0, 5),
-                        )
-                      ],
-                    ),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.only(top: 10),
-                            child: Text(
-                              '도서1',
-                              style: TextStyle(fontSize: 18),
-                            ),
-                          ),
-                          BookNameInput(), //도서명 기입
-                          WriterNameInput(), //저자명 기입
-                          PublisherNameInput(), //출판사명 기입
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                MoreApplyButton(),
-                Spacer(), // 이 아래 위젯을 가장 아래에 고정시키는 위젯
-                ApplyButton()
-              ],
-            ),
+              ),
+
+              ApplyFormatBoxList[0],
+                  //List<Widget> 만드신다음에 ListView.builder 사용하시고
+                  //버튼 누르면 .add해서 setState하면
+                  /*ListView.builder(
+                    itemCount: 1,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ApplyFormatBox();
+                    }),*/
+
+              MoreApplyButton(),
+              Spacer(), // 이 아래 위젯을 가장 아래에 고정시키는 위젯
+              ApplyButton()
+            ],
           ),
         ),
+      ),
+    );
+  }
+
+  /*
+
+  Widget ApplyListView() {
+    return ListView.builder(
+        itemCount: 3,
+        itemBuilder: (BuildContext context, int index) {
+          return ApplyFormatBox();
+        });
+  }
+*/
+  Widget ApplyFormatBox() {
+    return Container(
+      ///도서신청 양식 기입 박스
+      width: MediaQuery.of(context).size.width * 0.8,
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      margin: EdgeInsets.only(top: 15.0, bottom: 15.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(width: 1.5, color: Colors.black38),
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.7),
+            spreadRadius: 0,
+            blurRadius: 5.0,
+            offset: Offset(0, 5),
+          )
+        ],
+      ),
+      child: ApplyFormat(),
+    );
+  }
+
+  Widget ApplyFormat() {
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.only(top: 10),
+          child: Text(
+            "도서$n",
+            style: TextStyle(fontSize: 18),
+          ),
+        ),
+        BookNameInput(), //도서명 기입
+        WriterNameInput(), //저자명 기입
+        PublisherNameInput(), //출판사명 기입
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+        )
+      ],
     );
   }
 
@@ -167,6 +212,7 @@ class _ApplyPageState extends State<ApplyPage> {
   Widget MoreApplyButton() {
     return GestureDetector(
         onTap: () {
+          addApplyFormatBox();
           // 도서신청 양식 컨테이너 하나 더 추가되는 기능
         },
         child: Container(
@@ -273,8 +319,12 @@ class _ApplyPageState extends State<ApplyPage> {
           color: Color(0xff2D3C72),
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Center(child:const Text('도서 신청 완료하기',
-        style: TextStyle(color: Colors.white),),),
+        child: Center(
+          child: const Text(
+            '도서 신청 완료하기',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
       ),
     );
   }
