@@ -11,12 +11,23 @@ class _RentalPageState extends State<RentalPage> {
   DateTime date = DateTime.now();
 
   @override
+  PreferredSizeWidget CustomAppbar() {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(70.0), // here the desired height
+      child: AppBar(
+        backgroundColor: Color(0xff2D3C72),
+        title: Container(
+          padding: EdgeInsets.only(top: 20, left : 10),
+          child: Text("도서 대출",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+          ),
+        ),
+      ),
+    );
+  }
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('도서 대출'),
-        backgroundColor: Color(0xff006285),
-      ),
+      appBar: CustomAppbar(),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Center(

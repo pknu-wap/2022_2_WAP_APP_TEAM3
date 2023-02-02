@@ -12,12 +12,23 @@ class _ReservationPageState extends State<ReservationPage> {
   DateTime date = DateTime.now();
 
   @override
+  PreferredSizeWidget CustomAppbar() {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(70.0), // here the desired height
+      child: AppBar(
+        backgroundColor: Color(0xff2D3C72),
+        title: Container(
+          padding: EdgeInsets.only(top: 20, left : 10),
+          child: Text("도서 예약",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+          ),
+        ),
+      ),
+    );
+  }
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('도서 예약'),
-        backgroundColor: Color(0xff006285),
-      ),
+      appBar: CustomAppbar(),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Center(
