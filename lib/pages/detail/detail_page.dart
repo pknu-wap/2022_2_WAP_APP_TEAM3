@@ -172,6 +172,7 @@ class _DetailPageState extends State<DetailPage> {
       ),
       body: SingleChildScrollView(
         child: Container(
+          color: Color(0xffF2F2F2),
           child: Column(
             children: [
               Container(
@@ -202,43 +203,73 @@ class _DetailPageState extends State<DetailPage> {
                 child: Text("Book review",
                     style: TextStyle(color: Colors.black38, fontSize: 10)),
               ),
-              //commentChild(filedata),
+              commentChild(filedata),
               Container(
-                  height: 400,
-                  child: CommentBox(
-                    userImage:
-                        "https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400",
-                    child: commentChild(filedata),
-                    labelText: 'Write a comment...',
-                    withBorder: false,
-                    errorText: 'Comment cannot be blank',
-                    sendButtonMethod: () {
-                      if (formKey.currentState!.validate()) {
-                        print(commentController.text);
-                        setState(() {
-                          var value = {
-                            'name': 'New User',
-                            'pic':
-                                'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
-                            'message': commentController.text
-                          };
-                          filedata.insert(0, value);
-                        });
-                        commentController.clear();
-                        FocusScope.of(context).unfocus();
-                      } else {
-                        print("Not validated");
-                      }
-                    },
-                    formKey: formKey,
-                    commentController: commentController,
-                    backgroundColor: Color(0xffEFEFF0),
-                    textColor: Colors.black,
-                    sendWidget:
-                        Icon(Icons.send_sharp, size: 30, color: Colors.black),
+                child : ListTile(
+                  tileColor: Color(0xffF2F2F2),
+                  leading: Container(
+                    height: 40.0,
+                    width: 40.0,
+                    decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(50))
+                    ),
+                    child: CircleAvatar(
+                        radius: 50,
+                        backgroundImage : NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDJ3-SXqfJljzjSYtNKZ6LN63CjmJYCTJT8g&usqp=CAU')
+                    ),
                   ),
+                  title: Form(
+                    key: formKey,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        ///댓글 창 배경색
+                        filled: true,
+                        fillColor: Color(0xffE3E3E3),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          borderSide: BorderSide.none,
+                        )
+                      ),
+                    ),
+                  ),
+                  trailing: GestureDetector(child:Icon(Icons.send_sharp, size: 30, color: Colors.black),),
+                )
+              ),
+              /*Container(
+                height: 400,
+                child: CommentBox(
+                  userImage:
+                      "https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400",
+                  child: commentChild(filedata),
+                  labelText: 'Write a comment...',
+                  withBorder: false,
+                  errorText: 'Comment cannot be blank',
+                  sendButtonMethod: () {
+                    if (formKey.currentState!.validate()) {
+                      print(commentController.text);
+                      setState(() {
+                        var value = {
+                          'name': 'New User',
+                          'pic':
+                              'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
+                          'message': commentController.text
+                        };
+                        filedata.insert(0, value);
+                      });
+                      commentController.clear();
+                      FocusScope.of(context).unfocus();
+                    } else {
+                      print("Not validated");
+                    }
+                  },
+                  formKey: formKey,
+                  commentController: commentController,
+                  backgroundColor: Color(0xffEFEFF0),
+                  textColor: Colors.black,
+                  sendWidget:
+                      Icon(Icons.send_sharp, size: 30, color: Colors.black),
                 ),
-            ],
+              ),*/
+          ],
           ),
         ),
       ),
