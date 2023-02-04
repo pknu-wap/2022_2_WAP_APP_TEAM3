@@ -245,39 +245,37 @@ class _ReturnPageState extends State<ReturnPage> {
             barrierDismissible: false,
             builder: (BuildContext context) {
               return AlertDialog(
-                title: Icon(Icons.check_circle),
-                content: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Text("도서 대출이 완료되었습니다."),
-                    Container(
-                      //텍스트 밑의 둥근모서리 박스
-                      width: 210,
-                      height: 110,
-                      padding: EdgeInsets.all(15.0),
-                      margin: EdgeInsets.all(10.0),
-
-                      child: Column(
-                        //둥근모서리 박스 안 구성요소
-                        children: <Widget>[
-                          OutlinedButton(
-                            // 버튼2
-                            style: OutlinedButton.styleFrom(
-                                fixedSize: Size(180, 70)),
-                            onPressed: () {
-                              Get.to(HomePage());
-                            },
-                            child: Text('홈페이지로 돌아가기'),
-                          ),
-                        ],
-                      ),
-
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 3, color: Color(0xff3B4C66)),
-                        borderRadius: BorderRadius.circular(20),
+                title: Container(
+                  padding:
+                  EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 5),
+                  child: Text("도서 반납이\n완료되었습니다.",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xff2D3C72),
+                    ),),
+                ),
+                content: GestureDetector(
+                  onTap: () {
+                    Get.to(HomePage());
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 1,
+                        color: Colors.grey,
                       ),
                     ),
-                  ],
+                    child: Row(
+                      children: [
+                        Icon(Icons.home_filled,
+                          color: Color(0xff2D3C72),),
+                        SizedBox(width: 10),
+                        Text("홈페이지로 돌아가기"),
+                      ],
+                    ),
+                  ),
                 ),
               );
             },
