@@ -163,6 +163,7 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -220,6 +221,7 @@ class _DetailPageState extends State<DetailPage> {
                   title: Form(
                     key: formKey,
                     child: TextFormField(
+                      controller: commentController,
                       decoration: InputDecoration(
                         ///댓글 창 배경색
                         filled: true,
@@ -231,136 +233,31 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                     ),
                   ),
-                  trailing: GestureDetector(child:Icon(Icons.send_sharp, size: 30, color: Colors.black),),
+                  trailing: GestureDetector(
+                    onTap: (){
+                      if(formKey.currentState!.validate()){
+                        print(commentController.text);
+                        setState(() {
+                          var value = {
+                            'name' : 'New User',
+                            'pic' : 'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
+                            'message' : commentController.text
+                          };
+                          filedata.insert(0, value);
+                        });
+                        commentController.clear();
+                        FocusScope.of(context).unfocus();
+                      } else{
+                        print("Not validated");
+                      }
+                    },
+                    child:Icon(Icons.send_sharp, size: 30, color: Colors.black),),
                 )
               ),
-              /*Container(
-                height: 400,
-                child: CommentBox(
-                  userImage:
-                      "https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400",
-                  child: commentChild(filedata),
-                  labelText: 'Write a comment...',
-                  withBorder: false,
-                  errorText: 'Comment cannot be blank',
-                  sendButtonMethod: () {
-                    if (formKey.currentState!.validate()) {
-                      print(commentController.text);
-                      setState(() {
-                        var value = {
-                          'name': 'New User',
-                          'pic':
-                              'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
-                          'message': commentController.text
-                        };
-                        filedata.insert(0, value);
-                      });
-                      commentController.clear();
-                      FocusScope.of(context).unfocus();
-                    } else {
-                      print("Not validated");
-                    }
-                  },
-                  formKey: formKey,
-                  commentController: commentController,
-                  backgroundColor: Color(0xffEFEFF0),
-                  textColor: Colors.black,
-                  sendWidget:
-                      Icon(Icons.send_sharp, size: 30, color: Colors.black),
-                ),
-              ),*/
           ],
           ),
         ),
       ),
     );
   }
-
-  /*@override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff006285),
-        title: Text("도서 상세 정보"),
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: [
-              Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 20, right: 10),
-                child: /*Image.network(documentSnapshot['이미지']),*/
-                    Image.asset(
-                  'assets/images/bookcover.jpg',
-                  width: MediaQuery.of(context).size.width * 0.5,
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [bookContent()],
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                child: BookButton(),
-              ),
-              Column(
-                children: [
-                  Container(
-                    width: 500,
-                    child: Divider(
-                      color: Colors.black12,
-                      thickness: 1.0,
-                    ),
-                  ),
-                  Container(
-                    child: Text("Book review",
-                        style: TextStyle(color: Colors.black38, fontSize: 10)),
-                  ),
-                  //commentChild(filedata),
-                  IntrinsicHeight(
-                    child: Container(
-                      height: 400,
-                      child: CommentBox(
-                        userImage:
-                            "https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400",
-                        child: commentChild(filedata),
-                        labelText: 'Write a comment...',
-                        withBorder: false,
-                        errorText: 'Comment cannot be blank',
-                        sendButtonMethod: () {
-                          if (formKey.currentState!.validate()) {
-                            print(commentController.text);
-                            setState(() {
-                              var value = {
-                                'name': 'New User',
-                                'pic':
-                                    'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
-                                'message': commentController.text
-                              };
-                              filedata.insert(0, value);
-                            });
-                            commentController.clear();
-                            FocusScope.of(context).unfocus();
-                          } else {
-                            print("Not validated");
-                          }
-                        },
-                        formKey: formKey,
-                        commentController: commentController,
-                        backgroundColor: Color(0xffEFEFF0),
-                        textColor: Colors.black,
-                        sendWidget: Icon(Icons.send_sharp,
-                            size: 30, color: Colors.black),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }*/
 }
