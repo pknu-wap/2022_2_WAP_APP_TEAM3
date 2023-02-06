@@ -177,10 +177,16 @@ class _DetailPageState extends State<DetailPage> {
           child: Column(
             children: [
               Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 20, right: 10),
-                child: /*Image.network(documentSnapshot['이미지']),*/
-                    Image.asset(
+                margin: EdgeInsets.all(20),
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.7),
+                    spreadRadius: 0,
+                    blurRadius: 5.0,
+                    offset: Offset(7, 7),
+                  )
+                ]),
+                child: Image.asset(
                   'assets/images/bookcover.jpg',
                   width: MediaQuery.of(context).size.width * 0.5,
                 ),
