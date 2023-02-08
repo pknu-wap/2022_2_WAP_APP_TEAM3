@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -9,56 +8,82 @@ import 'package:wap_library/util/vaildator_util.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../components/camera.dart';
+
+/*
+해야할 것
+1. 코드 단축 (textfield 하나만 써서 정리하기)
+2. 팝업창을 camera page에 만들기 (camera page에서 완료를 누르면 add page로 사진 데이터 전송되게 하기)
+3. 분류 고를 수 있게 하기
+*/
+
 ///도서 추가페이지
 class AddPage extends StatelessWidget {
   const AddPage({super.key});
 
+  PreferredSizeWidget CustomAppbar() {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(70.0), // here the desired height
+      child: AppBar(
+        backgroundColor: Color(0xff2D3C72),
+        title: Container(
+          padding: EdgeInsets.only(top: 20, left: 10),
+          child: Text(
+            "관리자 _ 도서추가 페이지",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff006285),
-      ),
-      body: Center(
-
-        child: SingleChildScrollView(
-          child : Container(
-          padding: EdgeInsets.all(25.0),
-          margin: EdgeInsets.fromLTRB(0, 0, 0, 0,),
-          width: 250,
-          height: 430,
-          decoration:
-          BoxDecoration(
-              color: Color(0xff006285),
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.7),
-                  spreadRadius: 0,
-                  blurRadius: 5.0,
-                  offset: Offset(0, 10),
-                )
-              ]
-          ),
-          child: Column(
-
-              children: <Widget>[
-
-                SizedBox(
-                  height: 20.0,
+      appBar: CustomAppbar(),
+      body: SafeArea(
+        child: Center(
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: MediaQuery.of(context).size.height * 0.8,
+            padding: EdgeInsets.all(20),
+            child: SingleChildScrollView(
+              child: Column(children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(top: 10, bottom: 25),
+                  child: Text(
+                    '추가할 도서 정보를 입력해주세요',
+                    style: TextStyle(
+                      color: Color(0xff2D3C72),
+                      fontSize: 20,
+                    ),
+                  ),
                 ),
-                const Text('도서 추가하기',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),),
-                SizedBox(
-                  height: 20.0,
-                ),
-                ///도서 정보 입력창
                 TextField(
+                  ///1
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    labelText: '분류',
+                    hintText: '분류를 선택하세요',
+                    labelStyle: TextStyle(color: Colors.black),
+                    focusedBorder: OutlineInputBorder(
+                      // 텍스트필드 선택했을 때
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide:
+                          BorderSide(width: 1, color: Color(0xff2D3C72)),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  ),
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                TextField(
+                  ///1
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
@@ -66,22 +91,23 @@ class AddPage extends StatelessWidget {
                     hintText: '도서명을 입력하세요',
                     labelStyle: TextStyle(color: Colors.black),
                     focusedBorder: OutlineInputBorder(
+                      // 텍스트필드 선택했을 때
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(width: 1, color: Colors.black),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderSide:
+                          BorderSide(width: 1, color: Color(0xff2D3C72)),
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   ),
                 ),
                 SizedBox(
                   height: 20.0,
                 ),
                 TextField(
+                  ///2
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
@@ -90,15 +116,37 @@ class AddPage extends StatelessWidget {
                     labelStyle: TextStyle(color: Colors.black),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(width: 1, color: Colors.black),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderSide:
+                          BorderSide(width: 1, color: Color(0xff2D3C72)),
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  ),
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                TextField(
+                  ///3
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    labelText: '출판사명',
+                    hintText: '출판사명을 입력하세요',
+                    labelStyle: TextStyle(color: Colors.black),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide:
+                          BorderSide(width: 1, color: Color(0xff2D3C72)),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   ),
                 ),
                 SizedBox(
@@ -108,90 +156,96 @@ class AddPage extends StatelessWidget {
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
-                    labelText: '출판사명',
-                    hintText: '출판사명을 입력하세요',
+                    labelText: '청구기호',
+                    hintText: '청구기호를 입력하세요',
                     labelStyle: TextStyle(color: Colors.black),
                     focusedBorder: OutlineInputBorder(
+                      // 텍스트필드 선택했을 때
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(width: 1, color: Colors.black),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderSide:
+                          BorderSide(width: 1, color: Color(0xff2D3C72)),
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   ),
                 ),
                 SizedBox(
-                  height: 20.0,
+                  height: 30.0,
                 ),
-                FloatingActionButton.extended(
-
-                    onPressed: () {
-                      ///이미지 추가 버튼 클릭 시 뜨는 팝업창
-                      showDialog(context: context,
-
-                          barrierDismissible: true,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              content:
-                              SizedBox(
-
-                                height: 400,
-                                child: Center(
-
-                                  child: const Camera(),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                  decoration: BoxDecoration(
+                    color: Color(0xffD6D6D6),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        child: Container(
+                            margin: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 20),
+                            padding: EdgeInsets.all(15),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              //컨테이너 데코레이션
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.wallpaper,
+                                  size: 40,
+                                  color: Colors.black,
                                 ),
-                              ),
-                              actions: <Widget>[
-
-                                FloatingActionButton.extended(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                    ;
-                                  },
-                                  label: Text("완료",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),),
-                                  backgroundColor: Colors.white,
-
+                                Text(
+                                  "이미지 업로드",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ],
-
-
-                            );
-                          }
-                      );
-                    },
-
-
-                    label: Text("이미지 업로드",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.bold,
-                      ),),
-                    backgroundColor: Colors.white,
-                    icon: Icon(
-
-                      Icons.wallpaper,
-
-                      size: 30,
-                      color: Colors.black,
-                    )
+                            )),
+                        onTap: () {}
+                      ),
+                      Container(width: 10, height: 10, color: Colors.pink),
+                    ],
+                  ),
                 ),
-
-
-              ]
+                AddButton(),
+              ]),
+            ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget AddButton() {
+    return GestureDetector(
+      child: Container(
+        padding: EdgeInsets.all(10),
+        margin: EdgeInsets.symmetric(vertical: 20),
+        decoration: BoxDecoration(
+          color: Color(0xff2D3C72),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Center(
+          child: const Text(
+            '도서 신청 완료하기',
+            style: TextStyle(
+                color: Colors.white,
+            fontSize: 17),
+          ),
         ),
       ),
+      onTap: () {
+
+      },
     );
   }
 }
