@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wap_library/pages/major/firestore_page.dart';
 import 'package:wap_library/pages/major/apply_page.dart';
+import 'package:wap_library/pages/major/search_page.dart';
 import 'package:wap_library/pages/manager/manager_page.dart';
+import '../manager/search_page.dart';
 import 'category_page.dart';
 import 'my_page.dart';
 
@@ -81,17 +83,18 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         actions: [
+          IconButton(//검색창 아이콘
+              padding: EdgeInsets.only(top: 20),
+              onPressed: (){Get.to(SearchPage_m());
+              },
+              icon: Icon(Icons.search)),
           IconButton(
-            padding: EdgeInsets.only(top: 20, left : 10),
+            padding: EdgeInsets.only(top: 20),
             icon: Icon(Icons.manage_accounts),
             onPressed: () {
               Get.to(ManagerPage());
             },
           ),
-          /*IconButton( //검색창 아이콘
-                onPressed: (){Get.to(SearchPage());
-                },
-                icon: Icon(Icons.search))*/
         ],
       ),
     );
