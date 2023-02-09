@@ -8,8 +8,6 @@ import 'package:wap_library/pages/init/join_page.dart';
 import 'package:wap_library/pages/init/login_page.dart';
 import 'package:wap_library/pages/user/my_rental_page.dart';
 
-import 'components/firestore_page.dart';
-
 /*void main() {
   runApp(MyApp());
 }*/
