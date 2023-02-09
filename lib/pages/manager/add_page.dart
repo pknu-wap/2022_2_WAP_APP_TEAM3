@@ -20,7 +20,7 @@ import '../../components/camera.dart';
 class AddPage extends StatelessWidget {
   const AddPage({super.key});
 
-  PreferredSizeWidget CustomAppbar() {
+  PreferredSizeWidget CustomAppbar( ) {
     return PreferredSize(
       preferredSize: Size.fromHeight(70.0), // here the desired height
       child: AppBar(
