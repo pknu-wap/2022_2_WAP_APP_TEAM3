@@ -7,7 +7,7 @@ import 'package:wap_library/pages/detail/detail_page.dart';
 import 'package:wap_library/pages/init/join_page.dart';
 import 'package:wap_library/pages/init/login_page.dart';
 
-import 'components/firestore_page.dart';
+import 'pages/major/firestore_page.dart';
 
 /*void main() {
   runApp(MyApp());

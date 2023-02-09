@@ -6,6 +6,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:wap_library/pages/detail/detail_page.dart';
 import 'package:wap_library/pages/major/list_page.dart';
 import 'package:flutter/src/widgets/container.dart';
+import 'package:wap_library/pages/major/home_page.dart';
 
 class CategoryPage extends StatelessWidget {
   CategoryPage({Key? key}) : super(key: key);
@@ -28,15 +29,7 @@ class CategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Container(
-          padding: EdgeInsets.only(top: 15, bottom: 10, left: 35),
-          child: Text(
-            '분류',
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          ),
-        ),
-        Center(
+      body: Center(
           child: Table(
             defaultColumnWidth: FixedColumnWidth(
                 MediaQuery.of(context).size.width * 0.45 // 표 세로줄의 가로 길이
@@ -57,7 +50,6 @@ class CategoryPage extends StatelessWidget {
             ],
           ),
         ),
-      ]),
     );
   }
 }
