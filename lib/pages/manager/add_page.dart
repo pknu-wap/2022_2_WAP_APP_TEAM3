@@ -184,34 +184,33 @@ class AddPage extends StatelessWidget {
                   child: Row(
                     children: [
                       GestureDetector(
-                        child: Container(
-                            margin: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 20),
-                            padding: EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              //컨테이너 데코레이션
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Column(
-                              children: [
-                                Icon(
-                                  Icons.wallpaper,
-                                  size: 40,
-                                  color: Colors.black,
-                                ),
-                                Text(
-                                  "이미지 업로드",
-                                  style: TextStyle(
+                          child: Container(
+                              margin: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 20),
+                              padding: EdgeInsets.all(15),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                //컨테이너 데코레이션
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                children: [
+                                  Icon(
+                                    Icons.wallpaper,
+                                    size: 40,
                                     color: Colors.black,
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.bold,
                                   ),
-                                ),
-                              ],
-                            )),
-                        onTap: () {}
-                      ),
+                                  Text(
+                                    "이미지 업로드",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              )),
+                          onTap: () {}),
                       Container(width: 10, height: 10, color: Colors.pink),
                     ],
                   ),
@@ -224,8 +223,11 @@ class AddPage extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget AddButton() {
+class AddButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
         padding: EdgeInsets.all(10),
@@ -237,14 +239,31 @@ class AddPage extends StatelessWidget {
         child: Center(
           child: const Text(
             '도서 신청 완료하기',
-            style: TextStyle(
-                color: Colors.white,
-            fontSize: 17),
+            style: TextStyle(color: Colors.white, fontSize: 17),
           ),
         ),
       ),
       onTap: () {
-
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Container(
+                  padding:
+                  EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 5),
+                  child: Text("도서 추가가\n완료되었습니다.",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xff2D3C72),
+                    ),),
+                ),
+                actions: [
+                  TextButton(
+                      onPressed: () {Navigator.pop(context);},
+                      child: Text("확인"))
+                ],
+              );
+            });
       },
     );
   }
