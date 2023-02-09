@@ -22,7 +22,7 @@ class _ApplyPageState extends State<ApplyPage> {
   TextEditingController textarea_w = TextEditingController();
   TextEditingController textarea_p = TextEditingController();
   FocusNode focusNode = FocusNode();
-  String _text = "";
+  String _text = " ";
 
   BookNameInputState() {
     textarea_n.addListener(() {
