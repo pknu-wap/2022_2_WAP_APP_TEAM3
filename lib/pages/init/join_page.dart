@@ -33,7 +33,7 @@ class JoinPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-          ),
+          ), //
           Container(margin: EdgeInsets.only(top: 20), child: _joinForm()),
           TextButton(
             onPressed: () {
