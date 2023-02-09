@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:wap_library/components/custom_text_form_field.dart';
@@ -11,7 +13,7 @@ import '../../components/camera.dart';
 
 /*
 해야할 것
-1. 코드 단축 (textfield 하나만 써서 정리하기)
+1. 코드 단축 (textfield 하나만 써서 정리하기) >>> clear!
 2. 팝업창을 camera page에 만들기 (camera page에서 완료를 누르면 add page로 사진 데이터 전송되게 하기)
 3. 분류 고를 수 있게 하기
 */
@@ -58,120 +60,23 @@ class AddPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                TextField(
-                  ///1
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    labelText: '분류',
-                    hintText: '분류를 선택하세요',
-                    labelStyle: TextStyle(color: Colors.black),
-                    focusedBorder: OutlineInputBorder(
-                      // 텍스트필드 선택했을 때
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide:
-                          BorderSide(width: 1, color: Color(0xff2D3C72)),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  ),
-                ),
+                AddTextfield(labelText: '분류', hintText : '분류를 선택하세요.'),
                 SizedBox(
                   height: 20.0,
                 ),
-                TextField(
-                  ///1
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    labelText: '도서명',
-                    hintText: '도서명을 입력하세요',
-                    labelStyle: TextStyle(color: Colors.black),
-                    focusedBorder: OutlineInputBorder(
-                      // 텍스트필드 선택했을 때
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide:
-                          BorderSide(width: 1, color: Color(0xff2D3C72)),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  ),
-                ),
+                AddTextfield(labelText: '도서명', hintText : '도서명을 입력하세요.'),
                 SizedBox(
                   height: 20.0,
                 ),
-                TextField(
-                  ///2
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    labelText: '저자명',
-                    hintText: '저자명을 입력하세요',
-                    labelStyle: TextStyle(color: Colors.black),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide:
-                          BorderSide(width: 1, color: Color(0xff2D3C72)),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  ),
-                ),
+                AddTextfield(labelText: '저자명', hintText : '저자명을 입력하세요.'),
                 SizedBox(
                   height: 20.0,
                 ),
-                TextField(
-                  ///3
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    labelText: '출판사명',
-                    hintText: '출판사명을 입력하세요',
-                    labelStyle: TextStyle(color: Colors.black),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide:
-                          BorderSide(width: 1, color: Color(0xff2D3C72)),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  ),
-                ),
+                AddTextfield(labelText: '출판사명', hintText : '출판사명을 입력하세요.'),
                 SizedBox(
                   height: 20.0,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    labelText: '청구기호',
-                    hintText: '청구기호를 입력하세요',
-                    labelStyle: TextStyle(color: Colors.black),
-                    focusedBorder: OutlineInputBorder(
-                      // 텍스트필드 선택했을 때
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide:
-                          BorderSide(width: 1, color: Color(0xff2D3C72)),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  ),
-                ),
+                AddTextfield(labelText: '청구기호', hintText : '청구기호를 입력하세요.'),
                 SizedBox(
                   height: 30.0,
                 ),
@@ -224,6 +129,39 @@ class AddPage extends StatelessWidget {
     );
   }
 }
+
+class AddTextfield extends StatelessWidget {
+  final String labelText;
+  final String hintText;
+
+  AddTextfield({required this.labelText, required this.hintText});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
+        labelText: labelText,
+        hintText: hintText,
+        labelStyle: TextStyle(color: Colors.black),
+        focusedBorder: OutlineInputBorder(
+          // 텍스트필드 선택했을 때
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderSide:
+          BorderSide(width: 1, color: Color(0xff2D3C72)),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        ),
+        contentPadding:
+        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      ),
+    );
+  }
+}
+
+
 
 class AddButton extends StatelessWidget {
   @override
