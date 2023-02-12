@@ -192,6 +192,9 @@ class _DetailPageState extends State<DetailPage> {
                       height: 400,
                       child: CommentBox(
 
+                        /*userImage: (
+                          "https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400"),*/
+
                         child: commentChild(filedata),
                         labelText: 'Write a comment...',
                         withBorder: false,
