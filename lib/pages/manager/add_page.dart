@@ -1,13 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:wap_library/components/custom_text_form_field.dart';
-import 'package:wap_library/components/custom_textarea.dart';
-import 'package:wap_library/util/vaildator_util.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../../components/camera.dart';
 
@@ -19,10 +15,32 @@ import '../../components/camera.dart';
 */
 
 ///도서 추가페이지
-class AddPage extends StatelessWidget {
-  const AddPage({super.key});
 
-  PreferredSizeWidget CustomAppbar( ) {
+class AddPage extends StatefulWidget {
+  _AddPageState createState() => _AddPageState();
+}
+
+class _AddPageState extends State<AddPage> {
+  var _selectedImage;
+
+  Widget ShowImage() {
+    return Container(
+      color: _selectedImage == null ? Colors.grey[300] : null,
+      width: 60,
+      height: 90,
+      child: Center(
+        child: _selectedImage == null
+            ? Text('No image selected.')
+            : Image.file(_selectedImage),
+
+        /*_selectedImage == null
+            ? Text('No image selected.')
+            : Image.file(_selectedImage),*/
+      ),
+    );
+  }
+
+  PreferredSizeWidget CustomAppbar() {
     return PreferredSize(
       preferredSize: Size.fromHeight(70.0), // here the desired height
       child: AppBar(
@@ -36,6 +54,21 @@ class AddPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _navigateAndDisplaySelection(BuildContext context) async {
+    // Navigator.push는 Future를 반환합니다. Future는 선택 창에서
+    // Navigator.pop이 호출된 이후 완료될 것입니다.
+    final result = await showDialog(
+        context: context,
+        builder: (context) {
+          return CameraDialog();
+        });
+
+    setState(() {
+      _selectedImage = File(result);
+    });
+
   }
 
   @override
@@ -60,23 +93,23 @@ class AddPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                AddTextfield(labelText: '분류', hintText : '분류를 선택하세요.'),
+                AddTextfield(labelText: '분류', hintText: '분류를 선택하세요.'),
                 SizedBox(
                   height: 20.0,
                 ),
-                AddTextfield(labelText: '도서명', hintText : '도서명을 입력하세요.'),
+                AddTextfield(labelText: '도서명', hintText: '도서명을 입력하세요.'),
                 SizedBox(
                   height: 20.0,
                 ),
-                AddTextfield(labelText: '저자명', hintText : '저자명을 입력하세요.'),
+                AddTextfield(labelText: '저자명', hintText: '저자명을 입력하세요.'),
                 SizedBox(
                   height: 20.0,
                 ),
-                AddTextfield(labelText: '출판사명', hintText : '출판사명을 입력하세요.'),
+                AddTextfield(labelText: '출판사명', hintText: '출판사명을 입력하세요.'),
                 SizedBox(
                   height: 20.0,
                 ),
-                AddTextfield(labelText: '청구기호', hintText : '청구기호를 입력하세요.'),
+                AddTextfield(labelText: '청구기호', hintText: '청구기호를 입력하세요.'),
                 SizedBox(
                   height: 30.0,
                 ),
@@ -115,8 +148,10 @@ class AddPage extends StatelessWidget {
                                   ),
                                 ],
                               )),
-                          onTap: () {}),
-                      Container(width: 10, height: 10, color: Colors.pink),
+                          onTap: () {
+                            _navigateAndDisplaySelection(context);
+                          }),
+                      ShowImage()
                     ],
                   ),
                 ),
@@ -148,20 +183,16 @@ class AddTextfield extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           // 텍스트필드 선택했을 때
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
-          borderSide:
-          BorderSide(width: 1, color: Color(0xff2D3C72)),
+          borderSide: BorderSide(width: 1, color: Color(0xff2D3C72)),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
-        contentPadding:
-        EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       ),
     );
   }
 }
-
-
 
 class AddButton extends StatelessWidget {
   @override
@@ -189,15 +220,19 @@ class AddButton extends StatelessWidget {
                 title: Container(
                   padding:
                   EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 5),
-                  child: Text("도서 추가가\n완료되었습니다.",
+                  child: Text(
+                    "도서 추가가\n완료되었습니다.",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Color(0xff2D3C72),
-                    ),),
+                    ),
+                  ),
                 ),
                 actions: [
                   TextButton(
-                      onPressed: () {Navigator.pop(context);},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       child: Text("확인"))
                 ],
               );
