@@ -10,6 +10,9 @@ import 'package:flutter/src/widgets/container.dart';
 class CategoryPage extends StatelessWidget {
   CategoryPage({Key? key}) : super(key: key);
 
+  
+
+
   List<CategoryButton> CategoryButtonList = [
     CategoryButton(categoryName: '게임/그래픽/영상처리'),
     CategoryButton(categoryName: '공학'),

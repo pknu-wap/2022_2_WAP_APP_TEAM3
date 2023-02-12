@@ -7,86 +7,91 @@ import 'package:wap_library/components/custom_elevated_button.dart';
 import 'package:wap_library/pages/major/home_page.dart';
 import 'package:wap_library/pages/init/join_page.dart';
 import 'package:wap_library/util/vaildator_util.dart';
+import 'dart:convert';
 
-class LoginPage extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
-  Future setLogin() async {
-    //setLogin이라는 함수 : SharedPreferences.getInstance()가 수행된 이후에 실행됨. isLogin 값을 true로 바꾸어 줌
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('isLogin', true);
-  }
+import '../../components/server.dart';
+
+class LoginPage extends StatefulWidget {
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+  ///데이터 가져오기
+/*  Future<BookInfo>? Bookinfo;
+  @override
+  void initState(){
+    super.initState();
+    Bookinfo = fetchBookInfo();
+  } */
+
+  @override
+  final _formKey = GlobalKey<FormState>();
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView(
           children: [
             Container(
-              color: Color(0xff006285),
-              padding: EdgeInsets.only(top: 200, bottom: 50),
-              child: Image.asset(
-                'assets/images/logo_w.png',
-                width: 90,
-                height: 90,
+              alignment: Alignment.center,
+              height: 200,
+              child: Text(
+                "LOGIN",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
+            _LoinForm(),
             Container(
-              color: Colors.white,
-              padding: EdgeInsets.only(top: 50, bottom: 0),
-              height: MediaQuery.of(context).size.height,
-              child: _LoginForm(),
+              width : 250,
+              height : 40,
+              child :TextButton(
+                onPressed: () {
+                  Get.to(JoinPage());
+                },
+                child: Text("SIGN UP"),
+              ),
             ),
           ],
         ),
+      ),
     );
   }
-
-  Widget _LoginForm() {
+  Widget _LoinForm() {
     return Form(
       key: _formKey,
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(bottom: 10),
             width: 300,
-            child: CustomTextFormField(
+            child : CustomTextFormField(
               hint: "Student Number", //텍스트 정렬 center
               funValidator: validateStudentNumber(),
             ),
           ),
           Container(
-            width: 300,
-            child: CustomTextFormField(
+            width : 300,
+            child : CustomTextFormField(
               hint: "Password",
               funValidator: validatePassWord(),
             ),
           ),
           Container(
-            width: 300,
-            height: 40,
-            margin: EdgeInsets.only(top: 30),
-            child: CustomElevatedButton(
-              text: "LOGIN",
+            width : 300,
+            height : 40,
+            margin : EdgeInsets.only(top:20),
+            child : CustomElevatedButton(
+              text: "LOGIN", //로그인 버튼 size 변경 확인
               funPageRoute: () {
                 if (_formKey.currentState!.validate()) {
                   Get.to(HomePage());
                 }
-                ;
-                setLogin();
               },
-            ),
-          ),
-          SizedBox(height: 10),
-          Container(
-            width: 250,
-            height: 40,
-            color: Colors.white,
-            child: TextButton(
-              onPressed: () {
-                Get.to(JoinPage());
-              },
-              child:
-              Text("SIGN UP", style: TextStyle(color: Color(0xff006285))),
             ),
           ),
         ],

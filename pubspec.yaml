@@ -49,6 +49,8 @@ dependencies:
   modal_progress_hud_nsn: ^0.3.0
   firebase_auth: ^4.1.4
   shared_preferences: ^2.0.6
+  http: ^0.13.5
+  provider:
 
 
 dev_dependencies:

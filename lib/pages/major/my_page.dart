@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:wap_library/pages/detail/detail_page.dart';
 
-import '../../components/book_list.dart';
+
 import '../user/my_apply_page.dart';
 import '../user/my_rental_page.dart';
 import '../user/my_reservation_page.dart';
