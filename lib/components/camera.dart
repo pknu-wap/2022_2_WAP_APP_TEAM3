@@ -14,7 +14,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../components/camera.dart';
 
 /// 사진 추가하기 팝업!
-class CameraDialog extends StatefulWidget {
+/*class CameraDialog extends StatefulWidget {
   const CameraDialog({Key? key}) : super(key: key);
 
   @override
@@ -115,4 +115,4 @@ class _CameraDialogState extends State<CameraDialog> {
       ],
     );
   }
-}
+}*/
