@@ -65,8 +65,7 @@ class _FireStorePageState extends State<FireStorePage> {
                 );
               },
             );
-          }
-          ;
+          };
           return CircularProgressIndicator();
         },
       ),

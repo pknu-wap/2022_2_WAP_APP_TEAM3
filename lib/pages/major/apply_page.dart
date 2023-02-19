@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:wap_library/pages/major/my_page.dart';
 import '../user/my_apply_page.dart';
 import 'package:wap_library/pages/major/home_page.dart';
 
@@ -48,10 +49,6 @@ class _ApplyPageState extends State<ApplyPage> {
     });
   }
 
-  late List<Widget> ApplyFormatBoxList = <Widget>[
-    ApplyFormatBox(),
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -61,9 +58,7 @@ class _ApplyPageState extends State<ApplyPage> {
   void addApplyFormatBox() {
     setState(() {
       n++;
-      ApplyFormatBoxList.add(
-          ApplyFormatBox()
-          );
+      entries.add(ApplyFormatBox());
     });
   }
 
@@ -87,11 +82,18 @@ class _ApplyPageState extends State<ApplyPage> {
                   ),
                 ),
               ),
+              SingleChildScrollView(
+                child: Column(
+                  children: List.generate(entries.length, (index) {
+                    return entries[index];
+                  }
+                  ),
+                ),
+              ),
 
-              ApplyFormatBoxList[0],
-                  //List<Widget> 만드신다음에 ListView.builder 사용하시고
-                  //버튼 누르면 .add해서 setState하면
-                  /*ListView.builder(
+                //List<Widget> 만드신다음에 ListView.builder 사용하시고
+                //버튼 누르면 .add해서 setState하면
+                /*ListView.builder(
                     itemCount: 1,
                     itemBuilder: (BuildContext context, int index) {
                       return ApplyFormatBox();
@@ -212,7 +214,10 @@ class _ApplyPageState extends State<ApplyPage> {
   Widget MoreApplyButton() {
     return GestureDetector(
         onTap: () {
-          addApplyFormatBox();
+          setState(() {
+            n++;
+            entries.add(ApplyFormatBox());
+          });
           // 도서신청 양식 컨테이너 하나 더 추가되는 기능
         },
         child: Container(
