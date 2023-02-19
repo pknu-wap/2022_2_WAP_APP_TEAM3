@@ -19,47 +19,12 @@ class _ApplyPageState extends State<ApplyPage> {
 
   _ApplyPageState({required this.appBarTitle});
 
-  TextEditingController textarea_n = TextEditingController();
-  TextEditingController textarea_w = TextEditingController();
-  TextEditingController textarea_p = TextEditingController();
-  FocusNode focusNode = FocusNode();
-  String _text = " ";
 
-  BookNameInputState() {
-    textarea_n.addListener(() {
-      setState(() {
-        _text = textarea_n.text;
-      });
-    });
-  }
-
-  WriterNameInputState() {
-    textarea_w.addListener(() {
-      setState(() {
-        _text = textarea_w.text;
-      });
-    });
-  }
-
-  PublisherNameInputState() {
-    textarea_p.addListener(() {
-      setState(() {
-        _text = textarea_p.text;
-      });
-    });
-  }
 
   @override
   void initState() {
     super.initState();
     n = 1;
-  }
-
-  void addApplyFormatBox() {
-    setState(() {
-      n++;
-      entries.add(ApplyFormatBox());
-    });
   }
 
   @override
@@ -152,9 +117,7 @@ class _ApplyPageState extends State<ApplyPage> {
             style: TextStyle(fontSize: 18),
           ),
         ),
-        BookNameInput(), //도서명 기입
-        WriterNameInput(), //저자명 기입
-        PublisherNameInput(), //출판사명 기입
+        TextInput(), //출판사명 기입
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 10),
         )
@@ -162,53 +125,7 @@ class _ApplyPageState extends State<ApplyPage> {
     );
   }
 
-  //책 이름 기입 위젯
-  Widget BookNameInput() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: TextField(
-        controller: textarea_n,
-        onChanged: (bookname) {},
-        keyboardType: TextInputType.name,
-        decoration: const InputDecoration(
-          labelText: '도서명',
-          helperText: '',
-        ),
-      ),
-    );
-  }
 
-  //저자명 기입 위젯
-  Widget WriterNameInput() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: TextField(
-        controller: textarea_w,
-        onChanged: (bookname) {},
-        keyboardType: TextInputType.name,
-        decoration: const InputDecoration(
-          labelText: '저자명',
-          helperText: '',
-        ),
-      ),
-    );
-  }
-
-  //출판사명 기입 위젯
-  Widget PublisherNameInput() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: TextField(
-        controller: textarea_p,
-        onChanged: (bookname) {},
-        keyboardType: TextInputType.name,
-        decoration: const InputDecoration(
-          labelText: '출판사명',
-          helperText: '',
-        ),
-      ),
-    );
-  }
 
   /// 도서추가 버튼
   Widget MoreApplyButton() {
@@ -275,12 +192,11 @@ class _ApplyPageState extends State<ApplyPage> {
                             ),
                             onPressed: () {
                               Navigator.pop(context);
-                              setState(() {
+                              /* setState(() {
                                 textarea_n.clear();
                                 textarea_p.clear();
                                 textarea_w.clear();
-                                _text = "";
-                              });
+                              }); */
                             },
                             child: Text('더 신청할 책이 있어요'),
                           ),
@@ -334,3 +250,145 @@ class _ApplyPageState extends State<ApplyPage> {
     );
   }
 }
+
+class TextInput extends StatefulWidget {
+  State<TextInput> createState() => _TextInputState();
+}
+
+class _TextInputState extends State<TextInput> {
+
+  TextEditingController textarea_n = TextEditingController();
+  TextEditingController textarea_w = TextEditingController();
+  TextEditingController textarea_p = TextEditingController();
+  FocusNode focusNode = FocusNode();
+  String _text = " ";
+
+  BookNameInputState() {
+    textarea_n.addListener(() {
+      setState(() {
+        _text = textarea_n.text;
+      });
+    });
+  }
+
+  WriterNameInputState() {
+    textarea_w.addListener(() {
+      setState(() {
+        _text = textarea_w.text;
+      });
+    });
+  }
+
+  PublisherNameInputState() {
+    textarea_p.addListener(() {
+      setState(() {
+        _text = textarea_p.text;
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context){
+    return Column(
+      children: [
+          Container(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: TextField(
+          controller: textarea_n,
+          onChanged: (bookname) {},
+          keyboardType: TextInputType.name,
+          decoration: const InputDecoration(
+          labelText: '도서명',
+          helperText: '',
+          ),
+          ),
+          ),
+
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: TextField(
+            controller: textarea_w,
+            onChanged: (bookname) {},
+            keyboardType: TextInputType.name,
+            decoration: const InputDecoration(
+              labelText: '저자명',
+              helperText: '',
+            ),
+          ),
+        ),
+
+
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: TextField(
+            controller: textarea_p,
+            onChanged: (bookname) {},
+            keyboardType: TextInputType.name,
+            decoration: const InputDecoration(
+              labelText: '출판사명',
+              helperText: '',
+            ),
+          ),
+        ),
+
+      ],
+    );
+
+  }
+
+}
+
+/*
+
+//책 이름 기입 위젯
+class BookNameInput extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal: 10),
+    child: TextField(
+      controller: textarea_n,
+      onChanged: (bookname) {},
+      keyboardType: TextInputType.name,
+      decoration: const InputDecoration(
+        labelText: '도서명',
+        helperText: '',
+      ),
+    ),
+  );
+}}
+
+//저자명 기입 위젯
+Widget WriterNameInput() {
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal: 10),
+    child: TextField(
+      controller: textarea_w,
+      onChanged: (bookname) {},
+      keyboardType: TextInputType.name,
+      decoration: const InputDecoration(
+        labelText: '저자명',
+        helperText: '',
+      ),
+    ),
+  );
+}
+
+//출판사명 기입 위젯
+Widget PublisherNameInput() {
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal: 10),
+    child: TextField(
+      controller: textarea_p,
+      onChanged: (bookname) {},
+      keyboardType: TextInputType.name,
+      decoration: const InputDecoration(
+        labelText: '출판사명',
+        helperText: '',
+      ),
+    ),
+  );
+}
+
+
+ */
