@@ -17,11 +17,13 @@ import '../../components/camera.dart';
 ///도서 추가페이지
 
 class AddPage extends StatefulWidget {
+
   _AddPageState createState() => _AddPageState();
 }
 
 class _AddPageState extends State<AddPage> {
   var _selectedImage;
+  
 
   Widget ShowImage() {
     return Container(
@@ -32,10 +34,6 @@ class _AddPageState extends State<AddPage> {
         child: _selectedImage == null
             ? Text('No image selected.')
             : Image.file(_selectedImage),
-
-        /*_selectedImage == null
-            ? Text('No image selected.')
-            : Image.file(_selectedImage),*/
       ),
     );
   }
@@ -56,19 +54,11 @@ class _AddPageState extends State<AddPage> {
     );
   }
 
-  _navigateAndDisplaySelection(BuildContext context) async {
-    // Navigator.push는 Future를 반환합니다. Future는 선택 창에서
-    // Navigator.pop이 호출된 이후 완료될 것입니다.
-    final result = await showDialog(
-        context: context,
-        builder: (context) {
-          return CameraDialog();
-        });
-
+  @override
+  void updateImage(Image image) {
     setState(() {
-      _selectedImage = File(result);
+      _selectedImage = image;
     });
-
   }
 
   @override
@@ -149,7 +139,12 @@ class _AddPageState extends State<AddPage> {
                                 ],
                               )),
                           onTap: () {
-                            _navigateAndDisplaySelection(context);
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+
+                              return CameraDialog(updateImage);
+                            });
                           }),
                       ShowImage()
                     ],
