@@ -8,7 +8,12 @@ import 'package:wap_library/pages/manager/manager_page.dart';
 import 'my_page.dart';
 
 class ListPage extends StatefulWidget {
-  const ListPage({Key? key}) : super(key: key);
+  ListPage({
+    Key? key,
+    required this.listName,
+  }) : super(key: key);
+
+  late String listName;
 
   @override
   State<ListPage> createState() => _ListPageState();
@@ -37,14 +42,14 @@ class _ListPageState extends State<ListPage> {
       if (_currentIndex == 0)
         _appBarTitle = '도서신청' ;
       else if (_currentIndex == 1)
-        _appBarTitle = '리스트이름';
+        _appBarTitle = widget.listName;
       else _appBarTitle = '마이페이지';
     });
   }
 
   void initState() {
     super.initState();
-    _appBarTitle = '리스트이름';
+    _appBarTitle = widget.listName;
   }
 
   @override

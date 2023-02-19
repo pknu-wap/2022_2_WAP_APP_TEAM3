@@ -75,7 +75,7 @@ class CategoryButton extends StatelessWidget {
         ),
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => ListPage()));
+              .push(MaterialPageRoute(builder: (context) => ListPage(listName: categoryName)));
         },
       ),
     );
