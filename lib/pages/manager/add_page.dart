@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../components/camera.dart';
 
@@ -17,26 +18,10 @@ import '../../components/camera.dart';
 ///도서 추가페이지
 
 class AddPage extends StatefulWidget {
-
   _AddPageState createState() => _AddPageState();
 }
 
 class _AddPageState extends State<AddPage> {
-  var _selectedImage;
-  
-
-  Widget ShowImage() {
-    return Container(
-      color: _selectedImage == null ? Colors.grey[300] : null,
-      width: 60,
-      height: 90,
-      child: Center(
-        child: _selectedImage == null
-            ? Text('No image selected.')
-            : Image.file(_selectedImage),
-      ),
-    );
-  }
 
   PreferredSizeWidget CustomAppbar() {
     return PreferredSize(
@@ -52,13 +37,6 @@ class _AddPageState extends State<AddPage> {
         ),
       ),
     );
-  }
-
-  @override
-  void updateImage(Image image) {
-    setState(() {
-      _selectedImage = image;
-    });
   }
 
   @override
@@ -109,46 +87,7 @@ class _AddPageState extends State<AddPage> {
                     color: Color(0xffD6D6D6),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Row(
-                    children: [
-                      GestureDetector(
-                          child: Container(
-                              margin: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 20),
-                              padding: EdgeInsets.all(15),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                //컨테이너 데코레이션
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.wallpaper,
-                                    size: 40,
-                                    color: Colors.black,
-                                  ),
-                                  Text(
-                                    "이미지 업로드",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              )),
-                          onTap: () {
-                            showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-
-                              return CameraDialog(updateImage);
-                            });
-                          }),
-                      ShowImage()
-                    ],
-                  ),
+                  child: ImageUploader(),
                 ),
                 AddButton(),
               ]),
@@ -235,4 +174,85 @@ class AddButton extends StatelessWidget {
       },
     );
   }
+}
+
+///image_picker 방법2
+class ImageUploader extends StatefulWidget {
+  const ImageUploader({Key? key}) : super(key: key);
+
+  @override
+  State<ImageUploader> createState() => _ImageUploaderState();
+}
+
+class _ImageUploaderState extends State<ImageUploader> {
+  File? _image;
+  final picker = ImagePicker();
+
+  ///비동기 처리 > 이미지 가져오기
+  Future<void> _pickImage(ImageSource source) async {
+    final pickedFile = await picker.pickImage(source: source);
+    if (pickedFile != Null) {
+      ///if없어도 될 듯. 어차피 !.로 null이 아님을 정해줘서
+      setState(() {
+        _image = File(pickedFile!.path);
+      });
+    }
+  }
+
+  Widget _optionDialog() {
+    return AlertDialog(
+      content: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+              child: Icon(Icons.add_a_photo),
+              onPressed: () {
+                Navigator.of(context).pop();
+                _pickImage(ImageSource.camera);
+              }),
+          FloatingActionButton(
+              child: Icon(Icons.wallpaper),
+              onPressed: () {
+                Navigator.of(context).pop();
+                _pickImage(ImageSource.gallery);
+              }),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
+      ),
+      child: _image == null
+          ? InkWell(
+        onTap: () =>
+            showDialog(context: context, builder: (_) => _optionDialog()),
+        child: Icon(Icons.camera_alt),
+      )
+          : Image.file(_image!),
+    );
+  }
+
+/*Widget showImage() {
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
+      ),
+      child: _image == null
+          ? InkWell(
+              onTap: () => _pickImage(ImageSource.camera),
+              child: Icon(Icons.camera_alt),
+            )
+          : Image.file(_image!),
+    );
+  }*/
+
 }

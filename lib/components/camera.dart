@@ -15,21 +15,16 @@ import '../../components/camera.dart';
 
 /// 사진 추가하기 팝업!
 class CameraDialog extends StatefulWidget {
-
-  final Function(Image) updateImage;
-
-  CameraDialog(this.updateImage);
+  const CameraDialog({Key? key}) : super(key: key);
 
   @override
   _CameraDialogState createState() => _CameraDialogState();
 }
 
-
 class _CameraDialogState extends State<CameraDialog> {
   File? _image;
   final picker = ImagePicker();
   var _uploadedImage;
-
 
   /// 비동기 처리를 통해 카메라와 갤러리에서 이미지를 가져온다.
   @override
@@ -40,15 +35,6 @@ class _CameraDialogState extends State<CameraDialog> {
       _image = File(_uploadedImage!.path);
     });
   }
-
-
-  void selectImage() {
-    // code to select image from camera or gallery
-    // after selecting the image, call the callback function
-    widget.updateImage(Image.file(_uploadedImage!));
-    Navigator.pop(context, _uploadedImage);
-  }
-
 
 /*
   void _updateSelectedImage(File image) {
@@ -123,9 +109,7 @@ class _CameraDialogState extends State<CameraDialog> {
             )),
         TextButton(
             onPressed: () {
-
-
-              selectImage();
+              Navigator.pop(context, _image);
             },
             child: Text("확인", style: TextStyle(fontSize: 17)))
       ],
