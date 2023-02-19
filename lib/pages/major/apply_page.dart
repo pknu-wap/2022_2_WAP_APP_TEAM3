@@ -68,6 +68,7 @@ class _ApplyPageState extends State<ApplyPage> {
       body: SafeArea(
         child: Container(
           width: MediaQuery.of(context).size.width,
+          child:SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -82,14 +83,13 @@ class _ApplyPageState extends State<ApplyPage> {
                   ),
                 ),
               ),
-              SingleChildScrollView(
-                child: Column(
+              Column(
                   children: List.generate(entries.length, (index) {
                     return entries[index];
-                  }
-                  ),
+                  }),
+
                 ),
-              ),
+
 
                 //List<Widget> 만드신다음에 ListView.builder 사용하시고
                 //버튼 누르면 .add해서 setState하면
@@ -100,10 +100,10 @@ class _ApplyPageState extends State<ApplyPage> {
                     }),*/
 
               MoreApplyButton(),
-              Spacer(), // 이 아래 위젯을 가장 아래에 고정시키는 위젯
+              //Spacer(), // 이 아래 위젯을 가장 아래에 고정시키는 위젯
               ApplyButton()
             ],
-          ),
+          ),),
         ),
       ),
     );
