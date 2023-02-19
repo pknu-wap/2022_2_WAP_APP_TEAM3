@@ -10,6 +10,7 @@ class _SearchSreenState extends State<SearchPage_m> {
   final TextEditingController _filter = TextEditingController();
   FocusNode focusNode = FocusNode();
   String _searchText = "";
+  bool _isButtonFocused = false;
 
   _SearchSreenState() {
     _filter.addListener(() {
@@ -72,9 +73,14 @@ class _SearchSreenState extends State<SearchPage_m> {
                             borderRadius:
                             BorderRadius.all(Radius.circular(10))),
                       ),
+                      onTap: (){
+                        setState(() {
+                          _isButtonFocused = true;
+                        });
+                      },
                     ),
                   ),
-                  focusNode.hasFocus
+                  _isButtonFocused
                       ? Expanded(
                     child: TextButton(
                       child: Text('취소', style: TextStyle(color: Colors.black54),),
@@ -83,6 +89,7 @@ class _SearchSreenState extends State<SearchPage_m> {
                           _filter.clear();
                           _searchText = "";
                           focusNode.unfocus();
+                          _isButtonFocused = false;
                         });
                       },
                     ),
