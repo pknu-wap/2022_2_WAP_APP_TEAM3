@@ -1,33 +1,52 @@
 import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:wap_library/components/custom_text_form_field.dart';
+import 'package:wap_library/components/custom_textarea.dart';
+import 'package:wap_library/util/vaildator_util.dart';
 import 'package:image_picker/image_picker.dart';
 
-/// 책 추가 시 이미지 등록페이지 ->이미지피커
-class Camera extends StatefulWidget {
-  const Camera({Key? key}) : super(key: key);
+import '../../components/camera.dart';
+
+/// 사진 추가하기 팝업!
+class CameraDialog extends StatefulWidget {
+  const CameraDialog({Key? key}) : super(key: key);
 
   @override
-  _CameraState createState() => _CameraState();
+  _CameraDialogState createState() => _CameraDialogState();
 }
 
-class _CameraState extends State<Camera> {
+class _CameraDialogState extends State<CameraDialog> {
   File? _image;
   final picker = ImagePicker();
+  var _uploadedImage;
 
   /// 비동기 처리를 통해 카메라와 갤러리에서 이미지를 가져온다.
+  @override
   Future getImage(ImageSource imageSource) async {
-    final image = await picker.pickImage(source: imageSource);
+    _uploadedImage = await picker.pickImage(source: imageSource);
 
     setState(() {
-      _image = File(image!.path); /// 가져온 이미지를 _image에 저장
+      _image = File(_uploadedImage!.path);
     });
   }
 
-
+/*
+  void _updateSelectedImage(File image) {
+    setState(() {
+      _uploadedImage = image;
+    });
+  }
+*/
   // 이미지를 보여주는 위젯
   Widget showImage() {
     return Container(
+        margin: EdgeInsets.symmetric(vertical: 25),
         color: const Color(0xffd0cece),
         width: 200,
         height: 300,
@@ -43,36 +62,31 @@ class _CameraState extends State<Camera> {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
-    return Scaffold(
-
-        backgroundColor:  Colors.white,
-        body: Column(
+    return AlertDialog(
+      backgroundColor: Colors.white,
+      contentPadding: EdgeInsets.all(10),
+      content: SingleChildScrollView(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
             showImage(),
-            SizedBox(
-              height: 10,
-            ),
-
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
+
                 /// 카메라 촬영 버튼
                 FloatingActionButton(
-                  backgroundColor: Color(0xff006285),
+                  backgroundColor: Color(0xff2D3C72),
                   child: Icon(Icons.add_a_photo),
-
                   tooltip: 'pick Iamge',
                   onPressed: () {
                     getImage(ImageSource.camera);
                   },
                 ),
 
-
                 /// 갤러리에서 이미지를 가져오는 버튼
                 FloatingActionButton(
-                  backgroundColor: Color(0xff006285),
+                  backgroundColor: Color(0xff2D3C72),
                   child: Icon(Icons.wallpaper),
                   tooltip: 'pick Image',
                   onPressed: () {
@@ -82,6 +96,23 @@ class _CameraState extends State<Camera> {
               ],
             )
           ],
-        ));
+        ),
+      ),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text(
+              "취소",
+              style: TextStyle(color: Color(0xff2D3C72), fontSize: 17),
+            )),
+        TextButton(
+            onPressed: () {
+              Navigator.pop(context, _image);
+            },
+            child: Text("확인", style: TextStyle(fontSize: 17)))
+      ],
+    );
   }
 }
