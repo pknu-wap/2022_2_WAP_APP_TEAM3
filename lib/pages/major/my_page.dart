@@ -62,7 +62,7 @@ class _MyPageState extends State<MyPage> {
         Expanded(
           flex: 4, //비율
           child: Container(
-            color: Color(0xff7AABBD),
+            color: Color(0xffD6DEFF),
           ),
         ),
         Expanded(
@@ -146,7 +146,7 @@ class _MyPageState extends State<MyPage> {
                 Icon(
                   Icons.book,
                   size: 40,
-                  color: Color(0xff006285),
+                  color: Color(0xff2D3C72),
                 ),
                 Text("대출\n내역 확인", textAlign: TextAlign.center),
               ],
@@ -165,7 +165,7 @@ class _MyPageState extends State<MyPage> {
                 Icon(
                   Icons.date_range,
                   size: 40,
-                  color: Color(0xff006285),
+                  color: Color(0xff2D3C72),
                 ),
                 Text("예약\n내역 확인", textAlign: TextAlign.center)
               ],
@@ -184,7 +184,7 @@ class _MyPageState extends State<MyPage> {
                 Icon(
                   Icons.domain_verification,
                   size: 40,
-                  color: Color(0xff006285),
+                  color: Color(0xff2D3C72),
                 ),
                 Text("신청\n도서 확인", textAlign: TextAlign.center)
               ],
