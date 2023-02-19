@@ -6,6 +6,7 @@ import 'package:wap_library/pages/detail/rental_page.dart';
 import 'package:wap_library/pages/detail/reservation_page.dart';
 import 'package:wap_library/pages/detail/return_page.dart';
 
+
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
   @override
